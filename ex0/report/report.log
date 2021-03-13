@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  5 MAR 2021 22:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  13 MAR 2021 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -762,8 +762,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-Package hyperref Info: Option `breaklinks' set `true' on input line 45.
-Package hyperref Info: Option `colorlinks' set `true' on input line 45.
+Package hyperref Info: Option `breaklinks' set `true' on input line 43.
+Package hyperref Info: Option `colorlinks' set `true' on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -972,34 +972,68 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+
+LaTeX Warning: Reference `fig::word-counts' on page 1 undefined on input line 3
+9.
+
+<./figures/spam_count.pdf, id=13, 578.16pt x 433.62pt>
+File: ./figures/spam_count.pdf Graphic file (type pdf)
+<use ./figures/spam_count.pdf>
+Package pdftex.def Info: ./figures/spam_count.pdf  used on input line 44.
+(pdftex.def)             Requested size: 258.36668pt x 193.77081pt.
+<./figures/ham_count.pdf, id=14, 578.16pt x 433.62pt>
+File: ./figures/ham_count.pdf Graphic file (type pdf)
+<use ./figures/ham_count.pdf>
+Package pdftex.def Info: ./figures/ham_count.pdf  used on input line 45.
+(pdftex.def)             Requested size: 258.36668pt x 193.77081pt.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+Make it at least 25.2842pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[2 <./figures/spam_count.pdf> <./figures/ham_count.pdf
+
+pdfTeX warning: pdflatex (file ./figures/ham_count.pdf): PDF inclusion: multipl
+e pdfs with page group included in a single page
+>]
 No file report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 21.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 21.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 21.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 6652C09A257CB8C2ADDE21136BFCD4D5;48.
+(rerunfilecheck)             Checksum: E677A14B38B66088E30B7C5975E66300;70.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 22301 strings out of 481239
- 400202 string characters out of 5920378
- 672762 words of memory out of 5000000
- 37146 multiletter control sequences out of 15000+600000
- 538187 words of font info for 46 fonts, out of 8000000 for 9000
+ 22349 strings out of 481239
+ 401019 string characters out of 5920378
+ 677973 words of memory out of 5000000
+ 37185 multiletter control sequences out of 15000+600000
+ 540257 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,6n,77p,903b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report.pdf (1 page, 38201 bytes).
+ 62i,11n,77p,1212b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb>
+Output written on report.pdf (2 pages, 115365 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
