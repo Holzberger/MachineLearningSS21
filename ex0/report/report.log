@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  14 MAR 2021 01:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  15 MAR 2021 01:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -778,24 +778,44 @@ s
 \f@nch@O@olf=\skip70
 \f@nch@O@orf=\skip71
 )
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen293
+\lightrulewidth=\dimen294
+\cmidrulewidth=\dimen295
+\belowrulesep=\dimen296
+\belowbottomsep=\dimen297
+\aboverulesep=\dimen298
+\abovetopsep=\dimen299
+\cmidrulesep=\dimen300
+\cmidrulekern=\dimen301
+\defaultaddspace=\dimen302
+\@cmidla=\count306
+\@cmidlb=\count307
+\@aboverulesep=\dimen303
+\@belowrulesep=\dimen304
+\@thisruleclass=\count308
+\@lastruleclass=\count309
+\@thisrulewidth=\dimen305
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count306
+\lst@mode=\count310
 \lst@gtempboxa=\box117
 \lst@token=\toks41
-\lst@length=\count307
-\lst@currlwidth=\dimen293
-\lst@column=\count308
-\lst@pos=\count309
-\lst@lostspace=\dimen294
-\lst@width=\dimen295
-\lst@newlines=\count310
-\lst@lineno=\count311
-\lst@maxwidth=\dimen296
+\lst@length=\count311
+\lst@currlwidth=\dimen306
+\lst@column=\count312
+\lst@pos=\count313
+\lst@lostspace=\dimen307
+\lst@width=\dimen308
+\lst@newlines=\count314
+\lst@lineno=\count315
+\lst@maxwidth=\dimen309
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count312
-\lst@skipnumbers=\count313
+\c@lstnumber=\count316
+\lst@skipnumbers=\count317
 \lst@framebox=\box118
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -805,7 +825,7 @@ Package: listings 2019/09/10 1.8c (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count314
+\c@AlgoLine=\count318
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -826,12 +846,12 @@ Package: relsize 2013/03/29 ver 4.1
 \skiplength=\skip78
 \algomargin=\skip79
 \skipalgocfslide=\skip80
-\algowidth=\dimen297
-\inoutsize=\dimen298
-\inoutindent=\dimen299
-\interspacetitleruled=\dimen300
-\interspacealgoruled=\dimen301
-\interspacetitleboxruled=\dimen302
+\algowidth=\dimen310
+\inoutsize=\dimen311
+\inoutindent=\dimen312
+\interspacetitleruled=\dimen313
+\interspacealgoruled=\dimen314
+\interspacetitleboxruled=\dimen315
 \algocf@ruledwidth=\skip81
 \algocf@inoutbox=\box119
 \algocf@inputbox=\box120
@@ -848,15 +868,15 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip88
 \algotitleheightruledefault=\skip89
 \algotitleheightrule=\skip90
-\c@algocfline=\count315
-\c@algocfproc=\count316
-\c@algocf=\count317
+\c@algocfline=\count319
+\c@algocfproc=\count320
+\c@algocf=\count321
 \algocf@algoframe=\box125
 \algocf@algobox=\box126
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count318
+\l__kernel_color_stack_int=\count322
 \l__pdf_internal_box=\box127
 )
 (./report.aux)
@@ -881,16 +901,16 @@ LaTeX Font Info:    ... okay on input line 9.
  ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
-\scratchdimen=\dimen303
+\scratchcounter=\count323
+\scratchdimen=\dimen316
 \scratchbox=\box128
-\nofMPsegments=\count320
-\nofMParguments=\count321
+\nofMPsegments=\count324
+\nofMParguments=\count325
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count322
-\MPscratchDim=\dimen304
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
+\MPscratchCnt=\count326
+\MPscratchDim=\dimen317
+\MPnumerator=\count327
+\makeMPintoPDFobject=\count328
 \everyMPtoPDFconversion=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -913,7 +933,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count325
+\c@section@level=\count329
 )
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
@@ -961,7 +981,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count326
+\c@lstlisting=\count330
 LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -972,27 +992,19 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Reference `fig::word-counts' on page 1 undefined on input line 3
-9.
-
-<./figures/spam_count.pdf, id=21, 578.16pt x 433.62pt>
-File: ./figures/spam_count.pdf Graphic file (type pdf)
-<use ./figures/spam_count.pdf>
-Package pdftex.def Info: ./figures/spam_count.pdf  used on input line 44.
-(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
-<./figures/ham_count.pdf, id=22, 578.16pt x 433.62pt>
-File: ./figures/ham_count.pdf Graphic file (type pdf)
-<use ./figures/ham_count.pdf>
-Package pdftex.def Info: ./figures/ham_count.pdf  used on input line 45.
-(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (150.115pt too wide) in paragraph at lines 60--68
-[][] 
- []
+<./figures/spam_count.pdf, id=29, 578.16pt x 433.62pt>
+File: ./figures/spam_count.pdf Graphic file (type pdf)
+<use ./figures/spam_count.pdf>
+Package pdftex.def Info: ./figures/spam_count.pdf  used on input line 45.
+(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
+<./figures/ham_count.pdf, id=30, 578.16pt x 433.62pt>
+File: ./figures/ham_count.pdf Graphic file (type pdf)
+<use ./figures/ham_count.pdf>
+Package pdftex.def Info: ./figures/ham_count.pdf  used on input line 46.
+(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1005,39 +1017,147 @@ This may cause the page layout to be inconsistent, however.
 pdfTeX warning: pdflatex (file ./figures/ham_count.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
+<./figures/car_price.pdf, id=119, 361.35pt x 289.08pt>
+File: ./figures/car_price.pdf Graphic file (type pdf)
+<use ./figures/car_price.pdf>
+Package pdftex.def Info: ./figures/car_price.pdf  used on input line 61.
+(pdftex.def)             Requested size: 230.90129pt x 184.71944pt.
+<./figures/car_nom1.pdf, id=123, 361.35pt x 216.81pt>
+File: ./figures/car_nom1.pdf Graphic file (type pdf)
+<use ./figures/car_nom1.pdf>
+Package pdftex.def Info: ./figures/car_nom1.pdf  used on input line 102.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom2.pdf, id=124, 361.35pt x 216.81pt>
+File: ./figures/car_nom2.pdf Graphic file (type pdf)
+<use ./figures/car_nom2.pdf>
+Package pdftex.def Info: ./figures/car_nom2.pdf  used on input line 103.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom3.pdf, id=125, 361.35pt x 216.81pt>
+File: ./figures/car_nom3.pdf Graphic file (type pdf)
+<use ./figures/car_nom3.pdf>
+Package pdftex.def Info: ./figures/car_nom3.pdf  used on input line 104.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom4.pdf, id=126, 361.35pt x 216.81pt>
+File: ./figures/car_nom4.pdf Graphic file (type pdf)
+<use ./figures/car_nom4.pdf>
+Package pdftex.def Info: ./figures/car_nom4.pdf  used on input line 105.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom5.pdf, id=127, 361.35pt x 216.81pt>
+File: ./figures/car_nom5.pdf Graphic file (type pdf)
+<use ./figures/car_nom5.pdf>
+Package pdftex.def Info: ./figures/car_nom5.pdf  used on input line 106.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom6.pdf, id=128, 361.35pt x 216.81pt>
+File: ./figures/car_nom6.pdf Graphic file (type pdf)
+<use ./figures/car_nom6.pdf>
+Package pdftex.def Info: ./figures/car_nom6.pdf  used on input line 107.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom7.pdf, id=129, 361.35pt x 216.81pt>
+File: ./figures/car_nom7.pdf Graphic file (type pdf)
+<use ./figures/car_nom7.pdf>
+Package pdftex.def Info: ./figures/car_nom7.pdf  used on input line 108.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom8.pdf, id=130, 361.35pt x 216.81pt>
+File: ./figures/car_nom8.pdf Graphic file (type pdf)
+<use ./figures/car_nom8.pdf>
+Package pdftex.def Info: ./figures/car_nom8.pdf  used on input line 109.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom9.pdf, id=131, 361.35pt x 216.81pt>
+File: ./figures/car_nom9.pdf Graphic file (type pdf)
+<use ./figures/car_nom9.pdf>
+Package pdftex.def Info: ./figures/car_nom9.pdf  used on input line 110.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_nom10.pdf, id=132, 361.35pt x 216.81pt>
+File: ./figures/car_nom10.pdf Graphic file (type pdf)
+<use ./figures/car_nom10.pdf>
+Package pdftex.def Info: ./figures/car_nom10.pdf  used on input line 111.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+<./figures/car_miss.pdf, id=133, 361.35pt x 216.81pt>
+File: ./figures/car_miss.pdf Graphic file (type pdf)
+<use ./figures/car_miss.pdf>
+Package pdftex.def Info: ./figures/car_miss.pdf  used on input line 112.
+(pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
+ [3 <./figures/car_price.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+[]|\OT1/cmr/m/n/10.95 attribute-
+ []
+
+
+Overfull \hbox (11.05408pt too wide) in paragraph at lines 129--129
+\OT1/cmr/m/n/10.95 nal,intervall,ratio| 
+ []
+
+[4 <./figures/car_nom1.pdf> <./figures/car_nom2.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom2.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom3.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom3.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom4.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom4.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom5.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom5.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom6.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom6.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom7.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom7.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom8.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom8.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom9.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom9.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+> <./figures/car_nom10.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_nom10.pdf): PDF inclusion: multipl
+e pdfs with page group included in a single page
+> <./figures/car_miss.pdf
+
+pdfTeX warning: pdflatex (file ./figures/car_miss.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+>] [5]
 No file report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 4DB0F000F68B15A109D01AA8693B9B6A;198.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 99D1E1E38DE7DA8471D8FCA7023B703F;198.
  ) 
 Here is how much of TeX's memory you used:
- 22357 strings out of 481239
- 401111 string characters out of 5920378
- 678104 words of memory out of 5000000
- 37189 multiletter control sequences out of 15000+600000
- 540257 words of font info for 54 fonts, out of 8000000 for 9000
+ 22506 strings out of 481239
+ 403930 string characters out of 5920378
+ 686105 words of memory out of 5000000
+ 37312 multiletter control sequences out of 15000+600000
+ 542447 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,77p,1212b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,77p,1417b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (2 pages, 119661 bytes).
+type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmtt10.pfb>
+Output written on report.pdf (5 pages, 240540 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 14 named destinations out of 1000 (max. 500000)
+ 107 words of extra memory for PDF output out of 10000 (max. 10000000)
 
