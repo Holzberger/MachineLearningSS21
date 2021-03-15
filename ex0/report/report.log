@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  15 MAR 2021 01:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  15 MAR 2021 01:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -995,20 +995,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./figures/spam_count.pdf, id=29, 578.16pt x 433.62pt>
+<./figures/spam_count.pdf, id=29, 578.16pt x 361.35pt>
 File: ./figures/spam_count.pdf Graphic file (type pdf)
 <use ./figures/spam_count.pdf>
 Package pdftex.def Info: ./figures/spam_count.pdf  used on input line 45.
-(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
-<./figures/ham_count.pdf, id=30, 578.16pt x 433.62pt>
+(pdftex.def)             Requested size: 282.21616pt x 176.38486pt.
+<./figures/ham_count.pdf, id=30, 578.16pt x 361.35pt>
 File: ./figures/ham_count.pdf Graphic file (type pdf)
 <use ./figures/ham_count.pdf>
 Package pdftex.def Info: ./figures/ham_count.pdf  used on input line 46.
-(pdftex.def)             Requested size: 282.21616pt x 211.66182pt.
+(pdftex.def)             Requested size: 282.21616pt x 176.38486pt.
+<./figures/car_price.pdf, id=35, 361.35pt x 289.08pt>
+File: ./figures/car_price.pdf Graphic file (type pdf)
+<use ./figures/car_price.pdf>
+Package pdftex.def Info: ./figures/car_price.pdf  used on input line 61.
+(pdftex.def)             Requested size: 230.90129pt x 184.71944pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
-Make it at least 25.2842pt.
+Make it at least 25.16252pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
@@ -1017,77 +1022,68 @@ This may cause the page layout to be inconsistent, however.
 pdfTeX warning: pdflatex (file ./figures/ham_count.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-<./figures/car_price.pdf, id=119, 361.35pt x 289.08pt>
-File: ./figures/car_price.pdf Graphic file (type pdf)
-<use ./figures/car_price.pdf>
-Package pdftex.def Info: ./figures/car_price.pdf  used on input line 61.
-(pdftex.def)             Requested size: 230.90129pt x 184.71944pt.
-<./figures/car_nom1.pdf, id=123, 361.35pt x 216.81pt>
+<./figures/car_nom1.pdf, id=124, 361.35pt x 216.81pt>
 File: ./figures/car_nom1.pdf Graphic file (type pdf)
 <use ./figures/car_nom1.pdf>
-Package pdftex.def Info: ./figures/car_nom1.pdf  used on input line 102.
+Package pdftex.def Info: ./figures/car_nom1.pdf  used on input line 108.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom2.pdf, id=124, 361.35pt x 216.81pt>
+<./figures/car_nom2.pdf, id=125, 361.35pt x 216.81pt>
 File: ./figures/car_nom2.pdf Graphic file (type pdf)
 <use ./figures/car_nom2.pdf>
-Package pdftex.def Info: ./figures/car_nom2.pdf  used on input line 103.
+Package pdftex.def Info: ./figures/car_nom2.pdf  used on input line 109.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom3.pdf, id=125, 361.35pt x 216.81pt>
+<./figures/car_nom3.pdf, id=126, 361.35pt x 216.81pt>
 File: ./figures/car_nom3.pdf Graphic file (type pdf)
 <use ./figures/car_nom3.pdf>
-Package pdftex.def Info: ./figures/car_nom3.pdf  used on input line 104.
+Package pdftex.def Info: ./figures/car_nom3.pdf  used on input line 110.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom4.pdf, id=126, 361.35pt x 216.81pt>
+<./figures/car_nom4.pdf, id=127, 361.35pt x 216.81pt>
 File: ./figures/car_nom4.pdf Graphic file (type pdf)
 <use ./figures/car_nom4.pdf>
-Package pdftex.def Info: ./figures/car_nom4.pdf  used on input line 105.
+Package pdftex.def Info: ./figures/car_nom4.pdf  used on input line 111.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom5.pdf, id=127, 361.35pt x 216.81pt>
+<./figures/car_nom5.pdf, id=128, 361.35pt x 216.81pt>
 File: ./figures/car_nom5.pdf Graphic file (type pdf)
 <use ./figures/car_nom5.pdf>
-Package pdftex.def Info: ./figures/car_nom5.pdf  used on input line 106.
+Package pdftex.def Info: ./figures/car_nom5.pdf  used on input line 112.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom6.pdf, id=128, 361.35pt x 216.81pt>
+<./figures/car_nom6.pdf, id=129, 361.35pt x 216.81pt>
 File: ./figures/car_nom6.pdf Graphic file (type pdf)
 <use ./figures/car_nom6.pdf>
-Package pdftex.def Info: ./figures/car_nom6.pdf  used on input line 107.
+Package pdftex.def Info: ./figures/car_nom6.pdf  used on input line 113.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom7.pdf, id=129, 361.35pt x 216.81pt>
+<./figures/car_nom7.pdf, id=130, 361.35pt x 216.81pt>
 File: ./figures/car_nom7.pdf Graphic file (type pdf)
 <use ./figures/car_nom7.pdf>
-Package pdftex.def Info: ./figures/car_nom7.pdf  used on input line 108.
+Package pdftex.def Info: ./figures/car_nom7.pdf  used on input line 114.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom8.pdf, id=130, 361.35pt x 216.81pt>
+<./figures/car_nom8.pdf, id=131, 361.35pt x 216.81pt>
 File: ./figures/car_nom8.pdf Graphic file (type pdf)
 <use ./figures/car_nom8.pdf>
-Package pdftex.def Info: ./figures/car_nom8.pdf  used on input line 109.
+Package pdftex.def Info: ./figures/car_nom8.pdf  used on input line 115.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom9.pdf, id=131, 361.35pt x 216.81pt>
+<./figures/car_nom9.pdf, id=132, 361.35pt x 216.81pt>
 File: ./figures/car_nom9.pdf Graphic file (type pdf)
 <use ./figures/car_nom9.pdf>
-Package pdftex.def Info: ./figures/car_nom9.pdf  used on input line 110.
+Package pdftex.def Info: ./figures/car_nom9.pdf  used on input line 116.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_nom10.pdf, id=132, 361.35pt x 216.81pt>
+<./figures/car_nom10.pdf, id=133, 361.35pt x 216.81pt>
 File: ./figures/car_nom10.pdf Graphic file (type pdf)
 <use ./figures/car_nom10.pdf>
-Package pdftex.def Info: ./figures/car_nom10.pdf  used on input line 111.
+Package pdftex.def Info: ./figures/car_nom10.pdf  used on input line 117.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
-<./figures/car_miss.pdf, id=133, 361.35pt x 216.81pt>
+<./figures/car_miss.pdf, id=134, 361.35pt x 216.81pt>
 File: ./figures/car_miss.pdf Graphic file (type pdf)
 <use ./figures/car_miss.pdf>
-Package pdftex.def Info: ./figures/car_miss.pdf  used on input line 112.
+Package pdftex.def Info: ./figures/car_miss.pdf  used on input line 118.
 (pdftex.def)             Requested size: 179.59424pt x 107.7563pt.
- [3 <./figures/car_price.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 125--125
-[]|\OT1/cmr/m/n/10.95 attribute-
+
+Overfull \hbox (32.88567pt too wide) in paragraph at lines 126--135
+[][] 
  []
 
-
-Overfull \hbox (11.05408pt too wide) in paragraph at lines 129--129
-\OT1/cmr/m/n/10.95 nal,intervall,ratio| 
- []
-
-[4 <./figures/car_nom1.pdf> <./figures/car_nom2.pdf
+[3 <./figures/car_price.pdf>] [4 <./figures/car_nom1.pdf> <./figures/car_nom2.p
+df
 
 pdfTeX warning: pdflatex (file ./figures/car_nom2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
@@ -1127,24 +1123,24 @@ e pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/car_miss.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
->] [5]
+>]
 No file report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 99D1E1E38DE7DA8471D8FCA7023B703F;198.
+(rerunfilecheck)             Checksum: 4DB0F000F68B15A109D01AA8693B9B6A;198.
  ) 
 Here is how much of TeX's memory you used:
- 22506 strings out of 481239
- 403930 string characters out of 5920378
- 686105 words of memory out of 5000000
+ 22505 strings out of 481239
+ 403924 string characters out of 5920378
+ 687055 words of memory out of 5000000
  37312 multiletter control sequences out of 15000+600000
  542447 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,77p,1417b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,77p,1402b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1154,10 +1150,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb>
-Output written on report.pdf (5 pages, 240540 bytes).
+Output written on report.pdf (4 pages, 239017 bytes).
 PDF statistics:
- 565 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 14 named destinations out of 1000 (max. 500000)
+ 561 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 13 named destinations out of 1000 (max. 500000)
  107 words of extra memory for PDF output out of 10000 (max. 10000000)
 
