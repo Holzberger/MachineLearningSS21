@@ -3,7 +3,7 @@
 
 
 \title{Exercise0 Dataset description}
-\author{e De Ronde Maria \\ e Andre Quentin  \\ e11921655 Fabian Holzberger }
+\author{e12045110 Maria de Ronde \\ e Quentin Andre  \\ e11921655 Fabian Holzberger }
 \date{\today}
 
 \begin{document}
@@ -13,7 +13,7 @@
 \newpage
 %
 \section{Classification Dataset: Email-Spam}
-We have chosen a e-mai-spam dataset for classification (\href{https://www.kaggle.com/nitishabharathi/email-spam-dataset?select=enronSpamSubset.csv}{link to dataset}). The goal for this dataset is to distinguish by a machine learning algorithm between spam and non-spam e-mails. The dataset is given in \texttt{csv} format and the structure is shown in table~\ref{tab::0}. Here we see that the dataset has a nominal Body-column that contains the text-body of an email and a nominal Label-column that is either set to 1 for spam e-mails or 0 for non-spam e-mails.
+We have chosen a e-mail-spam dataset for classification (\href{https://www.kaggle.com/nitishabharathi/email-spam-dataset?select=enronSpamSubset.csv}{link to dataset}). The goal for this dataset is to distinguish by a machine learning algorithm between spam and non-spam e-mails. The dataset is given in \texttt{csv} format and the structure is shown in table~\ref{tab::0}. Here we see that the dataset has a nominal Body-column that contains the text-body of an email and a nominal Label-column that is either set to 1 for spam e-mails or 0 for non-spam e-mails.
 %
 \begin{figure}[h]
   \begin{tabular}{ | c | p{13cm} | c |}
@@ -38,12 +38,13 @@ We have chosen a e-mai-spam dataset for classification (\href{https://www.kaggle
     \label{tab::0}
   \end{figure}
 %
-The dataset contains in total 10.000 samples where 50\% of the samples are spam- and 50\% are non-spam e-mails. Since there are no missing values, the dataset is perfectly balanced with respect to the target attribute. We aim to apply the \textbf{Bag of Words} method to the dataset. This method extracts the $N$ most common Words from all E-mails and then maps an e-mail to a vector $v$, such that the component $m$ of $v$ is an non-native integer, that counts the occurrences of the $m$th most common word in the corresponding e-mail. From that we conclude that the dimension of our dataset is $N+1$ after the Bag of words transformation, since we also include the target attribute. Note that we apply the following cleanup steps to all e-mails to remove data, that we expect to not improve the classification: 1. remove links, 2. remove characters except alphabetical ones, 3.convert uppercase-chars into lowercase-chars, 3. lemmatize words 4. remove stopwords. By that we reduce the number of total distinct words in all e-mails from 86733 words to 74618 words (see jupyther notebook). This also illustrates that our classification algorithm has to work with data that is high dimensional (dimension much larger than 1000). Since the raw data merely contain the e-mail bodies and spam/non-spam attributes, we assume in this document a dimension of two for this data.         
+The dataset contains in total 12278 samples, of which 327 duplicates, where 42\% of the samples are spam- and 58\% are non-spam e-mails. %Since there are no missing values, the dataset is perfectly balanced with respect to the target attribute.%
+We aim to apply the \textbf{Bag of Words} method to the dataset. This method extracts the $N$ most common words from all E-mails and then maps an e-mail to a vector $v$, such that the component $m$ of $v$ is an non-native integer, that counts the occurrences of the $m$th most common word in the corresponding e-mail. From that we conclude that the dimension of our dataset is $N+1$ after the Bag of words transformation, since we also include the target attribute. Note that we apply the following cleanup steps to all e-mails to remove data, that we expect to not improve the classification: 1. remove links, 2. remove characters except alphabetical ones, 3. convert uppercase-chars into lowercase-chars, 4. lemmatize words 5. remove stopwords. By that we reduce the number of total distinct words in all e-mails from 126704 words to 103784 words (see jupyther notebook). This also illustrates that our classification algorithm has to work with data that is high dimensional (dimension much larger than 1000). Since the raw data merely contain the e-mail bodies and spam/non-spam attributes, we assume in this document a dimension of two for this data.         
 %
 \begin{figure}[H]
 \begin{picture}(400,160)
-\put(-20,0){\includegraphics[width=0.55\linewidth]{spam_count.pdf}}
-\put(260,0){\includegraphics[width=0.55\linewidth]{ham_count.pdf}}
+\put(-20,0){\includegraphics[width=0.55\linewidth]{spam_desc_count.pdf}}
+\put(260,0){\includegraphics[width=0.55\linewidth]{ham_desc_count.pdf}}
 %\put(95,190){\textit{a})}
 %\put(375,190){\textit{b})}
 \end{picture}
@@ -54,7 +55,8 @@ The dataset contains in total 10.000 samples where 50\% of the samples are spam-
 In figure~\ref{fig::word-counts} we show the most common words in spam and non-spam emails. One can see that the word count in spam e-mails is much higher than in the non-spam e-mails which means that overall spam mails have more words in common than non-spam e-mails.  
 %
 \section{Regression Dataset: Automobile}
-The automobile dataset is used for regression (\href{https://archive.ics.uci.edu/ml/datasets/automobile}{link to dataset}). It consists of 205 samples and 26 attributes where 16 attributes are given as numerical values and 10 further as nominal attributes in text form. In figure~\ref{fig::2} a) we show the numerical attributes in tabular form. In the figure we see that the symbolizing attribute is ordinal, where the others are all ratios. In the count column we note that some attributes are given for less than 205 cars, meaning that this data are missing, see also the last plot of figure~\ref{fig::3} for a distribution of missing values. We can easily handle missing attributes by replacing them with the mean values over attributes. This is a crucial step, since the dataset is small and deleting cars with incomplete attributes would lead to significant information loss.  
+The automobile dataset is used for regression (\href{https://archive.ics.uci.edu/ml/datasets/automobile}{link to dataset}). It consists of 205 samples and 26 attributes where 16 attributes are given as numerical values and 10 further as nominal attributes in text form. In figure~\ref{fig::2} a) we show the numerical attributes in tabular form. In the figure we see that the symbolizing attribute is ordinal, where the others are all ratios. In the count column we note that some attributes are given for less than 205 cars, meaning that this data are missing, see also the last plot of figure~\ref{fig::3} for a distribution of missing values. For four rows the target value is missing, these rows will be excluded from the data. Normalized losses has 41 missing values and will be excluded from the model. For the rest of the missing values we intend to apply a imputation technique. This is a crucial step, since the dataset is small and deleting cars with incomplete attributes would lead to significant information loss.%We can easily handle missing attributes by replacing them with the mean values over attributes.% 
+  
 %
 \begin{figure}[H]
 \begin{picture}(400,220)
@@ -87,21 +89,19 @@ price             & 201     & 5118.00 & 45400.00 &       True & 13207.13 & 7947.
 \put(180,210){\textit{a})}
 \put(480,210){\textit{b})}
 \end{picture}
-  \caption{Numerical attributes: \textit{a}) numerical attributes of the automobile dataset \textit{b})distribution of target variale}
+  \caption{Numerical attributes: \textit{a}) numerical attributes of the automobile dataset \textit{b})distribution of target variable}
 \label{fig::2}
 \end{figure}
 %
-The target value for the regression is the price of a car, which is a continuous variable between $5118$ and $45400$ dollars as can be seen also in~\ref{fig::2} a). In figure~\ref{fig::2} b) the distribution of the price for a car is shown. Here we note that the price is not evenly distributed over its range and that more than 80\% of the cars cost between $5.000$ and $20.000$ dollar. 
+The target value for the regression is the price of a car, which is a continuous variable between $5118$ and $45400$ dollars as can be seen also in~\ref{fig::2} a). In figure~\ref{fig::2} b) the distribution of the price for a car is shown. Here we note that the price is not evenly distributed over its range and that more than 80\% of the cars cost between $5.000$ and $20.000$ dollar. Cars more expensive than $45.000$ will most likely not be predicted properly, because they are not represented in the dataset. 
 %
-By comparing the ranges of different numerical attributes, we note that some of them differ in orders of magnitude like the stroke and curb-weight, that differ by about two magnitudes. Therefore, we might rescale them (for example normalizing) to improve the performance of our machine learning algorithm. Note that rescaling of the target attribute is not necessary for the most algorithms. Additionally many attributes are tail heavy, meaning their mean value differs significantly from their max and minimum sample-value. We can also try to reshape attributes that are tail-heavy into more evenly shaped distributions by a transformation to improve the performance of our algorithms.
+By comparing the ranges of different numerical attributes, we note that some of them differ in orders of magnitude like the stroke and curb-weight, that differ by about two magnitudes. Therefore, we might rescale them (for example normalizing) to improve the performance of our machine learning algorithm. Note that re-scaling of the target attribute is not necessary for the most algorithms. Additionally many attributes are tail heavy, meaning their mean value differs significantly from their max and minimum sample-value. We can also try to reshape attributes that are tail-heavy into more evenly shaped distributions by a transformation to improve the performance of our algorithms.
 %
-The nominal attributes are plotted as histograms in figure~\ref{fig::3}. To work with nominal attributes, we aim to apply a transformation that encodes their labels in numerical values, that algorithms can easily process, this is necessary since we see that all nominal attributes have labels in textform.
+The nominal attributes are plotted as histograms in figure~\ref{fig::3}. Since the nominal attributes are categorical without a defined order, we will encode them to $N$ binary attributes. %To work with nominal attributes, we aim to apply a transformation that encodes their labels in numerical values, that algorithms can easily process, this is necessary since we see that all nominal attributes have labels in textform.
 %
 \section{Comparison of the datasets}
 %
 In table~\ref{tab::1} we compare the two datasets from above.
-
-
 %
 \begin{figure}[H]
 \begin{picture}(400,390)
@@ -127,7 +127,7 @@ In table~\ref{tab::1} we compare the two datasets from above.
     \hline
     Dataset     & samples & attribute-types                       & dimension  & attribute format    & missing Values \\
     \hline
-    E-mail Spam & 10.000  & nominal                          & 2          & text, boolean       & no \\
+    E-mail Spam & 10.000  & nominal                          & $N+1$          & text, boolean       & no \\
     \hline
     Automobile  & 205     & nominal, ordinal,intervall,ratio & 26         & integer, real, text & yes \\
     \hline
@@ -142,7 +142,5 @@ By this we conclude that the two datasets differ greatly, as required for this e
 \newpage
 \bibliographystyle{plain}
 \bibliography{Biblothek}
-
-
 
 \end{document}
