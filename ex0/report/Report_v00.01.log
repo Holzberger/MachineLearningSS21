@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  23 MAR 2021 20:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  23 MAR 2021 20:30
 entering extended mode
 **./Report_v00.01.tex
 (Report_v00.01.tex
@@ -980,8 +980,7 @@ pdftex.def
 File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count333
 \l__pdf_internal_box=\box129
-)
-No file Report_v00.01.aux.
+) (Report_v00.01.aux)
 \openout1 = `Report_v00.01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -1042,6 +1041,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
+ (Report_v00.01.out) (Report_v00.01.out)
 \@outlinefile=\write6
 \openout6 = `Report_v00.01.out'.
 
@@ -1102,31 +1102,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {C:/Users/mderonde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Reference `tab::0' on page 2 undefined on input line 16.
-
-
-LaTeX Warning: Reference `fig::word-counts' on page 2 undefined on input line 4
-2.
-
-<./figures//char_count.pdf, id=15, 361.35pt x 361.35pt>
+<./figures//char_count.pdf, id=29, 361.35pt x 361.35pt>
 File: ./figures//char_count.pdf Graphic file (type pdf)
 <use ./figures//char_count.pdf>
 Package pdftex.def Info: ./figures//char_count.pdf  used on input line 46.
 (pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-<./figures//spam_count.pdf, id=16, 361.35pt x 361.35pt>
+<./figures//spam_count.pdf, id=30, 361.35pt x 361.35pt>
 File: ./figures//spam_count.pdf Graphic file (type pdf)
 <use ./figures//spam_count.pdf>
 Package pdftex.def Info: ./figures//spam_count.pdf  used on input line 47.
 (pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-<./figures//ham_count.pdf, id=17, 361.35pt x 361.35pt>
+<./figures//ham_count.pdf, id=31, 361.35pt x 361.35pt>
 File: ./figures//ham_count.pdf Graphic file (type pdf)
 <use ./figures//ham_count.pdf>
 Package pdftex.def Info: ./figures//ham_count.pdf  used on input line 48.
 (pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-
-LaTeX Warning: Reference `fig::word-counts' on page 2 undefined on input line 5
-8.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1145,25 +1135,11 @@ ple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures//ham_count.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 >]
-
-LaTeX Warning: Reference `fig::2' on page 3 undefined on input line 61.
-
-
-LaTeX Warning: Reference `fig::3' on page 3 undefined on input line 61.
-
-<./figures//car_price.pdf, id=134, 361.35pt x 397.485pt>
+<./figures//car_price.pdf, id=149, 361.35pt x 397.485pt>
 File: ./figures//car_price.pdf Graphic file (type pdf)
 <use ./figures//car_price.pdf>
 Package pdftex.def Info: ./figures//car_price.pdf  used on input line 66.
 (pdftex.def)             Requested size: 184.65276pt x 203.12102pt.
-
-LaTeX Warning: Reference `fig::2' on page 3 undefined on input line 99.
-
-
-LaTeX Warning: Reference `fig::2' on page 3 undefined on input line 99.
-
-
-LaTeX Warning: Reference `fig::3' on page 3 undefined on input line 103.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1174,64 +1150,62 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
 [3 <./figures//car_price.pdf>]
-
-LaTeX Warning: Reference `tab::1' on page 4 undefined on input line 107.
-
-<./figures//car_nom1.pdf, id=173, 433.62pt x 216.81pt>
+<./figures//car_nom1.pdf, id=192, 433.62pt x 216.81pt>
 File: ./figures//car_nom1.pdf Graphic file (type pdf)
 <use ./figures//car_nom1.pdf>
 Package pdftex.def Info: ./figures//car_nom1.pdf  used on input line 111.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom2.pdf, id=174, 433.62pt x 216.81pt>
+<./figures//car_nom2.pdf, id=193, 433.62pt x 216.81pt>
 File: ./figures//car_nom2.pdf Graphic file (type pdf)
 <use ./figures//car_nom2.pdf>
 Package pdftex.def Info: ./figures//car_nom2.pdf  used on input line 112.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom3.pdf, id=175, 433.62pt x 216.81pt>
+<./figures//car_nom3.pdf, id=194, 433.62pt x 216.81pt>
 File: ./figures//car_nom3.pdf Graphic file (type pdf)
 <use ./figures//car_nom3.pdf>
 Package pdftex.def Info: ./figures//car_nom3.pdf  used on input line 113.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom4.pdf, id=176, 433.62pt x 216.81pt>
+<./figures//car_nom4.pdf, id=195, 433.62pt x 216.81pt>
 File: ./figures//car_nom4.pdf Graphic file (type pdf)
 <use ./figures//car_nom4.pdf>
 Package pdftex.def Info: ./figures//car_nom4.pdf  used on input line 114.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom5.pdf, id=177, 433.62pt x 216.81pt>
+<./figures//car_nom5.pdf, id=196, 433.62pt x 216.81pt>
 File: ./figures//car_nom5.pdf Graphic file (type pdf)
 <use ./figures//car_nom5.pdf>
 Package pdftex.def Info: ./figures//car_nom5.pdf  used on input line 115.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom6.pdf, id=178, 433.62pt x 216.81pt>
+<./figures//car_nom6.pdf, id=197, 433.62pt x 216.81pt>
 File: ./figures//car_nom6.pdf Graphic file (type pdf)
 <use ./figures//car_nom6.pdf>
 Package pdftex.def Info: ./figures//car_nom6.pdf  used on input line 116.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom7.pdf, id=179, 433.62pt x 216.81pt>
+<./figures//car_nom7.pdf, id=198, 433.62pt x 216.81pt>
 File: ./figures//car_nom7.pdf Graphic file (type pdf)
 <use ./figures//car_nom7.pdf>
 Package pdftex.def Info: ./figures//car_nom7.pdf  used on input line 117.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom8.pdf, id=180, 433.62pt x 216.81pt>
+<./figures//car_nom8.pdf, id=199, 433.62pt x 216.81pt>
 File: ./figures//car_nom8.pdf Graphic file (type pdf)
 <use ./figures//car_nom8.pdf>
 Package pdftex.def Info: ./figures//car_nom8.pdf  used on input line 118.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom9.pdf, id=181, 433.62pt x 216.81pt>
+<./figures//car_nom9.pdf, id=200, 433.62pt x 216.81pt>
 File: ./figures//car_nom9.pdf Graphic file (type pdf)
 <use ./figures//car_nom9.pdf>
 Package pdftex.def Info: ./figures//car_nom9.pdf  used on input line 119.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom10.pdf, id=182, 433.62pt x 216.81pt>
+<./figures//car_nom10.pdf, id=201, 433.62pt x 216.81pt>
 File: ./figures//car_nom10.pdf Graphic file (type pdf)
 <use ./figures//car_nom10.pdf>
 Package pdftex.def Info: ./figures//car_nom10.pdf  used on input line 120.
 (pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_miss.pdf, id=183, 361.35pt x 216.81pt>
+<./figures//car_miss.pdf, id=202, 361.35pt x 216.81pt>
 File: ./figures//car_miss.pdf Graphic file (type pdf)
 <use ./figures//car_miss.pdf>
 Package pdftex.def Info: ./figures//car_miss.pdf  used on input line 121.
 (pdftex.def)             Requested size: 184.65276pt x 110.79327pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1295,43 +1269,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [5]
 No file Report_v00.01.bbl.
 (Report_v00.01.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Report_v00.01.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Report_v00.01.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  24BE65CAECC0D55FADA7D0EEE9C11ED6;813.
+Package rerunfilecheck Info: File `Report_v00.01.out' has not changed.
+(rerunfilecheck)             Checksum: 24BE65CAECC0D55FADA7D0EEE9C11ED6;813.
  ) 
 Here is how much of TeX's memory you used:
- 25588 strings out of 479334
- 457329 string characters out of 2855659
- 779552 words of memory out of 3000000
- 42579 multiletter control sequences out of 15000+200000
- 413539 words of font info for 66 fonts, out of 3000000 for 9000
+ 25596 strings out of 479334
+ 457640 string characters out of 2855659
+ 780313 words of memory out of 3000000
+ 42582 multiletter control sequences out of 15000+200000
+ 413231 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,11n,119p,1181b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmbx10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/mderonde/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mderonde/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/User
-s/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pf
+cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mderonde/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/mderonde/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/
+mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pf
 b><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmti10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb>
-Output written on Report_v00.01.pdf (5 pages, 297275 bytes).
+cm/cmtt10.pfb>
+Output written on Report_v00.01.pdf (5 pages, 291080 bytes).
 PDF statistics:
- 570 PDF objects out of 1000 (max. 8388607)
+ 585 PDF objects out of 1000 (max. 8388607)
  14 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 words of extra memory for PDF output out of 10000 (max. 10000000)
 
