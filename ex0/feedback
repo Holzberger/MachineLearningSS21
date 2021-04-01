@@ -1,0 +1,37 @@
+Dear all,
+
+As announced in class in the beginning of the lecture, I compiled a few general remarks regarding your submissions to exercise 0, the dataset description, after having read through your submissions.
+
+(There isn't going to be a specific grade for exercise 0, but you are expected to take over your dataset description into the report for exercise 1 resp. 2, to have a comprehensive report, so if you think you need to detail your solution it a bit more, then please use this opportunity.)
+
+In general, most of you did a good job in describing characteristics of the datasets you chose.
+What was missing sometimes, though, is the following:
+
+* (If you chose a classification task:) A description/analysis of the target class. Some of you did this, but this is something that you should always do - on the one hand, rather simple by analysing what is the class distribution, but maybe also by trying to identify what is (are) the more relevant class (classes). This is important, as this should have an impact on how you evaluate your classification models. If you have uniformly distributed classes where you would consider them to be all equal, that is a very different task than if you have a binary problem, where you want to detect e.g. a rare disease that is maybe present in 5% of the cases. So, such a description should always be part of your dataset analysis.
+
+* If you have numeric values, then a description on value ranges, and whether you need to treat these attributes, should be included. If you have very different value ranges, that will affect some of the learning models significantly, and the dataset exploration phase is the one where you should initially note that.
+
+* Also if you have categorical data, it is good to identify if this nominal, ordinal, ... - as that might influence your potentially necessary conversion to numeric form (can you do label encoding, or is one hot encoding the way to go?)
+
+* There is of course further potential to analyse various aspects, such as correlation of features to the output, and to each other, but these are topics we haven't really discussed yet, thus we were not expecting to see them yet anyhow.
+
+* Also mind that it is sufficient to use a dataset that already has extracted features. Some groups selected data sets that have rather "raw" data, such as the original text, and you need at least a very simple feature extractor (such as a bag of words extractor) to utilise that. While this is surely interesting to do, it might take you more time to find good settings, and a pre-extracted feature set might be better.
+
+
+* Please also let me know (in a personal reply) if from your group (i.e. from all the people that have initially signed up to it in the TUWEL group registration) someone has NOT contributed at all to the submission.
+
+Kind regards
+Rudolf 
+
+
+
+
+New Datasets
+http://archive.ics.uci.edu/ml/datasets/Adult
+http://archive.ics.uci.edu/ml/datasets/Wine+Quality
+https://archive.ics.uci.edu/ml/datasets/Heart+Disease
+https://archive.ics.uci.edu/ml/datasets/car+evaluation
+http://archive.ics.uci.edu/ml/datasets/Mushroom
+https://archive.ics.uci.edu/ml/datasets/Caesarian+Section+Classification+Dataset
+https://archive.ics.uci.edu/ml/datasets/Student+Performance#
+https://archive.ics.uci.edu/ml/datasets/Horse+Colic
