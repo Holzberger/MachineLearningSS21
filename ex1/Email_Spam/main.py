@@ -4,7 +4,7 @@ from extractor import import_email_data,\
                       prep_mails
                       
 from algo_spam import create_knn, create_vectorizer, evaluate_algo,\
-                      create_perceptron
+                      create_perceptron, create_decisiontree
                       
 from sklearn.model_selection import train_test_split
 
@@ -37,6 +37,10 @@ evaluate_algo(knn, test_vec, test_set['Label'])
 #%%
 ppn = create_perceptron(train_vec, train_set['Label'], eta=0.1, 
                         n_iter=50, random_state=42)
-
+evaluate_algo(ppn, test_vec, test_set['Label'])
+#%%
+dtree = create_decisiontree(train_vec, train_set['Label'], 
+                            random_state=42, max_leaf_nodes=300)
+evaluate_algo(dtree, test_vec, test_set['Label'])
 
 

@@ -2,7 +2,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report , confusion_matrix , accuracy_score
 from sklearn.linear_model import Perceptron
-
+from sklearn.tree import DecisionTreeClassifier
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -27,6 +27,11 @@ def create_perceptron(train_data, target, eta=0.1, n_iter=50, random_state=42):
                      eta0=eta)
     ppn.fit(train_data, target)
     return ppn
+
+def create_decisiontree(train_data, target, random_state=42, max_leaf_nodes=10):
+    dtree = DecisionTreeClassifier(random_state=0,max_leaf_nodes=max_leaf_nodes)
+    dtree.fit(train_data, target)
+    return dtree
     
 def evaluate_algo(algo, test_data, target):
     pred_test = algo.predict(test_data)
