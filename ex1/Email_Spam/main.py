@@ -3,8 +3,7 @@ from extractor import import_email_data,\
                       remove_missing_vals,\
                       prep_mails
                       
-from algo_spam import create_knn, create_vectorizer, evaluate_algo,\
-                      create_perceptron, create_decisiontree
+from algo_spam import *
                       
 from sklearn.model_selection import train_test_split
 
@@ -30,17 +29,25 @@ train_set_clean = prep_mails(train_set['Body'])
 test_set_clean = prep_mails(test_set['Body'])
 #%%
 vectorizer_bow ,train_vec, test_vec =\
-create_vectorizer(train_set_clean, test_set_clean, max_features=500, max_count=20)
+create_vectorizer(train_set_clean, test_set_clean, max_features=3000, max_count=10)
 #%%
-knn = create_knn(train_vec, train_set['Label'], n_neighbors=1)
-evaluate_algo(knn, test_vec, test_set['Label'])
+knn = create_knn(train_vec, train_set['Label'], n_neighbors=5)
+evaluate_algo(knn, test_vec, test_set['Label'], train_vec[:1000], train_set['Label'][:1000])
 #%%
 ppn = create_perceptron(train_vec, train_set['Label'], eta=0.1, 
                         n_iter=50, random_state=42)
-evaluate_algo(ppn, test_vec, test_set['Label'])
+evaluate_algo(ppn, test_vec, test_set['Label'], train_vec, train_set['Label'])
 #%%
 dtree = create_decisiontree(train_vec, train_set['Label'], 
-                            random_state=42, max_leaf_nodes=300)
-evaluate_algo(dtree, test_vec, test_set['Label'])
+                            random_state=42, max_leaf_nodes=100)
+evaluate_algo(dtree, test_vec, test_set['Label'], train_vec, train_set['Label'])
+#%%
+rndf = create_rnd_forrest(train_vec, train_set['Label'], 
+                            random_state=42, max_leaf_nodes=100)
+evaluate_algo(rndf, test_vec, test_set['Label'], train_vec, train_set['Label'])
+#%% 
+nb = create_nb(train_vec, train_set['Label'])
+evaluate_algo(nb, test_vec, test_set['Label'], train_vec, train_set['Label'])
+
 
 
