@@ -2,9 +2,9 @@ from extractor import import_email_data,\
                       remove_duplicates,\
                       remove_missing_vals,\
                       prep_mails
-                      
+
 from algo_spam import *
-                      
+
 from sklearn.model_selection import train_test_split
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -12,7 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 #%%
 
-link_datafolder = "../../../checkdatasets/"
+link_datafolder = "C:\\Users\\saeny\\Desktop\\machine learning\\checkdatasets\\"
 
 dataset = import_email_data(link_folder=link_datafolder)
 #%%
@@ -34,18 +34,18 @@ create_vectorizer(train_set_clean, test_set_clean, max_features=3000, max_count=
 knn = create_knn(train_vec, train_set['Label'], n_neighbors=5)
 evaluate_algo(knn, test_vec, test_set['Label'], train_vec[:1000], train_set['Label'][:1000])
 #%%
-ppn = create_perceptron(train_vec, train_set['Label'], eta=0.1, 
+ppn = create_perceptron(train_vec, train_set['Label'], eta=0.1,
                         n_iter=50, random_state=42)
 evaluate_algo(ppn, test_vec, test_set['Label'], train_vec, train_set['Label'])
 #%%
-dtree = create_decisiontree(train_vec, train_set['Label'], 
+dtree = create_decisiontree(train_vec, train_set['Label'],
                             random_state=42, max_leaf_nodes=100)
 evaluate_algo(dtree, test_vec, test_set['Label'], train_vec, train_set['Label'])
 #%%
-rndf = create_rnd_forrest(train_vec, train_set['Label'], 
+rndf = create_rnd_forrest(train_vec, train_set['Label'],
                             random_state=42, max_leaf_nodes=100)
 evaluate_algo(rndf, test_vec, test_set['Label'], train_vec, train_set['Label'])
-#%% 
+#%%
 nb = create_nb(train_vec, train_set['Label'])
 evaluate_algo(nb, test_vec, test_set['Label'], train_vec, train_set['Label'])
 
