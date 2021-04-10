@@ -3,12 +3,26 @@ import pandas as pd
 #import seaborn as sns
 import numpy as np
 
+import pickle
+import os.path
+from os import path
+
 import re
 import nltk
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('stopwords')
+
+
+def pickle_data(data_item=[], link_folder="./", name="data", operation="wb"):
+    with open(link_folder+name, operation) as fp:
+        if operation =="wb":
+            pickle.dump(data_item, fp)
+        if operation == "rb":
+            return pickle.load(fp)
+         
+        
 
 
 def import_email_data(link_folder="./"):
@@ -25,7 +39,7 @@ def import_email_data(link_folder="./"):
     # drop last rwo since it summarizes all rows again
     enorm_spam_data.drop(enorm_spam_data.tail(1).index, inplace=True) 
     
-    return pd.concat([enorm_spam_data, ling_spam_data])
+    return pd.concat([enorm_spam_data, ling_spam_data], ignore_index=True)
 
 
 def remove_duplicates(dataset, remove_dups=True, print_dups=False):
