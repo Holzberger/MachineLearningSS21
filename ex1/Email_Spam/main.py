@@ -17,9 +17,8 @@ link_datafolder = "./../../../checkdatasets/"
 dataset = import_email_data(link_folder=link_datafolder)
 train_set, test_set = train_test_split(dataset, test_size=0.2, random_state=42)
 
-remove_duplicates(train_set, remove_dups=True, print_dups=False)
-remove_missing_vals(train_set, remove_missing=True, print_missing=False)
-
+train_set = remove_duplicates(train_set, remove_dups=True, print_dups=False)
+train_set = remove_missing_vals(train_set, remove_missing=True, print_missing=False)
 
 #%%
 pickle_name    = "train_set_clean"

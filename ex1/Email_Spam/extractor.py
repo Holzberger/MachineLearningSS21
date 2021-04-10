@@ -23,14 +23,12 @@ def pickle_data(data_item=[], link_folder="./", name="data", operation="wb"):
             return pickle.load(fp)
          
         
-
+def import_dataset(link_folder="./", name_dataset="dataset.csv"):
+    return pd.read_csv(link_folder+name_dataset)
 
 def import_email_data(link_folder="./"):
-    link_enorm_spam = link_folder+"enronSpamSubset.csv"
-    link_ling_spam  = link_folder+"lingSpam.csv"
-    
-    enorm_spam_data = pd.read_csv(link_enorm_spam)
-    ling_spam_data  = pd.read_csv(link_ling_spam)
+    enorm_spam_data = import_dataset(link_folder, "enronSpamSubset.csv")
+    ling_spam_data  = import_dataset(link_folder, "lingSpam.csv")
     
     # drop some meaningless cols
     enorm_spam_data.drop(['Unnamed: 0', 'Unnamed: 0.1'], axis=1, inplace=True)
@@ -46,14 +44,14 @@ def remove_duplicates(dataset, remove_dups=True, print_dups=False):
     if print_dups:
         print("There are {} duplicates.".format(np.sum(dataset.duplicated())))
     if remove_dups:
-        dataset.drop_duplicates(inplace=True) 
+        return dataset.drop_duplicates() 
         
 
 def remove_missing_vals(dataset, remove_missing=True, print_missing=False):
     if print_missing:
         print("There are:\n {} \n missing values.".format(dataset.isna().sum()))
     if remove_missing:
-        dataset.dropna(inplace=True)
+        return dataset.dropna()
 
 
 def prep_mails(text_col, features=[1,1,1,1,1]):
