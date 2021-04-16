@@ -2,7 +2,7 @@
 \input{Packages}
 
 
-\title{Exercise 0 Dataset description}
+\title{Exercise 1 Dataset description}
 \author{e12045110 Maria de Ronde \\ e12045110  Quentin Andre  \\ e11921655 Fabian Holzberger}
 \date{\today}
 
@@ -101,6 +101,53 @@ The target value for the regression is the price of a car, which is a continuous
 By comparing the ranges of different numerical attributes, we note that some of them differ in orders of magnitude like the stroke and curb-weight, that differ by about two magnitudes. Therefore, we might rescale them (for example normalizing) to improve the performance of our machine learning algorithm. Note that re-scaling of the target attribute is not necessary for the most algorithms. Additionally many attributes are tail heavy, meaning their mean value differs significantly from their max and minimum sample-value. We can also try to reshape attributes that are tail-heavy into more evenly shaped distributions by a transformation to improve the performance of our algorithms.
 %
 The nominal attributes are plotted as histograms in figure~\ref{fig::3}. Since the nominal attributes are categorical without a defined order, we will encode them to $N$ binary attributes. %To work with nominal attributes, we aim to apply a transformation that encodes their labels in numerical values, that algorithms can easily process, this is necessary since we see that all nominal attributes have labels in textform.
+
+%
+\section{Classification Dataset: Kaggle Congressional Voting (\href{https://www.kaggle.com/c/184702-tu-ml-ss-21-congressional-voting/overview}{link to dataset})}
+The Congressional Voting dataset is used for classification . It consists of 218 samples and 17 attributes where 15 attributes are given as string values (but corresponding to booleans) and 1 further as numerical value, the id of the row, which is not relevant so we drop it during the preprocessing step. The label is an ordinal value, "democrat" or "republican", and during the preprocessing step we transform it to respectively 0 and 1 value, and we replace "y" and "n" by 1 and 0. Hence, we have now only binary values. In figure~\ref{fig::2} a) we show the numerical attributes in tabular form. In the figure we see that the symbolizing attribute is ordinal, where the others are all ratios. In the count column we note that some attributes are given for less than 205 cars, meaning that this data are missing, see also the last plot of figure~\ref{fig::3} for a distribution of missing values. For four rows the target value is missing, these rows are excluded from the data. Normalized losses has 41 missing values and will be excluded from the model. For the rest of the missing values we intend to apply a imputation technique. This is a crucial step, since the dataset is small and deleting cars with incomplete attributes would lead to significant information loss.%We can easily handle missing attributes by replacing them with the mean values over attributes.% 
+  
+%
+\begin{figure}[H]
+\begin{picture}(400,220)
+\put(360,0){\includegraphics[width=0.35\linewidth]{car_price.pdf}}
+\put(-10,100){
+\footnotesize
+\begin{tabular}{lrrrlrrl}
+\toprule
+{} &  count &     min &      max & conti &     mean &     std & attr\_type \\
+\midrule
+symboling          & 205 &   -2.00 &     3.00 &      False &     0.83 &    1.25 &   ordinal \\
+normalized\_losses & 164 &   65.00 &   256.00 &       True &   122.00 &   35.44 &     ratio \\
+wheel-base        & 205     &   86.60 &   120.90 &       True &    98.76 &    6.02 &     ratio \\
+length            & 205     &  141.10 &   208.10 &       True &   174.05 &   12.34 &     ratio \\
+width             & 205     &   60.30 &    72.30 &       True &    65.91 &    2.15 &     ratio \\
+height            & 205     &   47.80 &    59.80 &       True &    53.72 &    2.44 &     ratio \\
+curb-weight       & 205     & 1488.00 &  4066.00 &       True &  2555.57 &  520.68 &     ratio \\
+engine-size       & 205     &   61.00 &   326.00 &       True &   126.91 &   41.64 &     ratio \\
+bore              & 201     &    2.54 &     3.94 &       True &     3.33 &    0.27 &     ratio \\
+stroke            & 201     &    2.07 &     4.17 &       True &     3.26 &    0.32 &     ratio \\
+compression-ratio & 205     &    7.00 &    23.00 &       True &    10.14 &    3.97 &     ratio \\
+horsepower        & 203     &   48.00 &   288.00 &       True &   104.26 &   39.71 &     ratio \\
+peak-rpm          & 203     & 4150.00 &  6600.00 &       True &  5125.37 &  479.33 &     ratio \\
+city-mpg          & 205     &   13.00 &    49.00 &       True &    25.22 &    6.54 &     ratio \\
+highway-mpg       & 205     &   16.00 &    54.00 &       True &    30.75 &    6.89 &     ratio \\
+price             & 201     & 5118.00 & 45400.00 &       True & 13207.13 & 7947.07 &     ratio \\
+\bottomrule
+\end{tabular}
+  }
+\put(180,210){\textit{a})}
+\put(480,210){\textit{b})}
+\end{picture}
+  \caption{Numerical attributes: \textit{a}) numerical attributes of the automobile dataset \textit{b})distribution of target variable}
+\label{fig::2}
+\end{figure}
+%
+The target value for the regression is the price of a car, which is a continuous variable between $5118$ and $45400$ dollars as can be seen also in~\ref{fig::2} a). In figure~\ref{fig::2} b) the distribution of the price for a car is shown. Here we note that the price is not evenly distributed over its range and that more than 80\% of the cars cost between $5.000$ and $20.000$ dollar. Cars more expensive than $45.000$ will most likely not be predicted properly, because they are not represented in the dataset. 
+%
+By comparing the ranges of different numerical attributes, we note that some of them differ in orders of magnitude like the stroke and curb-weight, that differ by about two magnitudes. Therefore, we might rescale them (for example normalizing) to improve the performance of our machine learning algorithm. Note that re-scaling of the target attribute is not necessary for the most algorithms. Additionally many attributes are tail heavy, meaning their mean value differs significantly from their max and minimum sample-value. We can also try to reshape attributes that are tail-heavy into more evenly shaped distributions by a transformation to improve the performance of our algorithms.
+%
+The nominal attributes are plotted as histograms in figure~\ref{fig::3}. Since the nominal attributes are categorical without a defined order, we will encode them to $N$ binary attributes. %To work with nominal attributes, we aim to apply a transformation that encodes their labels in numerical values, that algorithms can easily process, this is necessary since we see that all nominal attributes have labels in textform.
+
 %
 \section{Comparison of the datasets}
 %
@@ -141,6 +188,7 @@ In table~\ref{tab::1} we compare the two datasets from above.
 %
 Compared to the automobile dataset, the e-mail-spam dataset has about 60 times more samples,  such that we consider it as large dataset, where the automobile dataset is a small dataset. When considering the attribute-types one notes, that the automobile dataset contains all levels of measurement, where the e-mail spam dataset contains only nominal attributes. Further since the latter one is not a structured dataset it does not have a dimension, compared to the dimension of 26 in the automobile dataset. In the automobile dataset some attributes are missing, compared to the other one where no values are missing but data is duplicated.
 By this we conclude that the two datasets differ greatly, as required for this exercise.
+
 %Bibliography
 \newpage
 \bibliographystyle{plain}
