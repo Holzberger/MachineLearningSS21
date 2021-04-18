@@ -57,8 +57,8 @@ def create_rnd_forrest(train_data, target, grid=[], **kwargs):
     clf.fit(train_data, target)
     return clf
 
-def create_nb(train_data, target):
-    clf =MultinomialNB()
+def create_nb(train_data, target, **kwargs):
+    clf =MultinomialNB( **kwargs)
     clf.fit(train_data , target)
     return clf
     
