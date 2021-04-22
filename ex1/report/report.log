@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  22 APR 2021 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  22 APR 2021 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,7 +996,27 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./figures/email_spam/char_count.pdf, id=105, 361.35pt x 361.35pt>
+File: ./figures/email_spam/char_count.pdf Graphic file (type pdf)
+<use ./figures/email_spam/char_count.pdf>
+Package pdftex.def Info: ./figures/email_spam/char_count.pdf  used on input lin
+e 64.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+File: ./figures/email_spam/char_count.pdf Graphic file (type pdf)
+<use ./figures/email_spam/char_count.pdf>
+Package pdftex.def Info: ./figures/email_spam/char_count.pdf  used on input lin
+e 67.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+File: ./figures/email_spam/char_count.pdf Graphic file (type pdf)
+<use ./figures/email_spam/char_count.pdf>
+Package pdftex.def Info: ./figures/email_spam/char_count.pdf  used on input lin
+e 70.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
@@ -1005,39 +1025,38 @@ Make it at least 25.16252pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[2]
+[2 <./figures/email_spam/char_count.pdf>]
 No file report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: DD4DF297DC9F7B5903AE7E561C8458F7;642
-(rerunfilecheck)             After:  4D684D2FBBD02BEFC94266E9745F2F05;1433.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 131551B2BE21C1447E3430DBE5B48155;1538.
  ) 
 Here is how much of TeX's memory you used:
- 22392 strings out of 481239
- 401342 string characters out of 5920378
- 677537 words of memory out of 5000000
- 37210 multiletter control sequences out of 15000+600000
- 538494 words of font info for 47 fonts, out of 8000000 for 9000
+ 22439 strings out of 481239
+ 402134 string characters out of 5920378
+ 679673 words of memory out of 5000000
+ 37250 multiletter control sequences out of 15000+600000
+ 539910 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,77p,903b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,77p,903b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report.pdf (2 pages, 51991 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msbm10.pfb>
+Output written on report.pdf (2 pages, 116198 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 26 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 
