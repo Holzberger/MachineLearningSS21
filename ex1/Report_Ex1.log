@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  19 APR 2021 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  24 APR 2021 10:18
 entering extended mode
-**./Report_v00.01.tex
-(Report_v00.01.tex
+**./Report_Ex1.tex
+(Report_Ex1.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> xparse <2020-03-03>
 (C:\Users\mderonde\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -980,8 +980,8 @@ pdftex.def
 File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count333
 \l__pdf_internal_box=\box129
-) (Report_v00.01.aux)
-\openout1 = `Report_v00.01.aux'.
+) (Report_Ex1.aux)
+\openout1 = `Report_Ex1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -1041,9 +1041,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
- (Report_v00.01.out) (Report_v00.01.out)
+ (Report_Ex1.out) (Report_Ex1.out)
 \@outlinefile=\write6
-\openout6 = `Report_v00.01.out'.
+\openout6 = `Report_Ex1.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -1102,109 +1102,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {C:/Users/mderonde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-<./figures//char_count.pdf, id=29, 361.35pt x 361.35pt>
-File: ./figures//char_count.pdf Graphic file (type pdf)
-<use ./figures//char_count.pdf>
-Package pdftex.def Info: ./figures//char_count.pdf  used on input line 46.
-(pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-<./figures//spam_count.pdf, id=30, 361.35pt x 361.35pt>
-File: ./figures//spam_count.pdf Graphic file (type pdf)
-<use ./figures//spam_count.pdf>
-Package pdftex.def Info: ./figures//spam_count.pdf  used on input line 47.
-(pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-<./figures//ham_count.pdf, id=31, 361.35pt x 361.35pt>
-File: ./figures//ham_count.pdf Graphic file (type pdf)
-<use ./figures//ham_count.pdf>
-Package pdftex.def Info: ./figures//ham_count.pdf  used on input line 48.
-(pdftex.def)             Requested size: 184.65276pt x 184.65549pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.16252pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.16252pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
-
-[2 <./figures//char_count.pdf> <./figures//spam_count.pdf
-
-pdfTeX warning: pdflatex (file ./figures//spam_count.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
-> <./figures//ham_count.pdf
-
-pdfTeX warning: pdflatex (file ./figures//ham_count.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->]
-<./figures//car_price.pdf, id=149, 361.35pt x 397.485pt>
-File: ./figures//car_price.pdf Graphic file (type pdf)
-<use ./figures//car_price.pdf>
-Package pdftex.def Info: ./figures//car_price.pdf  used on input line 66.
-(pdftex.def)             Requested size: 184.65276pt x 203.12102pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.16252pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.16252pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
-
-[3 <./figures//car_price.pdf>]
-<./figures//car_nom1.pdf, id=192, 433.62pt x 216.81pt>
-File: ./figures//car_nom1.pdf Graphic file (type pdf)
-<use ./figures//car_nom1.pdf>
-Package pdftex.def Info: ./figures//car_nom1.pdf  used on input line 111.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom2.pdf, id=193, 433.62pt x 216.81pt>
-File: ./figures//car_nom2.pdf Graphic file (type pdf)
-<use ./figures//car_nom2.pdf>
-Package pdftex.def Info: ./figures//car_nom2.pdf  used on input line 112.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom3.pdf, id=194, 433.62pt x 216.81pt>
-File: ./figures//car_nom3.pdf Graphic file (type pdf)
-<use ./figures//car_nom3.pdf>
-Package pdftex.def Info: ./figures//car_nom3.pdf  used on input line 113.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom4.pdf, id=195, 433.62pt x 216.81pt>
-File: ./figures//car_nom4.pdf Graphic file (type pdf)
-<use ./figures//car_nom4.pdf>
-Package pdftex.def Info: ./figures//car_nom4.pdf  used on input line 114.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom5.pdf, id=196, 433.62pt x 216.81pt>
-File: ./figures//car_nom5.pdf Graphic file (type pdf)
-<use ./figures//car_nom5.pdf>
-Package pdftex.def Info: ./figures//car_nom5.pdf  used on input line 115.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom6.pdf, id=197, 433.62pt x 216.81pt>
-File: ./figures//car_nom6.pdf Graphic file (type pdf)
-<use ./figures//car_nom6.pdf>
-Package pdftex.def Info: ./figures//car_nom6.pdf  used on input line 116.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom7.pdf, id=198, 433.62pt x 216.81pt>
-File: ./figures//car_nom7.pdf Graphic file (type pdf)
-<use ./figures//car_nom7.pdf>
-Package pdftex.def Info: ./figures//car_nom7.pdf  used on input line 117.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom8.pdf, id=199, 433.62pt x 216.81pt>
-File: ./figures//car_nom8.pdf Graphic file (type pdf)
-<use ./figures//car_nom8.pdf>
-Package pdftex.def Info: ./figures//car_nom8.pdf  used on input line 118.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom9.pdf, id=200, 433.62pt x 216.81pt>
-File: ./figures//car_nom9.pdf Graphic file (type pdf)
-<use ./figures//car_nom9.pdf>
-Package pdftex.def Info: ./figures//car_nom9.pdf  used on input line 119.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_nom10.pdf, id=201, 433.62pt x 216.81pt>
-File: ./figures//car_nom10.pdf Graphic file (type pdf)
-<use ./figures//car_nom10.pdf>
-Package pdftex.def Info: ./figures//car_nom10.pdf  used on input line 120.
-(pdftex.def)             Requested size: 184.65276pt x 92.32663pt.
-<./figures//car_miss.pdf, id=202, 361.35pt x 216.81pt>
-File: ./figures//car_miss.pdf Graphic file (type pdf)
-<use ./figures//car_miss.pdf>
-Package pdftex.def Info: ./figures//car_miss.pdf  used on input line 121.
-(pdftex.def)             Requested size: 184.65276pt x 110.79327pt.
+<Instances_per_class.pdf, id=66, 1300.86pt x 722.7pt>
+File: Instances_per_class.pdf Graphic file (type pdf)
+<use Instances_per_class.pdf>
+Package pdftex.def Info: Instances_per_class.pdf  used on input line 53.
+(pdftex.def)             Requested size: 527.57014pt x 293.09991pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1217,47 +1119,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
-[4 <./figures//car_nom1.pdf> <./figures//car_nom2.pdf
+[2]
 
-pdfTeX warning: pdflatex (file ./figures//car_nom2.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom3.pdf
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.16252pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.16252pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-pdfTeX warning: pdflatex (file ./figures//car_nom3.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom4.pdf
+(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
-pdfTeX warning: pdflatex (file ./figures//car_nom4.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom5.pdf
+[3 <./Instances_per_class.pdf>]
+Underfull \hbox (badness 1590) in paragraph at lines 151--156
+\OT1/cmr/m/n/10.95 The first pa-ram-e-ter we tune is the max-i-mum num-ber of i
+t-er-a-tion $\OML/cmm/m/it/10.95 max[]ter$\OT1/cmr/m/n/10.95 . We test for val-
+ues
+ []
 
-pdfTeX warning: pdflatex (file ./figures//car_nom5.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom6.pdf
 
-pdfTeX warning: pdflatex (file ./figures//car_nom6.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom7.pdf
+Underfull \hbox (badness 10000) in paragraph at lines 151--156
+\OT1/cmr/m/n/10.95 Following the model has been ran for dif-fer-ent learn-ing r
+ates ($\OML/cmm/m/it/10.95 eta\OT1/cmr/m/n/10.95 0$), where $\OML/cmm/m/it/10.9
+5 eta\OT1/cmr/m/n/10.95 0 \OMS/cmsy/m/n/10.95 2
+ []
 
-pdfTeX warning: pdflatex (file ./figures//car_nom7.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom8.pdf
 
-pdfTeX warning: pdflatex (file ./figures//car_nom8.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom9.pdf
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.16252pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.16252pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-pdfTeX warning: pdflatex (file ./figures//car_nom9.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./figures//car_nom10.pdf
+(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
-pdfTeX warning: pdflatex (file ./figures//car_nom10.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
-> <./figures//car_miss.pdf
-
-pdfTeX warning: pdflatex (file ./figures//car_miss.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
->]
+[4]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.16252pt, for example:
@@ -1267,38 +1160,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
 [5]
-No file Report_v00.01.bbl.
-(Report_v00.01.aux)
 
-Package rerunfilecheck Warning: File `Report_v00.01.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.16252pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.16252pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-Package rerunfilecheck Info: Checksums for `Report_v00.01.out':
-(rerunfilecheck)             Before: C27C7555B324BF4663735625426C5CFA;241
-(rerunfilecheck)             After:  24BE65CAECC0D55FADA7D0EEE9C11ED6;813.
+(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
+
+[6] (Report_Ex1.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `Report_Ex1.out' has not changed.
+(rerunfilecheck)             Checksum: 8EB95D00D049416140409F301B622342;1843.
  ) 
 Here is how much of TeX's memory you used:
- 25596 strings out of 479334
- 457640 string characters out of 2855659
- 780322 words of memory out of 3000000
- 42582 multiletter control sequences out of 15000+200000
- 413231 words of font info for 65 fonts, out of 3000000 for 9000
+ 25504 strings out of 479334
+ 455184 string characters out of 2855659
+ 780019 words of memory out of 3000000
+ 42506 multiletter control sequences out of 15000+200000
+ 411142 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,119p,1181b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 117i,12n,119p,871b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mderonde/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/mderonde/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/
-mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pf
-b><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb>
-Output written on Report_v00.01.pdf (5 pages, 290156 bytes).
+cm/cmbx10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/mderonde/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mderonde/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/User
+s/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.p
+fb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb>
+Output written on Report_Ex1.pdf (6 pages, 152154 bytes).
 PDF statistics:
- 585 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

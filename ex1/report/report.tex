@@ -57,7 +57,7 @@ The task of the email spam dataset is to predict if an email is spam or not. The
     \caption{Structure of the Email-Spam Dataset}
     \label{tab_spam0}
   \end{figure}
-Every email has a binary target-label assigned, such that a 0 marks non-spam and a 1 marks spam emails. In figure \ref{fig_fig0} the distribution of the characters per email is shown. We see that most emails have a lenght in the range of 100 to 10.000 characters.
+Every email has a binary target-label assigned, such that a 0 marks non-spam and a 1 marks spam emails. In figure \ref{spamfig_fig0} the distribution of the characters per email is shown. We see that most emails have a lenght in the range of 100 to 10.000 characters.
 
 \begin{figure}
 \begin{minipage}[t]{0.3\textwidth}
@@ -70,18 +70,93 @@ Every email has a binary target-label assigned, such that a 0 marks non-spam and
 \includegraphics[width=1\linewidth]{email_spam/word_transformed_count.pdf}
 \end{minipage}
    \caption{left: Distribution of e-mail lenghts, middle: Distribution of maximum norm in extracted word vectors with lenght 8000, right: Distribution of maximum norm in extracted word vectors with lenght 8000 after removing outlyers and applying logarithmic transformation}
-\label{fig_fig0}
+\label{spamfig_fig0}
 \end{figure}
 
 \subsection{Pre-Processing}
-In the dataset are 213 duplicate emails that we first remove and then peform the train/test-split where the testset size is $20\%$ of the original dataset. Next we apply the Bag of Words feature extractor to each email. The algorithm converts every email to a vector $v\in\mathbb{Z}^N$ of intergers. First we create a list of all words and count their occurences in all emails. Then we take the $N$ most common words and count the occurences of the most common words in every email to get $v$. Before applying the Bag of word extractor we pre-process emails by the following steps:1. remove links (http...), 2. remove all characters exept alphabetical chars and numbers, 3. convert uppercase to lowercase, 4. split text-bodys into separate words, 5. lemmatize all words, 6. remove stopwords. For the steps 5., 6. we use nltk python package. By the preprocessing we reduce the number of distinct words from 126019 to 103759 words. 
+In the dataset are 213 duplicate emails that we first remove and then peform the train/test-split where the trainset size is $20\%$ of the original dataset. Next we apply the Bag of Words feature extractor to each email. The algorithm converts every email to a vector $v\in\mathbb{Z}^N$ of intergers. First we create a list of all words and count their occurences in all emails. Then we take the $N$ most common words and count the occurences of the most common words in every email to get $v$. Before applying the Bag of word extractor we pre-process emails by the following steps:1. remove links (http...), 2. remove all characters exept alphabetical chars and numbers, 3. convert uppercase to lowercase, 4. split text-bodys into separate words, 5. lemmatize all words, 6. remove stopwords. For the steps 5., 6. we use nltk python package. By the preprocessing we reduce the number of distinct words from 126019 to 103759 words. 
 
-In figure \ref{fig_fig0} middle we see the distribution of the maximum norm of the extracted vectors. One can identify that the maximum norm spans several orders of magnitude from $0$ to $10^5$. Especially there is only one vector $v$ with $||v||_\infty>10^4$. Outlyers with $||v||_\infty>10^3$ are therefor removed in the testset. Additionally we apply the logarithmic transformation $\log_{10}(x+1)$ to all the elements of a vector and obtain a $||\cdot||_\infty$ distrubution that is bounded by the maximum magnithude. Note that we add $1$ to all components of a vector since this component is $0$ after the logarithmic transformation. The distribution after the transformation is shown in figure \ref{fig_fig0} right.
+In figure \ref{spamfig_fig0} middle we see the distribution of the maximum norm of the extracted vectors. One can identify that the maximum norm spans several orders of magnitude from $0$ to $10^5$. Especially there is only one vector $v$ with $||v||_\infty>10^4$. Outlyers with $||v||_\infty>10^3$ are therefor removed in the testset. Additionally we apply the logarithmic transformation $\log_{10}(x+1)$ to all the elements of a vector and obtain a $||\cdot||_\infty$ distrubution that is bounded by the maximum magnithude. Note that we add $1$ to all components of a vector since this component is $0$ after the logarithmic transformation. The distribution after the transformation is shown in figure \ref{spamfig_fig0} right.
 
 
 
 
 \subsection{Parameter-Tuning}
+For the parameter Tuning we further split the trainingset into a validation and trainingset. The training is done on the trainingset and the parametertuning with regard to the performance on the validation set. We select parametervalues by the cross validation performance, since we assume this performance if more stable when compared to the holdout validation.
+%
+\newline
+\textbf{Perceptron}: We compare cross-validation with 10 splits to a holdout-validation. In figure \ref{spamfig_fig1} upper left we see the influence of the scaling method on the f1-score of the perceptron algorithm. The binary scaling means that the transformed vectors have value 1 in a component if the original vectors component is nonzero and 0 otherwhise. Binary and logarithmic sclaing have the best performance in the cross validation, where the logarithmic scaling has slightly better performance on the trasining set. Therefore we choose the logarithmic scaling for the dataset. In \ref{spamfig_fig1} upper middle the influence of the extracted features on the perceptron algorithm with default parameters is shown. The performance for the perceptron is optimal for 2000 features since the f1-score saturates for this feature number. Therefore we adapt this number of features and investigate the learing rate in figure \ref{spamfig_fig1} upper right. Here the optimal learing rate is $0.1$ if we consider the cross-validation performance on the validaton set. Note that the holdout performance is not optimal for this value. The influence of the tolarance can be seen in \ref{spamfig_fig1} bottom left. For values lower than $0.001$ it has a constant f1-score that dropt for the cross validation on the validation set when we increase it. We can therefore fix the tolarance at $0.001$ and investigate the maximum number of terations in \ref{spamfig_fig1} bottom middle. Surprisingly a low number of iterations causes the f1-score to increase.
+
+\begin{figure}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_scaling.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_features.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_learning_rate.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_tolerance.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_maxiter.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+\end{minipage}
+   \caption{F1-score of Perceptron for different pre-processing parameters and model-parameters}
+\label{spamfig_fig1}
+\end{figure}
+
+For the perceptron the cross validation yields always a more pessimistic performance when compared to the holdout-validation. As optimal parameters we have chosen: scaling method: logarithmic, extracted features: $2000$, learning rate: $0.001$, tolerance: $1e-6$. The f1-score on the testset is for this parameters: 0.97 for the holdout validation and 0.95 for the cross validation.
+\newline
+\textbf{Random forrest}:
+Since the random forrest has much larger runtime compared to the other algorithms in this project we will not evaluate its performance on the training set and further set the number of validation steps in the cross validation to 4.
+
+\begin{figure}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_scaling.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_features.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_trees.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_ccpalpha.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_depth.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/rnd_min_samples_leaf.pdf}
+\end{minipage}
+   \caption{F1-score of Random-Forrest for different pre-processing parameters and model-parameters}
+\label{spamfig_fig2}
+\end{figure}
+%
+The random forrest algorithm is usually not affected in its performance by scaling. Nevetheless we inspect the influence of the scaling parameters in \ref{spamfig_fig2} at top left with 8000 features extracted. We see that no scaling gives even for this algorithm less performance. Since the difference for the cross-validation is small we keep the unscaled data for this algorithm. When considering the impact of the number of extracted features in \ref{spamfig_fig2} top middle the f1-score in the cross validation improves till 7000 features are reached and then drops again. Therefore to decrease the runtime as much as we can we select 7000 features even if the holdout f1-score here is clearly lower. Another important parameter for performance and runtime in the random forrest is the number of trees that are build. The performance of this parameter can be seen in \ref{spamfig_fig2} top right. The performance increases when we build more decision trees but at 50 trees this preformance increase is not significant anymore. Therefore to decrease the runtime we select 50 trees as optimum. So far the decision trees are grown to full lenght and might overfit largly. In \label{spamfig_fig2} bottom left we perform cost-complexity pruning on the tree. Larger values of the parameter will post-pune more tree branches. At $5e-3$ we reach an optimum in the cross validation f1-score which doesent differ significantly from the other performances achived for different values of this parameter. We still want to select parameter as large a possible to simplify the tree and prevent overfitting for the generqal case such that we select $5e-3$ for this parameter. We can also prevent the tree from overfitting by bounding its depth. The impact of this method is shown in \label{spamfig_fig2} bottom right. Here we obtain a optimum for a maximal tree depth of $15$. The last parameter to prevent overfitting we investigate is the minimum number of spamples required to split a leaf into a new branch. This parameters performance impact can be seen in \label{spamfig_fig2} bottom right. Here increasing the parameter values drastically decreases the f1-score and therefore we dont make use of it.
+
+In our analysis we obtained the best performance with :
+\textbf{Naive Bayes}:
+
+\begin{figure}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/nb_scaling.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/nb_features.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/nb_smoother.pdf}
+\end{minipage}
+   \caption{}
+\label{spamfig_fig3}
+\end{figure}
+
 \subsection{Performance-Analysis}
 
 
