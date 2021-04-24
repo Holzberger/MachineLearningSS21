@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  24 APR 2021 02:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  24 APR 2021 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -879,7 +879,11 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count322
 \l__pdf_internal_box=\box127
 )
-(./report.aux)
+(./report.aux
+
+LaTeX Warning: Label `spamfig_fig2' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -1021,42 +1025,6 @@ on input line 70.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./figures/email_spam/perc_scaling.pdf, id=121, 361.35pt x 361.35pt>
-File: ./figures/email_spam/perc_scaling.pdf Graphic file (type pdf)
-<use ./figures/email_spam/perc_scaling.pdf>
-Package pdftex.def Info: ./figures/email_spam/perc_scaling.pdf  used on input l
-ine 88.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_features.pdf, id=122, 361.35pt x 361.35pt>
-File: ./figures/email_spam/perc_features.pdf Graphic file (type pdf)
-<use ./figures/email_spam/perc_features.pdf>
-Package pdftex.def Info: ./figures/email_spam/perc_features.pdf  used on input 
-line 91.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_learning_rate.pdf, id=123, 361.35pt x 361.35pt>
-File: ./figures/email_spam/perc_learning_rate.pdf Graphic file (type pdf)
-<use ./figures/email_spam/perc_learning_rate.pdf>
-Package pdftex.def Info: ./figures/email_spam/perc_learning_rate.pdf  used on i
-nput line 94.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_tolerance.pdf, id=124, 361.35pt x 361.35pt>
-File: ./figures/email_spam/perc_tolerance.pdf Graphic file (type pdf)
-<use ./figures/email_spam/perc_tolerance.pdf>
-Package pdftex.def Info: ./figures/email_spam/perc_tolerance.pdf  used on input
- line 97.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_maxiter.pdf, id=125, 361.35pt x 361.35pt>
-File: ./figures/email_spam/perc_maxiter.pdf Graphic file (type pdf)
-<use ./figures/email_spam/perc_maxiter.pdf>
-Package pdftex.def Info: ./figures/email_spam/perc_maxiter.pdf  used on input l
-ine 100.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-File: ./figures/email_spam/word_transformed_count.pdf Graphic file (type pdf)
-<use ./figures/email_spam/word_transformed_count.pdf>
-Package pdftex.def Info: ./figures/email_spam/word_transformed_count.pdf  used 
-on input line 103.
-(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 25.16252pt.
@@ -1071,8 +1039,39 @@ ion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/email_spam/word_transformed_count.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
->] [3 <./figures/email_spam/perc_scaling.pdf> <./figures/email_spam/perc_featur
-es.pdf
+>]
+<./figures/email_spam/perc_scaling.pdf, id=251, 361.35pt x 361.35pt>
+File: ./figures/email_spam/perc_scaling.pdf Graphic file (type pdf)
+<use ./figures/email_spam/perc_scaling.pdf>
+Package pdftex.def Info: ./figures/email_spam/perc_scaling.pdf  used on input l
+ine 92.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/perc_features.pdf, id=252, 361.35pt x 361.35pt>
+File: ./figures/email_spam/perc_features.pdf Graphic file (type pdf)
+<use ./figures/email_spam/perc_features.pdf>
+Package pdftex.def Info: ./figures/email_spam/perc_features.pdf  used on input 
+line 95.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/perc_learning_rate.pdf, id=253, 361.35pt x 361.35pt>
+File: ./figures/email_spam/perc_learning_rate.pdf Graphic file (type pdf)
+<use ./figures/email_spam/perc_learning_rate.pdf>
+Package pdftex.def Info: ./figures/email_spam/perc_learning_rate.pdf  used on i
+nput line 98.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/perc_tolerance.pdf, id=254, 361.35pt x 361.35pt>
+File: ./figures/email_spam/perc_tolerance.pdf Graphic file (type pdf)
+<use ./figures/email_spam/perc_tolerance.pdf>
+Package pdftex.def Info: ./figures/email_spam/perc_tolerance.pdf  used on input
+ line 101.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/perc_maxiter.pdf, id=255, 361.35pt x 361.35pt>
+File: ./figures/email_spam/perc_maxiter.pdf Graphic file (type pdf)
+<use ./figures/email_spam/perc_maxiter.pdf>
+Package pdftex.def Info: ./figures/email_spam/perc_maxiter.pdf  used on input l
+ine 104.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+ [3 <./figures/email_spam/perc_scaling.pdf> <./figures/email_spam/perc_features
+.pdf
 
 pdfTeX warning: pdflatex (file ./figures/email_spam/perc_features.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
@@ -1089,38 +1088,138 @@ clusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/email_spam/perc_maxiter.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
 >]
+<./figures/email_spam/rnd_scaling.pdf, id=448, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_scaling.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_scaling.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_scaling.pdf  used on input li
+ne 120.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/rnd_features.pdf, id=449, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_features.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_features.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_features.pdf  used on input l
+ine 123.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/rnd_trees.pdf, id=450, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_trees.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_trees.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_trees.pdf  used on input line
+ 126.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/rnd_ccpalpha.pdf, id=451, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_ccpalpha.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_ccpalpha.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_ccpalpha.pdf  used on input l
+ine 129.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/rnd_depth.pdf, id=452, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_depth.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_depth.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_depth.pdf  used on input line
+ 132.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/rnd_min_samples_leaf.pdf, id=453, 361.35pt x 361.35pt>
+File: ./figures/email_spam/rnd_min_samples_leaf.pdf Graphic file (type pdf)
+<use ./figures/email_spam/rnd_min_samples_leaf.pdf>
+Package pdftex.def Info: ./figures/email_spam/rnd_min_samples_leaf.pdf  used on
+ input line 135.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+
+
+Package hyperref Warning: Suppressing empty link on input line 141.
+
+
+Package hyperref Warning: Suppressing empty link on input line 141.
+
+
+Package hyperref Warning: Suppressing empty link on input line 141.
+
+<./figures/email_spam/nb_scaling.pdf, id=454, 361.35pt x 361.35pt>
+File: ./figures/email_spam/nb_scaling.pdf Graphic file (type pdf)
+<use ./figures/email_spam/nb_scaling.pdf>
+Package pdftex.def Info: ./figures/email_spam/nb_scaling.pdf  used on input lin
+e 148.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/nb_features.pdf, id=455, 361.35pt x 361.35pt>
+File: ./figures/email_spam/nb_features.pdf Graphic file (type pdf)
+<use ./figures/email_spam/nb_features.pdf>
+Package pdftex.def Info: ./figures/email_spam/nb_features.pdf  used on input li
+ne 151.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+<./figures/email_spam/nb_smoother.pdf, id=456, 361.35pt x 361.35pt>
+File: ./figures/email_spam/nb_smoother.pdf Graphic file (type pdf)
+<use ./figures/email_spam/nb_smoother.pdf>
+Package pdftex.def Info: ./figures/email_spam/nb_smoother.pdf  used on input li
+ne 154.
+(pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+[4 <./figures/email_spam/rnd_scaling.pdf> <./figures/email_spam/rnd_features.pd
+f
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_features.pdf): PDF incl
+usion: multiple pdfs with page group included in a single page
+> <./figures/email_spam/rnd_trees.pdf
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_trees.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./figures/email_spam/rnd_ccpalpha.pdf
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_ccpalpha.pdf): PDF incl
+usion: multiple pdfs with page group included in a single page
+> <./figures/email_spam/rnd_depth.pdf
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_depth.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./figures/email_spam/rnd_min_samples_leaf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_min_samples_leaf.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+>] [5 <./figures/email_spam/nb_scaling.pdf> <./figures/email_spam/nb_features.p
+df
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/nb_features.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+> <./figures/email_spam/nb_smoother.pdf
+
+pdfTeX warning: pdflatex (file ./figures/email_spam/nb_smoother.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>]
 No file report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 62A2FE2836E243825C6B8D618A166E50;1538.
+(rerunfilecheck)             Checksum: E58C10EEBD015BFE5C84B45F6C002287;1538.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 22484 strings out of 481239
- 403907 string characters out of 5920378
- 681189 words of memory out of 5000000
- 37286 multiletter control sequences out of 15000+600000
- 539910 words of font info for 53 fonts, out of 8000000 for 9000
+ 22546 strings out of 481239
+ 406101 string characters out of 5920378
+ 681129 words of memory out of 5000000
+ 37334 multiletter control sequences out of 15000+600000
+ 540218 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,77p,949b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb>
-Output written on report.pdf (3 pages, 203691 bytes).
+ 62i,11n,77p,2227b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on report.pdf (5 pages, 314276 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
- 31 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 841 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 
