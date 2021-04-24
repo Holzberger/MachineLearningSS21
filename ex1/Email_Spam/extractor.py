@@ -45,6 +45,9 @@ def remove_duplicates(dataset, remove_dups=True, print_dups=False):
         print("There are {} duplicates.".format(np.sum(dataset.duplicated())))
     if remove_dups:
         return dataset.drop_duplicates() 
+    
+def get_log_range(*vectors):
+    return [np.log10(vector+1) for vector in vectors]
         
 
 def remove_missing_vals(dataset, remove_missing=True, print_missing=False):
