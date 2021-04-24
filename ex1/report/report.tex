@@ -64,21 +64,48 @@ Every email has a binary target-label assigned, such that a 0 marks non-spam and
 \includegraphics[width=1\linewidth]{email_spam/char_count.pdf}
 \end{minipage}
 \begin{minipage}[t]{0.3\textwidth}
-\includegraphics[width=1\linewidth]{email_spam/char_count.pdf}
+\includegraphics[width=1\linewidth]{email_spam/word_count.pdf}
 \end{minipage}
 \begin{minipage}[t]{0.3\textwidth}
-\includegraphics[width=1\linewidth]{email_spam/char_count.pdf}
+\includegraphics[width=1\linewidth]{email_spam/word_transformed_count.pdf}
 \end{minipage}
-   \caption{left: Distribution of e-mail lenghts }
+   \caption{left: Distribution of e-mail lenghts, middle: Distribution of maximum norm in extracted word vectors with lenght 8000, right: Distribution of maximum norm in extracted word vectors with lenght 8000 after removing outlyers and applying logarithmic transformation}
 \label{fig_fig0}
 \end{figure}
 
-We apply the Bag of Words feature extractor to each email. The algorithm converts every email to a vector $v\in\mathbb{N^+}^N$ of intergers. First we create a list of all words and count their occurences in all emails. Then we take the $N$ most common words and count the occurences of the most common words in every email ti get $v$. Before applying the Bag of word extractor we pre-process emails by the following steps:
-
-
-
 \subsection{Pre-Processing}
+In the dataset are 213 duplicate emails that we first remove and then peform the train/test-split where the trainset size is $20\%$ of the original dataset. Next we apply the Bag of Words feature extractor to each email. The algorithm converts every email to a vector $v\in\mathbb{Z}^N$ of intergers. First we create a list of all words and count their occurences in all emails. Then we take the $N$ most common words and count the occurences of the most common words in every email to get $v$. Before applying the Bag of word extractor we pre-process emails by the following steps:1. remove links (http...), 2. remove all characters exept alphabetical chars and numbers, 3. convert uppercase to lowercase, 4. split text-bodys into separate words, 5. lemmatize all words, 6. remove stopwords. For the steps 5., 6. we use nltk python package. By the preprocessing we reduce the number of distinct words from 126019 to 103759 words. 
+
+In figure \ref{fig_fig0} middle we see the distribution of the maximum norm of the extracted vectors. One can identify that the maximum norm spans several orders of magnitude from $0$ to $10^5$. Especially there is only one vector $v$ with $||v||_\infty>10^4$. Outlyers with $||v||_\infty>10^3$ are therefor removed in the testset. Additionally we apply the logarithmic transformation $\log_{10}(x+1)$ to all the elements of a vector and obtain a $||\cdot||_\infty$ distrubution that is bounded by the maximum magnithude. Note that we add $1$ to all components of a vector since this component is $0$ after the logarithmic transformation. The distribution after the transformation is shown in figure \ref{fig_fig0} right.
+
+
+
+
 \subsection{Parameter-Tuning}
+
+\begin{figure}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_scaling.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_features.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_learning_rate.pdf}
+\end{minipage}\\
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_tolerance.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/perc_maxiter.pdf}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{email_spam/word_transformed_count.pdf}
+\end{minipage}
+   \caption{left: Distribution of e-mail lenghts, middle: Distribution of maximum norm in extracted word vectors with lenght 8000, right: Distribution of maximum norm in extracted word vectors with lenght 8000 after removing outlyers and applying logarithmic transformation}
+\label{fig_fig1}
+\end{figure}
+
 \subsection{Performance-Analysis}
 
 
