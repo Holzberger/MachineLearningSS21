@@ -12,7 +12,7 @@
 
 %
 \section{Introduction}
-In this project we analyze the performance of three traditional classification algorithms on 4 significantly different datasets. We aim to show which algorithm performs best on a specific dataset and further if one algorithm outperforms the others for all datasets. In the next section we first describe the applied algorithms and then the performance metrics that we have chosen. Then a detailed analysis of all algorithms on each dataset is done, which concludes with the final performance comparison.
+In this project we analyze the performance of three traditional classification algorithms on 4 significantly different datasets. We aim to show which algorithm performs best on a specific dataset and further if one algorithm outperforms the others for all datasets. In the next section we first describe the applied algorithms and then the performance metrics that we have chosen. Then a detailed analysis of all algorithms on each dataset is done, which concludes with the final performance comparison. For our analysis we make use of the Python machine learning package Scikit-learn.
 
 \subsection{Applied Algorithms}
 Assume $\hat{x}\in \mathbb{R}^d$ is a data sample, for that we want to predict a the label $\hat{y}\in \{0,1\}$. For our algorithms we use a finite dataset $S\subset \mathbb{R}^d$ with $|S|=N$ samples.
@@ -728,9 +728,13 @@ HOW DO WE DO THIS!!!!!
 \label{Fig:: NB_result_manual parameter_tuning}
 \end{figure}
 
-
+\newpage
 \section{Conclusion}
-%
+
+In this project we investigated the performance of the algorithms: Perceptron, Random Forest and Naive Bayes on four different Datasets. To give insight into the overall performance of the algorithms, we calculate the f1-score for all in table \ref{tab_conc0}. We see that the Perceptron had the best performance on the Bridges dataset and on the Voting dataset where it shares its f1-score with the Random Forest algorithm. The Random Forest Algorithm is on one dataset the best. Naive Bayes performs best on the Amazon and Email datasets. For the mean performance over all datasets, we get the same ranking such that the best algorithm over the datasets is Perceptron followed by Naive Bayes and Random forest on the third place. In the introduction chapter we already stated that Random Forrest has the highest algorithmic complexity making it, not a good choice for large datasets. This was also observed in our analysis in therms of practical running time. Perceptron and Bayes have a linear complexity in the trainingset size and even constant evaluation time for bounded dimension of the samples. Therefore, they are a good choice and allow us to build good classifiers aswell as shown in this project.
+
+Additionally the best parameters we obtained in our analysis are summarized in the figure \ref{fig_conc0} for the perceptron, in \ref{fig_conc1} for Random forest and in \ref{fig_conc2} for Naive Bayes. Note that the values "def" mean that we adapted the default values given in sklearn.  
+
 \begin{figure}
 \center
   \begin{tabular}{ | l | l | l | l | l |}
@@ -739,10 +743,11 @@ HOW DO WE DO THIS!!!!!
     Amazon  & 0.50			   		 		 & 0.52\cellcolor{gray!25}   	 	   & 0.59\cellcolor{gray!50} \\ \hline
 	Email   & 0.95\cellcolor{gray!25}  	 	 & 0.93   		   					   & 0.96\cellcolor{gray!50} \\ \hline
 	Voting  & 0.94\cellcolor{gray!50}  	 	 & 0.94\cellcolor{gray!50}   		   & 0.88 	     		     \\ \hline
-	Bridges & 0.57\cellcolor{gray!25}  	 	 & 0.45   		   					   & 0.5\cellcolor{gray!50}  \\ \hline
+	Bridges & 0.57\cellcolor{gray!50}  	 	 & 0.45   		   					   & 0.5\cellcolor{gray!25}  \\ \hline
+	mean    & 0.74\cellcolor{gray!50}  	 	 & 0.71   		   					   & 0.73\cellcolor{gray!25}  \\ \hline
   \end{tabular}
   \caption{Best f1-scores obtained on the testsets}
-  \label{tab_conc0}
+  \label{fig_conc0}
 \end{figure}
 
 \begin{figure}[h]
@@ -753,15 +758,15 @@ HOW DO WE DO THIS!!!!!
     \hline
     Amazon  & def & 10 & l1   & def & $10^{-5}$ & l1   \\  
     \hline
-    Email   & def & 10 & None & def & 0.001     & None \\  
+    Email   & def & 10 & None & def & 0.001     & No \\  
     \hline
-    Voting & 13 & 18 & None & $10^{-3}$ & 0.05 & None  \\
+    Voting & 13 & 18 & None & 0.001 & 0.05 & No  \\
     \hline
-   Bridges &  &  &  &  & &   \\
+   Bridges & 10 & 9 & l2 & 0.001 & 0.005 &   \\
 	\hline
     \end{tabular}
     \caption{Best parameter configurations for Perceptron classifier with respect to the considered datasets}
-    \label{tab_conc1}
+    \label{fig_conc1}
   \end{figure}
   
   \begin{figure}[h]
@@ -770,17 +775,17 @@ HOW DO WE DO THIS!!!!!
 	\hline
     Dataset & Threshold & Nr. estimators & Max depth & Max leafs & Min samples p leaf & ccp alpha & criterion\\  
     \hline
-    Amazon  & def & 200 & 50  & 50    & def  &	0.005 & entropy	 \\  
+    Amazon  & def & 200  & 50   & 50    & def   &	0.005 & entropy	 \\  
     \hline
-    Email   & def & 200 & 50  & 50    & def  &	0.005 & entropy	 \\  
+    Email   & def &  70  &  60  &  def  &  def  & 0.005 & entropy	 \\  
     \hline
-    Voting  & 13  & 100 & def & 1     & def  & 0.001 & entropy  \\
+    Voting  & 13  & 100  & def  & 1     & def   & 0.001 & entropy  \\
     \hline
-    Bridges & def &  70 &  60 &  def  &  def  & 0.005 & entropy\\
+    Bridges & def &  100 &  def &  def  &  1     & 0.005 & gini\\
 	\hline
     \end{tabular}%
     \caption{Best parameter configurations for Random Forest classifier with respect to the considered datasets}
-    \label{tab_conc1}
+    \label{fig_conc2}
   \end{figure}
   
   
@@ -796,7 +801,7 @@ HOW DO WE DO THIS!!!!!
     \hline
     Voting & 16 &  10 \\
     \hline
-    Bridges & 12 & $6\cdot 10^{-1}$ \\
+    Bridges & 12 & $0.6$ \\
 	\hline
     \end{tabular}
     \caption{Best parameter configurations for Naive Bayes classifier with respect to the considered datasets}
