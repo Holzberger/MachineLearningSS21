@@ -1,13 +1,13 @@
 \begin{thebibliography}{1}
 
-\bibitem{tsang2005}
-I.~W. Tsang, J.~T. Kwok, P.-M. Cheung, and N.~Cristianini, ``Core vector
-  machines: Fast svm training on very large data sets.,'' {\em Journal of
-  Machine Learning Research}, vol.~6, no.~4, 2005.
-
 \bibitem{shalev2014}
 S.~Shalev-Shwartz and S.~Ben-David, {\em Understanding machine learning: From
   theory to algorithms}.
 \newblock Cambridge university press, 2014.
+
+\bibitem{tsang2005}
+I.~W. Tsang, J.~T. Kwok, P.-M. Cheung, and N.~Cristianini, ``Core vector
+  machines: Fast svm training on very large data sets.,'' {\em Journal of
+  Machine Learning Research}, vol.~6, no.~4, 2005.
 
 \end{thebibliography}
