@@ -44,7 +44,7 @@ W.l.o.g. assume $x\in \{0,1\}^d$. We assume that the label and features $x_i$ ar
 \end{align}
 Together with the probability $\mathcal{P}(Y=y)$ of label $y$ occurring we can formulate the binary classifier:
 \begin{align}
-g(x) = \max\limits_{y\in\{0,1\}}\mathcal{P}(Y=y)\prod\limits_{i=1}^d\mathcal{P}(X=x_i|Y=y)
+g(x) = \argmax\limits_{y\in\{0,1\}}\mathcal{P}(Y=y)\prod\limits_{i=1}^d\mathcal{P}(X=x_i|Y=y)
 \end{align}
 And, therefore, as in the Perceptron algorithm the binary function g classifies $\hat{x}$ by $g(\hat{x})$.
 Naive Bayes has a training complexity of $\mathcal{O}(|S|d)$ and a evaluation complexity of $\mathcal{O}(cd)$ where $c$ is the number of classes we predict. It is by that an easy to implement and fast algorithm that yields good results when applied on natural language processing, as two of our datasets are.
@@ -58,7 +58,7 @@ This chapter summarizes the metrics that are used for performance evaluation of 
 \text{Accuracy } &= \frac{tp+tn}{tp+tn+fp+fn}, \quad \text{F1 } = \frac{2}{\text{Percision}^{-1}+ \text{Recall}^{-1}}
 \end{align}
 
-For the comparison of the algorithms, we use the F1-score since it can be applied in a meaningful way for many scenarios. This is not the case for precision and recall. When comparing between the F1 scores of multiclass classifiers, we will calculate the macro averages F1 score.
+For the comparison of the algorithms, we use the F1-score since it can be applied in a meaningful way for many scenarios. This is not the case for precision and recall. When comparing between the F1 scores of multiclass classifiers, we will calculate the macro averages F1 score. This method ensures that our results are comparable to give an overall view on the performance of all algorithms at the end of this report.
 
 \section{Kaggle: Amazon review}
 \subsection{Dataset Description} 
@@ -546,12 +546,12 @@ Since the random forrest has much larger runtime compared to the other algorithm
 \label{spamfig_fig2}
 \end{figure}
 %
-The random forrest algorithm is usually not affected in its performance by scaling. Nevetheless we inspect the influence of the scaling parameters in \ref{spamfig_fig2} at top left with 8000 features extracted. We see that no scaling gives even for this algorithm less performance. Since the difference for the cross-validation is small we keep the unscaled data for this algorithm. When considering the impact of the number of extracted features in \ref{spamfig_fig2} top middle the f1-score in the cross validation improves till 7000 features are reached and then drops again. Therefore to decrease the runtime as much as we can we select 7000 features even if the holdout f1-score here is clearly lower. Another important parameter for performance and runtime in the random forrest is the number of trees that are build. The performance of this parameter can be seen in \ref{spamfig_fig2} top right. The performance increases when we build more decision trees but at 50 trees this preformance increase is not significant anymore. Therefore to decrease the runtime we select 50 trees for further investigations but 70 trees when stating the optimal parameters below. So far the decision trees are grown to full lenght and might overfit largly. In \label{spamfig_fig2} bottom left we perform cost-complexity pruning on the tree. Larger values of the parameter will post-prune more tree branches. At $5e-3$ we reach an optimum in the cross validation f1-score which doesent differ significantly from the other performances achived for different values of this parameter. We still want to select parameter as large a possible to simplify the tree and prevent overfitting for the generqal case such that we select $5\cdot10^{-3}$ for this parameter. We can also prevent the tree from overfitting by bounding its depth. The impact of this method is shown in \label{spamfig_fig2} bottom right. Here we obtain a optimum for a maximal tree depth of $15$. The last parameter to prevent overfitting we investigate is the minimum number of spamples required to split a leaf into a new branch. This parameters performance impact can be seen in \label{spamfig_fig2} bottom right. Here increasing the parameter values drastically decreases the f1-score and therefore we dont make use of it.
+The random forrest algorithm is usually not affected in its performance by scaling. Nevetheless we inspect the influence of the scaling parameters in \ref{spamfig_fig2} at top left with 8000 features extracted. We see that no scaling gives even for this algorithm less performance. Since the difference for the cross-validation is small we keep the unscaled data for this algorithm. When considering the impact of the number of extracted features in \ref{spamfig_fig2} top middle the f1-score in the cross validation improves till 7000 features are reached and then drops again. Therefore to decrease the runtime as much as we can we select 7000 features even if the holdout f1-score here is clearly lower. Another important parameter for performance and runtime in the random forrest is the number of trees that are build. The performance of this parameter can be seen in \ref{spamfig_fig2} top right. The performance increases when we build more decision trees but at 50 trees this preformance increase is not significant anymore. Therefore to decrease the runtime we select 50 trees for further investigations but 70 trees when stating the optimal parameters below. So far the decision trees are grown to full lenght and might overfit largly. In \ref{spamfig_fig2} bottom left we perform cost-complexity pruning on the tree. Larger values of the parameter will post-prune more tree branches. At $5e-3$ we reach an optimum in the cross validation f1-score which doesent differ significantly from the other performances achived for different values of this parameter. We still want to select parameter as large a possible to simplify the tree and prevent overfitting for the generqal case such that we select $5\cdot10^{-3}$ for this parameter. We can also prevent the tree from overfitting by bounding its depth. The impact of this method is shown in \label{spamfig_fig2} bottom right. Here we obtain a optimum for a maximal tree depth of $15$. The last parameter to prevent overfitting we investigate is the minimum number of spamples required to split a leaf into a new branch. This parameters performance impact can be seen in \ref{spamfig_fig2} bottom right. Here increasing the parameter values drastically decreases the f1-score and therefore we dont make use of it.
 
 In our analysis we obtained the best performance with :scaling method: none, extracted features: $8000$, cost complexity pruning parameter $5\cdot10^{-3}$, maximum depth: $60$, number of trees: 70. By that we obtain on the testset a f1-score of $0.93$ for holdout and cross-validation with 5 validation steps.
 
 \textbf{Naive Bayes}:
-Since this algorithm has a much smaller runtime we again switch to evaluationg the peformance also on the testset and doing 10 validation steps in the cross-validation. In Naive Bayes the scaling the scaling is generally not an issue. If we nevetheless apply the different scaling methods (only the ones that produce positiv ranges) we observe the bahaviour shown in figure \label{spamfig_fig3} left. Here 6000 features were extracted and the the logarithmic scaling is having the best performance wherein the minmax scaling is performing significantly worse than the other methods. We choose logarithmic scaling and proceed with evaluating the impact of the number of extracted features in figure \label{spamfig_fig3}  middle. Here for the crossvalidation on the validation set the f1-score is monotonically increasing. Since the performance increase is not significant after usding more than 6000 features we use that number of features for this algorithm. The laplace smoothing parameters influence is plotted in figure \label{spamfig_fig3} right. The impact of this parameter on the performance is not large but we can identify an optimum at a value of 1.
+Since this algorithm has a much smaller runtime we again switch to evaluationg the peformance also on the testset and doing 10 validation steps in the cross-validation. In Naive Bayes the scaling the scaling is generally not an issue. If we nevetheless apply the different scaling methods (only the ones that produce positiv ranges) we observe the bahaviour shown in figure \ref{spamfig_fig3} left. Here 6000 features were extracted and the the logarithmic scaling is having the best performance wherein the minmax scaling is performing significantly worse than the other methods. We choose logarithmic scaling and proceed with evaluating the impact of the number of extracted features in figure \ref{spamfig_fig3}  middle. Here for the crossvalidation on the validation set the f1-score is monotonically increasing. Since the performance increase is not significant after usding more than 6000 features we use that number of features for this algorithm. The laplace smoothing parameters influence is plotted in figure \ref{spamfig_fig3} right. The impact of this parameter on the performance is not large but we can identify an optimum at a value of 1.
 
 \begin{figure}
 \begin{minipage}[l]{0.3\textwidth}
@@ -575,46 +575,60 @@ The best parameters for the Naive Bayes algorithm are by that: :scaling method: 
 
 \section{Bridges Dataset(\href{https://archive.ics.uci.edu/ml/datasets/Pittsburgh+Bridges}{link to dataset})}
 \subsection{Dataset Description}
-In this dataset is a collection of attributes of briges given. The task is to predict by 5 given design attributes 7 specification properties. The the attributes are summarized in table \ref{bridgetab_tab0}, where we can see that most of them are nominal and lenght and span can be identified as ordinal attributes.
-
-\begin{center}
+In this dataset with a size of 108 smaples, a collection of attributes of briges in Pittsburgh Pennsylvania is presented. The task is to predict the type of bridge by the given attributes. The the attributes are summarized in table \ref{bridgetab_tab0}, where we can see that most of them are nominal and lenght and span can be identified as ordinal. 
+%
+\begin{figure}
   \begin{tabular}{ | l | l | l | l |}
     \hline
-    Design attribute & propertie 				  & Target Class   & propertie \\ \hline
-    1. river 		 & 3 nominal values 		  &   		   	   & 			\\ \hline
-    2. location 	 & 52 nominal values 		  &   		   	   & 			\\ \hline
-    3. erected 		 & 4 nominal values 		  & 1. t-or-d 		  	   & 2 nominal values			\\ \hline
-    4. purpose 		 & 4 nominal values 		  & 2. material 		   & 3 nominal values			\\ \hline
-    5. length 		 & ordinal, short, medium, long & 3. span 		   	   & ordinal, short, medium, long 			\\ \hline
-    6. lanes		 & 4 nominal values	  			& 4. rel-l 		       & 3 nominal values 			\\ \hline
-    7. clear-g 		 & 2 nominal values		  		& 5. type 		       & 6 nominal values 			\\ \hline
-    \hline
+    attribute & propertie 				    & attribute   & propertie 				\\ \hline
+    1. river 		 & 3 nominal values 		    & 7. clear-g 		 & 2 nominal values			\\ \hline
+    2. location 	 & 52 nominal values 		    & 8. t-or-d  	 & 2 nominal values			\\ \hline
+    3. erected 		 & 4 nominal values 		    & 9. material  	 & 3 nominal values			\\ \hline
+    4. purpose 		 & 4 nominal values 		    & 10. span  	& ordinal, short, medium, long			\\ \hline
+    5. length 		 & ordinal, short, medium, long & 11. rel-l       & 3 nominal values			\\ \hline
+    6. lanes		 & 4 nominal values	  			& 12. type		 & 6 nominal values 			\\ \hline
   \end{tabular}
+  \caption{attributes for the bridges dataset}
   \label{bridgetab_tab0}
-\end{center}
-
+\end{figure}
+%
+In figure \ref{bridges_fig0} left we see the distribution of the type of bridges that occur in our data. 
+This trainset is imbalanced, with a bit less than the half of the samples which are labellized as simple truss... we can already imagine that our results will not be very accurate according to the small amount of samples and this very imbalanced dataset (we only have around 10 samples per label in most of cases). 
 
 \begin{figure}
 \begin{minipage}[l]{0.3\textwidth}
-\includegraphics[width=1\linewidth]{bridges/bridges_missing.pdf}
+\includegraphics[width=1\linewidth]{bridges/classification_trainset.pdf}
 \end{minipage}
 \begin{minipage}[l]{0.3\textwidth}
 \includegraphics[width=1\linewidth]{bridges/bridges_missing.pdf}
 \end{minipage}
 \begin{minipage}[l]{0.3\textwidth}
-\includegraphics[width=1\linewidth]{bridges/bridges_missing.pdf}
 \end{minipage}
-   \caption{}
+   \caption{left: distribution of the target value over the dataset, middle: distribution of misssing values}
 \label{bridges_fig0}
 \end{figure}
 
-
+Next in figure \ref{bridges_fig0} middle we show the missing values in the dataset. We can see that there are some missing values, and we have the repartition of missing values among samples with the following table {insert table}. We can notice that the feature "lenght" is the most incomplete one, with 25% missing values, and "lanes" and "span" have 15% missing values. The other features having less than 6% missing values. We can also notice that three labels are missing, so we have to drop it. We treat missing values by two approaches namely, replacing then with the value of the nearest neighbor smaple or randomly inserting another value for the missing one.
 \subsection{Pre-Processing}
 \subsection{Parameter-Tuning}
 \subsection{Performance-Analysis}
 
 \section{Conclusion}
-
+%
+\begin{figure}
+\center
+  \begin{tabular}{ | l | l | l | l | l |}
+    \hline
+    Dataset & Perceptron & Random Forrest  & Naive Bayes & validation method\\ \hline
+    Amazon  & 0.50\cellcolor{gray!25} 		 & 0.52\cellcolor{gray!50}   	 	   &  			 & cross \\ \hline
+	Email   & 0.95\cellcolor{gray!25}  	 & 0.93   		   & 0.96\cellcolor{gray!50} 		 & cross \\ \hline
+	Voting  & 0.93\cellcolor{gray!25}  	 & 0.97\cellcolor{gray!50}   		   & 0.88 	     & holdout \\ \hline
+	Bridges & 0.53  	 				 & 0.60\cellcolor{gray!25}   		   & 0.66\cellcolor{gray!50} 		 & holdout \\ \hline
+  \end{tabular}
+  \caption{Best f1-scores obtained on the testsets}
+  \label{bridgetab_tab0}
+\end{figure}
+%
 %Bibliography
 \newpage
 \bibliography{lib} 
