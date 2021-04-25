@@ -405,8 +405,8 @@ In this dataset is a collection of attributes of briges given. The task is to pr
   \end{tabular}
   \label{bridgetab_tab0}
 \end{center}
-
-
+%
+%
 \begin{figure}
 \begin{minipage}[l]{0.3\textwidth}
 \includegraphics[width=1\linewidth]{bridges/bridges_missing.pdf}
@@ -417,13 +417,130 @@ In this dataset is a collection of attributes of briges given. The task is to pr
 \begin{minipage}[l]{0.3\textwidth}
 \includegraphics[width=1\linewidth]{bridges/bridges_missing.pdf}
 \end{minipage}
-   \caption{}
+ \caption{}
 \label{bridges_fig0}
 \end{figure}
-
-
+%
+%
 \subsection{Pre-Processing}
+%
 \subsection{Parameter-Tuning}
+We will train our classifers using a cross validation of 3 holds. We use a 3 holds to stiill have a big enough sample for the testing. The pareameter tuning is based on the training results, as the dataset is too small to split separate for validation and testing. Before we can train the models we will impute for the missing values. 
+HOW DO WE DO THIS!!!!!
+\begin{figure}[h]
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_ppn0.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_ppn1.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: PPN_treshhol_grid}
+\end{figure}
+%
+\textbf{Perceptron }:In order to find the best paramameter settings for the perceptron classifier we made use of the grid search. The following parameter values are considered in the grid search: eta0 $\in \{0.1, 0.2, 0.3, 0.4\}$, early stopping which is true or false, the maximum number of iterations with maxiter $\in \{10, 20, 30, 100\}$.The tol (IS THIS ALPHA???) $\in \{1e-4,1e-3,1e-2,1e-1\}$ and the penalty possibilities l2, l1l elasticnet, or no penalty. We ran the grid search 5 times. In \ref{Fig:: PPN_result_grid} can be seen that the results are unstable. In five runs we got up to three different paramters. Therefore, a manual search per parameter has been done as well. 
+%
+\begin{figure}[h]
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{bridges/Best_parameter_count_max_iter.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{bridges/Best_parameter_count_Early_stop.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{bridges/Best_parameter_count_Eta0.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{bridges/Best_parameter_count_penalty.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{bridges/Best_parameter_count_tol.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: PPN_result_parameter_grid}
+\end{figure}
+%
+\begin{figure}[h]
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/thresholds_ppn.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/max_iter_ppn.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/penalty_ppn.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/tol_ppn.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/learning_rate_ppn.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1.1\linewidth]{bridges/early_stopping_ppn.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: PPN_result_manual parameter_tuning}
+\end{figure}
+%
+\textbf{Random forest }
+%
+\begin{figure}[h]
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_rdf0.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_rdf1.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: RF_treshhold_grid}
+\end{figure}
+%
+begin{figure}[h]
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/thresholds_rdf.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/criterion_rdf.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/min_samples_leaf_rdf.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/ccp_alpha_rdf.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.33\textwidth}
+\includegraphics[width=1\linewidth]{bridges/min_samples_split_rdf.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: RDF_result_manual parameter_tuning}
+\end{figure}
+%
+\textbf{Naive Bayes}
+%
+\begin{figure}[h]
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_nb0.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/threshold_grid_nb1.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: NB_treshhold_grid}
+\end{figure}
+%
+%
+\begin{figure}[h]
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/thresholds_nb.pdf}
+\end{minipage}
+\begin{minipage}[l]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{bridges/laplace_nb.pdf}
+\end{minipage}
+\caption{}
+\label{Fig:: NB_result_manual parameter_tuning}
+\end{figure}
+
 \subsection{Performance-Analysis}
 
 \section{Conclusion}
