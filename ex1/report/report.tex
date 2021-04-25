@@ -570,8 +570,6 @@ Since this algorithm has a much smaller runtime we again switch to evaluating th
 The best parameters for the Naive Bayes algorithm are by that: :scaling method: logarithmic, extracted features: $6000$, smoothing parameter: $1$. This gives a $0.97$ f1-score on for the holdout validation and $0.96$ for the cross-validation executed on the testset.
 
 
-\subsection{Performance-Analysis}
-
 
 \section{Bridges Dataset(\href{https://archive.ics.uci.edu/ml/datasets/Pittsburgh+Bridges}{link to dataset})}
 \subsection{Dataset Description}
@@ -611,7 +609,7 @@ This trainset is imbalanced, with a bit less than the half of the samples which 
 Next in figure \ref{bridges_fig0} middle we show the missing values in the dataset. We can see that there are some missing values, and we have the repartition of missing values among samples with the following table {insert table}. We can notice that the feature "lenght" is the most incomplete one, with 25% missing values, and "lanes" and "span" have 15% missing values. The other features having less than 6% missing values. We can also notice that three labels are missing, so we have to drop it. We treat missing values by two approaches namely, replacing then with the value of the nearest neighbor smaple or randomly inserting another value for the missing one.
 \subsection{Pre-Processing}
 \subsection{Parameter-Tuning}
-\subsection{Performance-Analysis}
+
 
 \section{Conclusion}
 %
@@ -619,15 +617,54 @@ Next in figure \ref{bridges_fig0} middle we show the missing values in the datas
 \center
   \begin{tabular}{ | l | l | l | l | l |}
     \hline
-    Dataset & Perceptron & Random Forrest  & Naive Bayes & validation method\\ \hline
-    Amazon  & 0.43			   		 		 & 0.48\cellcolor{gray!25}   	 	   & 0.54\cellcolor{gray!50} & cross \\ \hline
-	Email   & 0.95\cellcolor{gray!25}  	 	 & 0.93   		   					   & 0.96\cellcolor{gray!50} & cross \\ \hline
-	Voting  & 0.93\cellcolor{gray!25}  	 	 & 0.97\cellcolor{gray!50}   		   & 0.88 	     		     & holdout \\ \hline
-	Bridges & 0.53  	 				 	 & 0.60\cellcolor{gray!25}   		   & 0.66\cellcolor{gray!50} & holdout \\ \hline
+    Dataset & Perceptron & Random Forrest  & Naive Bayes \\ \hline
+    Amazon  & 0.43			   		 		 & 0.48\cellcolor{gray!25}   	 	   & 0.54\cellcolor{gray!50} \\ \hline
+	Email   & 0.95\cellcolor{gray!25}  	 	 & 0.93   		   					   & 0.96\cellcolor{gray!50} \\ \hline
+	Voting  & 0.94\cellcolor{gray!50}  	 	 & 0.94\cellcolor{gray!50}   		   & 0.88 	     		     \\ \hline
+	Bridges & 0.57\cellcolor{gray!25}  	 	 & 0.45   		   					   & 0.5\cellcolor{gray!50}  \\ \hline
   \end{tabular}
   \caption{Best f1-scores obtained on the testsets}
-  \label{bridgetab_tab0}
+  \label{tab_conc0}
 \end{figure}
+
+\begin{figure}[h]
+\centering
+\resizebox{\columnwidth}{!}{%
+  \begin{tabular}{ | l | l | l | l | l | l | l |}
+	\hline
+    Dataset & Threshold & Max iter & Penalty & Stop criterion & Learning rate & Early stop\\  
+    \hline
+    Amazon  & def & 10 & l1   & def & $10^{-5}$ & l1   \\  
+    \hline
+    Email   & def & 10 & None & def & 0.001     & None \\  
+    \hline
+    Voting & 13 & 18 & None & $10^{-3}$ & 0.05 & None  \\
+	\hline\\
+    \end{tabular}%
+  	}
+    \caption{Best parameterconfiguations for perceptron claasifier with respect to the considered datasets}
+    \label{tab_conc1}
+  \end{figure}
+  
+  \begin{figure}[h]
+\centering
+\resizebox{\columnwidth}{!}{%
+  \begin{tabular}{ | l | l | l | l | l | l | l |}
+	\hline
+    Dataset & Threshold & Max iter & Penalty & Stop criterion & Learning rate & Early stop\\  
+    \hline
+    Amazon  & def & 10 & l1   & def & $10^{-5}$ & l1   \\  
+    \hline
+    Email   & def & 10 & None & def & 0.001     & None \\  
+    \hline
+    Voting & 13 & 18 & None & $10^{-3}$ & 0.05 & None  \\
+	\hline\\
+    \end{tabular}%
+  	}
+    \caption{Best parameterconfiguations for perceptron claasifier with respect to the considered datasets}
+    \label{tab_conc1}
+  \end{figure}
+
 %
 %Bibliography
 \newpage
