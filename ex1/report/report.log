@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 APR 2021 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 APR 2021 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,16 +1008,34 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+
+LaTeX Warning: Citation `shalev2014' on page 1 undefined on input line 21.
+
+
+LaTeX Warning: Citation `shalev2014' on page 1 undefined on input line 34.
+
+
+LaTeX Warning: Citation `tsang2005' on page 1 undefined on input line 37.
+
+
+LaTeX Warning: Citation `tsang2005' on page 1 undefined on input line 37.
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./figures/amazon/Instances_per_class.pdf, id=124, 1300.86pt x 722.7pt>
+
+LaTeX Warning: Citation `shalev2014' on page 2 undefined on input line 40.
+
+
+LaTeX Warning: Citation `shalev2014' on page 2 undefined on input line 54.
+
+<./figures/amazon/Instances_per_class.pdf, id=104, 1300.86pt x 722.7pt>
 File: ./figures/amazon/Instances_per_class.pdf Graphic file (type pdf)
 <use ./figures/amazon/Instances_per_class.pdf>
 Package pdftex.def Info: ./figures/amazon/Instances_per_class.pdf  used on inpu
 t line 74.
 (pdftex.def)             Requested size: 422.05772pt x 234.47772pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1028,7 +1046,7 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [2] [3 <./figures/amazon/Instances_per_class.pdf>]
-<./figures/amazon/perc_scaling_vect_selection_HO.pdf, id=198, 361.35pt x 361.35
+<./figures/amazon/perc_scaling_vect_selection_HO.pdf, id=178, 361.35pt x 361.35
 pt>
 File: ./figures/amazon/perc_scaling_vect_selection_HO.pdf Graphic file (type pd
 f)
@@ -1036,32 +1054,32 @@ f)
 Package pdftex.def Info: ./figures/amazon/perc_scaling_vect_selection_HO.pdf  u
 sed on input line 152.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/perc_scaling_vect_selection.pdf, id=199, 361.35pt x 361.35pt>
+<./figures/amazon/perc_scaling_vect_selection.pdf, id=179, 361.35pt x 361.35pt>
 
 File: ./figures/amazon/perc_scaling_vect_selection.pdf Graphic file (type pdf)
 <use ./figures/amazon/perc_scaling_vect_selection.pdf>
 Package pdftex.def Info: ./figures/amazon/perc_scaling_vect_selection.pdf  used
  on input line 155.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/Per_max_iterations_2.pdf, id=200, 361.35pt x 361.35pt>
+<./figures/amazon/Per_max_iterations_2.pdf, id=180, 361.35pt x 361.35pt>
 File: ./figures/amazon/Per_max_iterations_2.pdf Graphic file (type pdf)
 <use ./figures/amazon/Per_max_iterations_2.pdf>
 Package pdftex.def Info: ./figures/amazon/Per_max_iterations_2.pdf  used on inp
 ut line 158.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/Per_learning_rate2.pdf, id=201, 361.35pt x 361.35pt>
+<./figures/amazon/Per_learning_rate2.pdf, id=181, 361.35pt x 361.35pt>
 File: ./figures/amazon/Per_learning_rate2.pdf Graphic file (type pdf)
 <use ./figures/amazon/Per_learning_rate2.pdf>
 Package pdftex.def Info: ./figures/amazon/Per_learning_rate2.pdf  used on input
  line 161.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/Per_alpha2.pdf, id=202, 361.35pt x 361.35pt>
+<./figures/amazon/Per_alpha2.pdf, id=182, 361.35pt x 361.35pt>
 File: ./figures/amazon/Per_alpha2.pdf Graphic file (type pdf)
 <use ./figures/amazon/Per_alpha2.pdf>
 Package pdftex.def Info: ./figures/amazon/Per_alpha2.pdf  used on input line 16
 4.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_scaling_vect_selection_HO.pdf, id=203, 361.35pt x 361.35pt
+<./figures/amazon/RF_scaling_vect_selection_HO.pdf, id=183, 361.35pt x 361.35pt
 >
 File: ./figures/amazon/RF_scaling_vect_selection_HO.pdf Graphic file (type pdf)
 
@@ -1069,7 +1087,7 @@ File: ./figures/amazon/RF_scaling_vect_selection_HO.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/amazon/RF_scaling_vect_selection_HO.pdf  use
 d on input line 180.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_scaling_vect_selection_CV.pdf, id=204, 361.35pt x 361.35pt
+<./figures/amazon/RF_scaling_vect_selection_CV.pdf, id=184, 361.35pt x 361.35pt
 >
 File: ./figures/amazon/RF_scaling_vect_selection_CV.pdf Graphic file (type pdf)
 
@@ -1077,31 +1095,31 @@ File: ./figures/amazon/RF_scaling_vect_selection_CV.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/amazon/RF_scaling_vect_selection_CV.pdf  use
 d on input line 183.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_nestimators.pdf, id=205, 361.35pt x 361.35pt>
+<./figures/amazon/RF_nestimators.pdf, id=185, 361.35pt x 361.35pt>
 File: ./figures/amazon/RF_nestimators.pdf Graphic file (type pdf)
 <use ./figures/amazon/RF_nestimators.pdf>
 Package pdftex.def Info: ./figures/amazon/RF_nestimators.pdf  used on input lin
 e 186.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_max_leafs.pdf, id=206, 361.35pt x 361.35pt>
+<./figures/amazon/RF_max_leafs.pdf, id=186, 361.35pt x 361.35pt>
 File: ./figures/amazon/RF_max_leafs.pdf Graphic file (type pdf)
 <use ./figures/amazon/RF_max_leafs.pdf>
 Package pdftex.def Info: ./figures/amazon/RF_max_leafs.pdf  used on input line 
 189.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_max_depth.pdf, id=207, 361.35pt x 361.35pt>
+<./figures/amazon/RF_max_depth.pdf, id=187, 361.35pt x 361.35pt>
 File: ./figures/amazon/RF_max_depth.pdf Graphic file (type pdf)
 <use ./figures/amazon/RF_max_depth.pdf>
 Package pdftex.def Info: ./figures/amazon/RF_max_depth.pdf  used on input line 
 192.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/RF_ccp_alpha.pdf, id=208, 361.35pt x 361.35pt>
+<./figures/amazon/RF_ccp_alpha.pdf, id=188, 361.35pt x 361.35pt>
 File: ./figures/amazon/RF_ccp_alpha.pdf Graphic file (type pdf)
 <use ./figures/amazon/RF_ccp_alpha.pdf>
 Package pdftex.def Info: ./figures/amazon/RF_ccp_alpha.pdf  used on input line 
 195.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_scaling_vect_selection_HO.pdf, id=211, 361.35pt x 361.35pt
+<./figures/amazon/NB_scaling_vect_selection_HO.pdf, id=191, 361.35pt x 361.35pt
 >
 File: ./figures/amazon/NB_scaling_vect_selection_HO.pdf Graphic file (type pdf)
 
@@ -1109,7 +1127,7 @@ File: ./figures/amazon/NB_scaling_vect_selection_HO.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/amazon/NB_scaling_vect_selection_HO.pdf  use
 d on input line 225.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_scaling_vect_selection_CV.pdf, id=212, 361.35pt x 361.35pt
+<./figures/amazon/NB_scaling_vect_selection_CV.pdf, id=192, 361.35pt x 361.35pt
 >
 File: ./figures/amazon/NB_scaling_vect_selection_CV.pdf Graphic file (type pdf)
 
@@ -1117,25 +1135,25 @@ File: ./figures/amazon/NB_scaling_vect_selection_CV.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/amazon/NB_scaling_vect_selection_CV.pdf  use
 d on input line 228.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_alpha.pdf, id=213, 361.35pt x 361.35pt>
+<./figures/amazon/NB_alpha.pdf, id=193, 361.35pt x 361.35pt>
 File: ./figures/amazon/NB_alpha.pdf Graphic file (type pdf)
 <use ./figures/amazon/NB_alpha.pdf>
 Package pdftex.def Info: ./figures/amazon/NB_alpha.pdf  used on input line 231.
 
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_Xrange2.pdf, id=214, 361.35pt x 361.35pt>
+<./figures/amazon/NB_Xrange2.pdf, id=194, 361.35pt x 361.35pt>
 File: ./figures/amazon/NB_Xrange2.pdf Graphic file (type pdf)
 <use ./figures/amazon/NB_Xrange2.pdf>
 Package pdftex.def Info: ./figures/amazon/NB_Xrange2.pdf  used on input line 23
 4.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_Xrange3.pdf, id=215, 361.35pt x 361.35pt>
+<./figures/amazon/NB_Xrange3.pdf, id=195, 361.35pt x 361.35pt>
 File: ./figures/amazon/NB_Xrange3.pdf Graphic file (type pdf)
 <use ./figures/amazon/NB_Xrange3.pdf>
 Package pdftex.def Info: ./figures/amazon/NB_Xrange3.pdf  used on input line 23
 7.
 (pdftex.def)             Requested size: 174.0991pt x 174.09665pt.
-<./figures/amazon/NB_Xrange4.pdf, id=216, 361.35pt x 361.35pt>
+<./figures/amazon/NB_Xrange4.pdf, id=196, 361.35pt x 361.35pt>
 File: ./figures/amazon/NB_Xrange4.pdf Graphic file (type pdf)
 <use ./figures/amazon/NB_Xrange4.pdf>
 Package pdftex.def Info: ./figures/amazon/NB_Xrange4.pdf  used on input line 24
@@ -1187,13 +1205,13 @@ n: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/amazon/RF_ccp_alpha.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]
-<./figures/voting/classification_trainset.pdf, id=638, 361.35pt x 361.35pt>
+<./figures/voting/classification_trainset.pdf, id=618, 361.35pt x 361.35pt>
 File: ./figures/voting/classification_trainset.pdf Graphic file (type pdf)
 <use ./figures/voting/classification_trainset.pdf>
 Package pdftex.def Info: ./figures/voting/classification_trainset.pdf  used on 
 input line 254.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/voting/input_data_description.pdf, id=639, 867.24pt x 505.89pt>
+<./figures/voting/input_data_description.pdf, id=619, 867.24pt x 505.89pt>
 File: ./figures/voting/input_data_description.pdf Graphic file (type pdf)
 <use ./figures/voting/input_data_description.pdf>
 Package pdftex.def Info: ./figures/voting/input_data_description.pdf  used on i
@@ -1231,48 +1249,48 @@ ta_description.pdf
 pdfTeX warning: pdflatex (file ./figures/voting/input_data_description.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
 >]
-<./figures/voting/threshold_grid_ppn0.pdf, id=940, 549.90901pt x 523.81297pt>
+<./figures/voting/threshold_grid_ppn0.pdf, id=920, 549.90901pt x 523.81297pt>
 File: ./figures/voting/threshold_grid_ppn0.pdf Graphic file (type pdf)
 <use ./figures/voting/threshold_grid_ppn0.pdf>
 Package pdftex.def Info: ./figures/voting/threshold_grid_ppn0.pdf  used on inpu
 t line 296.
 (pdftex.def)             Requested size: 158.27264pt x 150.75891pt.
-<./figures/voting/threshold_grid_ppn1.pdf, id=941, 549.90901pt x 523.81297pt>
+<./figures/voting/threshold_grid_ppn1.pdf, id=921, 549.90901pt x 523.81297pt>
 File: ./figures/voting/threshold_grid_ppn1.pdf Graphic file (type pdf)
 <use ./figures/voting/threshold_grid_ppn1.pdf>
 Package pdftex.def Info: ./figures/voting/threshold_grid_ppn1.pdf  used on inpu
 t line 299.
 (pdftex.def)             Requested size: 158.27264pt x 150.75891pt.
-<./figures/voting/thresholds_ppn.pdf, id=943, 433.62pt x 289.08pt>
+<./figures/voting/thresholds_ppn.pdf, id=923, 433.62pt x 289.08pt>
 File: ./figures/voting/thresholds_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/thresholds_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/thresholds_ppn.pdf  used on input lin
 e 327.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/max_iter_ppn.pdf, id=944, 433.62pt x 289.08pt>
+<./figures/voting/max_iter_ppn.pdf, id=924, 433.62pt x 289.08pt>
 File: ./figures/voting/max_iter_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/max_iter_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/max_iter_ppn.pdf  used on input line 
 330.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/penalty_ppn.pdf, id=945, 433.62pt x 289.08pt>
+<./figures/voting/penalty_ppn.pdf, id=925, 433.62pt x 289.08pt>
 File: ./figures/voting/penalty_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/penalty_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/penalty_ppn.pdf  used on input line 3
 33.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/tol_ppn.pdf, id=946, 433.62pt x 289.08pt>
+<./figures/voting/tol_ppn.pdf, id=926, 433.62pt x 289.08pt>
 File: ./figures/voting/tol_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/tol_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/tol_ppn.pdf  used on input line 336.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/learning_rate_ppn.pdf, id=947, 433.62pt x 289.08pt>
+<./figures/voting/learning_rate_ppn.pdf, id=927, 433.62pt x 289.08pt>
 File: ./figures/voting/learning_rate_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/learning_rate_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/learning_rate_ppn.pdf  used on input 
 line 339.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/early_stopping_ppn.pdf, id=948, 433.62pt x 289.08pt>
+<./figures/voting/early_stopping_ppn.pdf, id=928, 433.62pt x 289.08pt>
 File: ./figures/voting/early_stopping_ppn.pdf Graphic file (type pdf)
 <use ./figures/voting/early_stopping_ppn.pdf>
 Package pdftex.def Info: ./figures/voting/early_stopping_ppn.pdf  used on input
@@ -1284,7 +1302,7 @@ _ppn1.pdf
 pdfTeX warning: pdflatex (file ./figures/voting/threshold_grid_ppn1.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >]
-<./figures/voting/threshold_grid_rdf0.pdf, id=1036, 549.90901pt x 523.81297pt>
+<./figures/voting/threshold_grid_rdf0.pdf, id=1016, 549.90901pt x 523.81297pt>
 File: ./figures/voting/threshold_grid_rdf0.pdf Graphic file (type pdf)
 <use ./figures/voting/threshold_grid_rdf0.pdf>
 Package pdftex.def Info: ./figures/voting/threshold_grid_rdf0.pdf  used on inpu
@@ -1320,37 +1338,37 @@ clusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/voting/threshold_grid_rdf0.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >]
-<./figures/voting/thresholds_rdf.pdf, id=1264, 433.62pt x 289.08pt>
+<./figures/voting/thresholds_rdf.pdf, id=1244, 433.62pt x 289.08pt>
 File: ./figures/voting/thresholds_rdf.pdf Graphic file (type pdf)
 <use ./figures/voting/thresholds_rdf.pdf>
 Package pdftex.def Info: ./figures/voting/thresholds_rdf.pdf  used on input lin
 e 378.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/criterion_rdf.pdf, id=1265, 433.62pt x 289.08pt>
+<./figures/voting/criterion_rdf.pdf, id=1245, 433.62pt x 289.08pt>
 File: ./figures/voting/criterion_rdf.pdf Graphic file (type pdf)
 <use ./figures/voting/criterion_rdf.pdf>
 Package pdftex.def Info: ./figures/voting/criterion_rdf.pdf  used on input line
  381.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/min_samples_leaf_rdf.pdf, id=1266, 433.62pt x 289.08pt>
+<./figures/voting/min_samples_leaf_rdf.pdf, id=1246, 433.62pt x 289.08pt>
 File: ./figures/voting/min_samples_leaf_rdf.pdf Graphic file (type pdf)
 <use ./figures/voting/min_samples_leaf_rdf.pdf>
 Package pdftex.def Info: ./figures/voting/min_samples_leaf_rdf.pdf  used on inp
 ut line 384.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/ccp_alpha_rdf.pdf, id=1267, 433.62pt x 289.08pt>
+<./figures/voting/ccp_alpha_rdf.pdf, id=1247, 433.62pt x 289.08pt>
 File: ./figures/voting/ccp_alpha_rdf.pdf Graphic file (type pdf)
 <use ./figures/voting/ccp_alpha_rdf.pdf>
 Package pdftex.def Info: ./figures/voting/ccp_alpha_rdf.pdf  used on input line
  387.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/min_samples_split_rdf.pdf, id=1268, 433.62pt x 289.08pt>
+<./figures/voting/min_samples_split_rdf.pdf, id=1248, 433.62pt x 289.08pt>
 File: ./figures/voting/min_samples_split_rdf.pdf Graphic file (type pdf)
 <use ./figures/voting/min_samples_split_rdf.pdf>
 Package pdftex.def Info: ./figures/voting/min_samples_split_rdf.pdf  used on in
 put line 390.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/threshold_grid_nb0.pdf, id=1270, 549.90901pt x 523.81297pt>
+<./figures/voting/threshold_grid_nb0.pdf, id=1250, 549.90901pt x 523.81297pt>
 File: ./figures/voting/threshold_grid_nb0.pdf Graphic file (type pdf)
 <use ./figures/voting/threshold_grid_nb0.pdf>
 Package pdftex.def Info: ./figures/voting/threshold_grid_nb0.pdf  used on input
@@ -1361,13 +1379,13 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 401--419
 [][] [] 
  []
 
-<./figures/voting/thresholds_nb.pdf, id=1272, 433.62pt x 289.08pt>
+<./figures/voting/thresholds_nb.pdf, id=1252, 433.62pt x 289.08pt>
 File: ./figures/voting/thresholds_nb.pdf Graphic file (type pdf)
 <use ./figures/voting/thresholds_nb.pdf>
 Package pdftex.def Info: ./figures/voting/thresholds_nb.pdf  used on input line
  427.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<./figures/voting/laplace_nb.pdf, id=1273, 433.62pt x 289.08pt>
+<./figures/voting/laplace_nb.pdf, id=1253, 433.62pt x 289.08pt>
 File: ./figures/voting/laplace_nb.pdf Graphic file (type pdf)
 <use ./figures/voting/laplace_nb.pdf>
 Package pdftex.def Info: ./figures/voting/laplace_nb.pdf  used on input line 43
@@ -1399,19 +1417,19 @@ pdfTeX warning: pdflatex (file ./figures/voting/min_samples_split_rdf.pdf): PDF
 pdfTeX warning: pdflatex (file ./figures/voting/threshold_grid_nb0.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >]
-<./figures/email_spam/char_count.pdf, id=1477, 361.35pt x 361.35pt>
+<./figures/email_spam/char_count.pdf, id=1457, 361.35pt x 361.35pt>
 File: ./figures/email_spam/char_count.pdf Graphic file (type pdf)
 <use ./figures/email_spam/char_count.pdf>
 Package pdftex.def Info: ./figures/email_spam/char_count.pdf  used on input lin
 e 472.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/word_count.pdf, id=1478, 361.35pt x 361.35pt>
+<./figures/email_spam/word_count.pdf, id=1458, 361.35pt x 361.35pt>
 File: ./figures/email_spam/word_count.pdf Graphic file (type pdf)
 <use ./figures/email_spam/word_count.pdf>
 Package pdftex.def Info: ./figures/email_spam/word_count.pdf  used on input lin
 e 475.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/word_transformed_count.pdf, id=1479, 361.35pt x 361.35pt>
+<./figures/email_spam/word_transformed_count.pdf, id=1459, 361.35pt x 361.35pt>
 
 File: ./figures/email_spam/word_transformed_count.pdf Graphic file (type pdf)
 <use ./figures/email_spam/word_transformed_count.pdf>
@@ -1435,68 +1453,68 @@ ion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/email_spam/word_transformed_count.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./figures/email_spam/perc_scaling.pdf, id=1667, 361.35pt x 361.35pt>
+<./figures/email_spam/perc_scaling.pdf, id=1647, 361.35pt x 361.35pt>
 File: ./figures/email_spam/perc_scaling.pdf Graphic file (type pdf)
 <use ./figures/email_spam/perc_scaling.pdf>
 Package pdftex.def Info: ./figures/email_spam/perc_scaling.pdf  used on input l
 ine 500.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_features.pdf, id=1668, 361.35pt x 361.35pt>
+<./figures/email_spam/perc_features.pdf, id=1648, 361.35pt x 361.35pt>
 File: ./figures/email_spam/perc_features.pdf Graphic file (type pdf)
 <use ./figures/email_spam/perc_features.pdf>
 Package pdftex.def Info: ./figures/email_spam/perc_features.pdf  used on input 
 line 503.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_learning_rate.pdf, id=1669, 361.35pt x 361.35pt>
+<./figures/email_spam/perc_learning_rate.pdf, id=1649, 361.35pt x 361.35pt>
 File: ./figures/email_spam/perc_learning_rate.pdf Graphic file (type pdf)
 <use ./figures/email_spam/perc_learning_rate.pdf>
 Package pdftex.def Info: ./figures/email_spam/perc_learning_rate.pdf  used on i
 nput line 506.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_tolerance.pdf, id=1670, 361.35pt x 361.35pt>
+<./figures/email_spam/perc_tolerance.pdf, id=1650, 361.35pt x 361.35pt>
 File: ./figures/email_spam/perc_tolerance.pdf Graphic file (type pdf)
 <use ./figures/email_spam/perc_tolerance.pdf>
 Package pdftex.def Info: ./figures/email_spam/perc_tolerance.pdf  used on input
  line 509.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/perc_maxiter.pdf, id=1671, 361.35pt x 361.35pt>
+<./figures/email_spam/perc_maxiter.pdf, id=1651, 361.35pt x 361.35pt>
 File: ./figures/email_spam/perc_maxiter.pdf Graphic file (type pdf)
 <use ./figures/email_spam/perc_maxiter.pdf>
 Package pdftex.def Info: ./figures/email_spam/perc_maxiter.pdf  used on input l
 ine 512.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
  [13]
-<./figures/email_spam/rnd_scaling.pdf, id=1678, 345.94243pt x 345.88696pt>
+<./figures/email_spam/rnd_scaling.pdf, id=1658, 345.94243pt x 345.88696pt>
 File: ./figures/email_spam/rnd_scaling.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_scaling.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_scaling.pdf  used on input li
 ne 528.
 (pdftex.def)             Requested size: 158.27264pt x 158.24437pt.
-<./figures/email_spam/rnd_features.pdf, id=1679, 361.35pt x 361.35pt>
+<./figures/email_spam/rnd_features.pdf, id=1659, 361.35pt x 361.35pt>
 File: ./figures/email_spam/rnd_features.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_features.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_features.pdf  used on input l
 ine 531.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/rnd_trees.pdf, id=1680, 339.5592pt x 334.87297pt>
+<./figures/email_spam/rnd_trees.pdf, id=1660, 339.5592pt x 334.87297pt>
 File: ./figures/email_spam/rnd_trees.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_trees.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_trees.pdf  used on input line
  534.
 (pdftex.def)             Requested size: 158.27264pt x 156.09244pt.
-<./figures/email_spam/rnd_ccpalpha.pdf, id=1681, 361.35pt x 361.35pt>
+<./figures/email_spam/rnd_ccpalpha.pdf, id=1661, 361.35pt x 361.35pt>
 File: ./figures/email_spam/rnd_ccpalpha.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_ccpalpha.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_ccpalpha.pdf  used on input l
 ine 537.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/rnd_depth.pdf, id=1682, 339.5592pt x 335.20233pt>
+<./figures/email_spam/rnd_depth.pdf, id=1662, 339.5592pt x 335.20233pt>
 File: ./figures/email_spam/rnd_depth.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_depth.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_depth.pdf  used on input line
  540.
 (pdftex.def)             Requested size: 158.27264pt x 156.24596pt.
-<./figures/email_spam/rnd_min_samples_leaf.pdf, id=1683, 361.35pt x 361.35pt>
+<./figures/email_spam/rnd_min_samples_leaf.pdf, id=1663, 361.35pt x 361.35pt>
 File: ./figures/email_spam/rnd_min_samples_leaf.pdf Graphic file (type pdf)
 <use ./figures/email_spam/rnd_min_samples_leaf.pdf>
 Package pdftex.def Info: ./figures/email_spam/rnd_min_samples_leaf.pdf  used on
@@ -1557,26 +1575,31 @@ on: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/email_spam/rnd_min_samples_leaf.pdf): 
 PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./figures/email_spam/nb_scaling.pdf, id=2090, 361.35pt x 361.35pt>
+<./figures/email_spam/nb_scaling.pdf, id=2070, 361.35pt x 361.35pt>
 File: ./figures/email_spam/nb_scaling.pdf Graphic file (type pdf)
 <use ./figures/email_spam/nb_scaling.pdf>
 Package pdftex.def Info: ./figures/email_spam/nb_scaling.pdf  used on input lin
 e 558.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/nb_features.pdf, id=2091, 361.35pt x 361.35pt>
+<./figures/email_spam/nb_features.pdf, id=2071, 361.35pt x 361.35pt>
 File: ./figures/email_spam/nb_features.pdf Graphic file (type pdf)
 <use ./figures/email_spam/nb_features.pdf>
 Package pdftex.def Info: ./figures/email_spam/nb_features.pdf  used on input li
 ne 561.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/email_spam/nb_smoother.pdf, id=2092, 361.35pt x 361.35pt>
+<./figures/email_spam/nb_smoother.pdf, id=2072, 361.35pt x 361.35pt>
 File: ./figures/email_spam/nb_smoother.pdf Graphic file (type pdf)
 <use ./figures/email_spam/nb_smoother.pdf>
 Package pdftex.def Info: ./figures/email_spam/nb_smoother.pdf  used on input li
 ne 564.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
- [16 <./figures/email_spam/nb_scaling.pdf> <./figures/email_spam/nb_features.pd
-f
+
+
+LaTeX Warning: Reference `bridges_fig0' on page 16 undefined on input line 593.
+
+
+[16 <./figures/email_spam/nb_scaling.pdf> <./figures/email_spam/nb_features.pdf
+
 
 pdfTeX warning: pdflatex (file ./figures/email_spam/nb_features.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
@@ -1585,18 +1608,244 @@ sion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/email_spam/nb_smoother.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
 >]
-<./figures/bridges/classification_trainset.pdf, id=2218, 361.35pt x 361.35pt>
+<./figures/bridges/classification_trainset.pdf, id=2197, 361.35pt x 361.35pt>
 File: ./figures/bridges/classification_trainset.pdf Graphic file (type pdf)
 <use ./figures/bridges/classification_trainset.pdf>
 Package pdftex.def Info: ./figures/bridges/classification_trainset.pdf  used on
  input line 598.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
-<./figures/bridges/bridges_missing.pdf, id=2219, 361.35pt x 361.35pt>
+<./figures/bridges/bridges_missing.pdf, id=2198, 361.35pt x 361.35pt>
 File: ./figures/bridges/bridges_missing.pdf Graphic file (type pdf)
 <use ./figures/bridges/bridges_missing.pdf>
 Package pdftex.def Info: ./figures/bridges/bridges_missing.pdf  used on input l
 ine 601.
 (pdftex.def)             Requested size: 158.27264pt x 158.27219pt.
+
+
+LaTeX Warning: Reference `bridges_fig0' on page 17 undefined on input line 609.
+
+
+<./figures/bridges/threshold_grid_ppn0.pdf, id=2199, 549.90901pt x 523.81297pt>
+
+File: ./figures/bridges/threshold_grid_ppn0.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_ppn0.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_ppn0.pdf  used on inp
+ut line 619.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+<./figures/bridges/threshold_grid_ppn1.pdf, id=2200, 549.90901pt x 523.81297pt>
+
+File: ./figures/bridges/threshold_grid_ppn1.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_ppn1.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_ppn1.pdf  used on inp
+ut line 622.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 618--624
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: Reference `Fig:: PPN_result_grid' on page 17 undefined on input 
+line 628.
+
+<./figures/bridges/Best_parameter_count_max_iter.pdf, id=2201, 289.08pt x 289.0
+8pt>
+File: ./figures/bridges/Best_parameter_count_max_iter.pdf Graphic file (type pd
+f)
+<use ./figures/bridges/Best_parameter_count_max_iter.pdf>
+Package pdftex.def Info: ./figures/bridges/Best_parameter_count_max_iter.pdf  u
+sed on input line 632.
+(pdftex.def)             Requested size: 158.27264pt x 158.27107pt.
+<./figures/bridges/Best_parameter_count_Early_stop.pdf, id=2202, 289.08pt x 289
+.08pt>
+File: ./figures/bridges/Best_parameter_count_Early_stop.pdf Graphic file (type 
+pdf)
+<use ./figures/bridges/Best_parameter_count_Early_stop.pdf>
+Package pdftex.def Info: ./figures/bridges/Best_parameter_count_Early_stop.pdf 
+ used on input line 635.
+(pdftex.def)             Requested size: 158.27264pt x 158.27107pt.
+<./figures/bridges/Best_parameter_count_Eta0.pdf, id=2203, 289.08pt x 289.08pt>
+
+File: ./figures/bridges/Best_parameter_count_Eta0.pdf Graphic file (type pdf)
+<use ./figures/bridges/Best_parameter_count_Eta0.pdf>
+Package pdftex.def Info: ./figures/bridges/Best_parameter_count_Eta0.pdf  used 
+on input line 638.
+(pdftex.def)             Requested size: 158.27264pt x 158.27107pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
+
+ []
+
+<./figures/bridges/Best_parameter_count_penalty.pdf, id=2204, 289.08pt x 289.08
+pt>
+File: ./figures/bridges/Best_parameter_count_penalty.pdf Graphic file (type pdf
+)
+<use ./figures/bridges/Best_parameter_count_penalty.pdf>
+Package pdftex.def Info: ./figures/bridges/Best_parameter_count_penalty.pdf  us
+ed on input line 641.
+(pdftex.def)             Requested size: 158.27264pt x 158.27107pt.
+<./figures/bridges/Best_parameter_count_tol.pdf, id=2205, 289.08pt x 289.08pt>
+File: ./figures/bridges/Best_parameter_count_tol.pdf Graphic file (type pdf)
+<use ./figures/bridges/Best_parameter_count_tol.pdf>
+Package pdftex.def Info: ./figures/bridges/Best_parameter_count_tol.pdf  used o
+n input line 644.
+(pdftex.def)             Requested size: 158.27264pt x 158.27107pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 631--646
+[]$[]$ $[]$ $[]$
+ []
+
+<./figures/bridges/thresholds_ppn.pdf, id=2206, 433.62pt x 289.08pt>
+File: ./figures/bridges/thresholds_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/thresholds_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/thresholds_ppn.pdf  used on input li
+ne 652.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/max_iter_ppn.pdf, id=2207, 433.62pt x 289.08pt>
+File: ./figures/bridges/max_iter_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/max_iter_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/max_iter_ppn.pdf  used on input line
+ 655.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/penalty_ppn.pdf, id=2208, 433.62pt x 289.08pt>
+File: ./figures/bridges/penalty_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/penalty_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/penalty_ppn.pdf  used on input line 
+658.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 658--659
+
+ []
+
+<./figures/bridges/tol_ppn.pdf, id=2209, 433.62pt x 289.08pt>
+File: ./figures/bridges/tol_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/tol_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/tol_ppn.pdf  used on input line 661.
+
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/learning_rate_ppn.pdf, id=2210, 433.62pt x 289.08pt>
+File: ./figures/bridges/learning_rate_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/learning_rate_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/learning_rate_ppn.pdf  used on input
+ line 664.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/early_stopping_ppn.pdf, id=2211, 433.62pt x 289.08pt>
+File: ./figures/bridges/early_stopping_ppn.pdf Graphic file (type pdf)
+<use ./figures/bridges/early_stopping_ppn.pdf>
+Package pdftex.def Info: ./figures/bridges/early_stopping_ppn.pdf  used on inpu
+t line 667.
+(pdftex.def)             Requested size: 191.51007pt x 127.67197pt.
+
+Overfull \hbox (17.41096pt too wide) in paragraph at lines 667--668
+[][] 
+ []
+
+<./figures/bridges/threshold_grid_rdf0.pdf, id=2212, 549.90901pt x 523.81297pt>
+
+File: ./figures/bridges/threshold_grid_rdf0.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_rdf0.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_rdf0.pdf  used on inp
+ut line 677.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+<./figures/bridges/threshold_grid_rdf1.pdf, id=2213, 549.90901pt x 523.81297pt>
+
+File: ./figures/bridges/threshold_grid_rdf1.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_rdf1.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_rdf1.pdf  used on inp
+ut line 680.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 676--682
+[]$[]$ $[]$ 
+ []
+
+<./figures/bridges/thresholds_rdf.pdf, id=2214, 433.62pt x 289.08pt>
+File: ./figures/bridges/thresholds_rdf.pdf Graphic file (type pdf)
+<use ./figures/bridges/thresholds_rdf.pdf>
+Package pdftex.def Info: ./figures/bridges/thresholds_rdf.pdf  used on input li
+ne 688.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/criterion_rdf.pdf, id=2215, 433.62pt x 289.08pt>
+File: ./figures/bridges/criterion_rdf.pdf Graphic file (type pdf)
+<use ./figures/bridges/criterion_rdf.pdf>
+Package pdftex.def Info: ./figures/bridges/criterion_rdf.pdf  used on input lin
+e 691.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/min_samples_leaf_rdf.pdf, id=2216, 433.62pt x 289.08pt>
+File: ./figures/bridges/min_samples_leaf_rdf.pdf Graphic file (type pdf)
+<use ./figures/bridges/min_samples_leaf_rdf.pdf>
+Package pdftex.def Info: ./figures/bridges/min_samples_leaf_rdf.pdf  used on in
+put line 694.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+
+ []
+
+<./figures/bridges/ccp_alpha_rdf.pdf, id=2217, 433.62pt x 289.08pt>
+File: ./figures/bridges/ccp_alpha_rdf.pdf Graphic file (type pdf)
+<use ./figures/bridges/ccp_alpha_rdf.pdf>
+Package pdftex.def Info: ./figures/bridges/ccp_alpha_rdf.pdf  used on input lin
+e 697.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/min_samples_split_rdf.pdf, id=2218, 433.62pt x 289.08pt>
+File: ./figures/bridges/min_samples_split_rdf.pdf Graphic file (type pdf)
+<use ./figures/bridges/min_samples_split_rdf.pdf>
+Package pdftex.def Info: ./figures/bridges/min_samples_split_rdf.pdf  used on i
+nput line 700.
+(pdftex.def)             Requested size: 174.0991pt x 116.06664pt.
+<./figures/bridges/threshold_grid_nb0.pdf, id=2219, 549.90901pt x 523.81297pt>
+File: ./figures/bridges/threshold_grid_nb0.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_nb0.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_nb0.pdf  used on inpu
+t line 710.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+<./figures/bridges/threshold_grid_nb1.pdf, id=2220, 549.90901pt x 523.81297pt>
+File: ./figures/bridges/threshold_grid_nb1.pdf Graphic file (type pdf)
+<use ./figures/bridges/threshold_grid_nb1.pdf>
+Package pdftex.def Info: ./figures/bridges/threshold_grid_nb1.pdf  used on inpu
+t line 713.
+(pdftex.def)             Requested size: 263.78506pt x 251.26752pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 709--715
+[]$[]$ $[]$ 
+ []
+
+<./figures/bridges/thresholds_nb.pdf, id=2221, 433.62pt x 289.08pt>
+File: ./figures/bridges/thresholds_nb.pdf Graphic file (type pdf)
+<use ./figures/bridges/thresholds_nb.pdf>
+Package pdftex.def Info: ./figures/bridges/thresholds_nb.pdf  used on input lin
+e 722.
+(pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
+<./figures/bridges/laplace_nb.pdf, id=2222, 433.62pt x 289.08pt>
+File: ./figures/bridges/laplace_nb.pdf Graphic file (type pdf)
+<use ./figures/bridges/laplace_nb.pdf>
+Package pdftex.def Info: ./figures/bridges/laplace_nb.pdf  used on input line 7
+25.
+(pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 721--727
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1606,25 +1855,127 @@ missing.pdf
 
 pdfTeX warning: pdflatex (file ./figures/bridges/bridges_missing.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
->] (./report.bbl) [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 674.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 674.
+>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18 <./figures/bridges/threshold_grid_ppn0.pdf> <./figures/bridges/threshold_gr
+id_ppn1.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/threshold_grid_ppn1.pdf): PDF 
+inclusion: multiple pdfs with page group included in a single page
+>]
+No file report.bbl.
+[19 <./figures/bridges/Best_parameter_count_max_iter.pdf> <./figures/bridges/Be
+st_parameter_count_Early_stop.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/Best_parameter_count_Early_sto
+p.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/Best_parameter_count_Eta0.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/Best_parameter_count_Eta0.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/Best_parameter_count_penalty.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/Best_parameter_count_penalty.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/Best_parameter_count_tol.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/Best_parameter_count_tol.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/thresholds_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/thresholds_ppn.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+> <./figures/bridges/max_iter_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/max_iter_ppn.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./figures/bridges/penalty_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/penalty_ppn.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./figures/bridges/tol_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/tol_ppn.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+> <./figures/bridges/learning_rate_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/learning_rate_ppn.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/early_stopping_ppn.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/early_stopping_ppn.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>] [20 <./figures/bridges/threshold_grid_rdf0.pdf> <./figures/bridges/threshold
+_grid_rdf1.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/threshold_grid_rdf1.pdf): PDF 
+inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/thresholds_rdf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/thresholds_rdf.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+> <./figures/bridges/criterion_rdf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/criterion_rdf.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+> <./figures/bridges/min_samples_leaf_rdf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/min_samples_leaf_rdf.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/ccp_alpha_rdf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/ccp_alpha_rdf.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+> <./figures/bridges/min_samples_split_rdf.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/min_samples_split_rdf.pdf): PD
+F inclusion: multiple pdfs with page group included in a single page
+>] [21 <./figures/bridges/threshold_grid_nb0.pdf> <./figures/bridges/threshold_
+grid_nb1.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/threshold_grid_nb1.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+> <./figures/bridges/thresholds_nb.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/thresholds_nb.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+> <./figures/bridges/laplace_nb.pdf
+
+pdfTeX warning: pdflatex (file ./figures/bridges/laplace_nb.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>] [22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 793.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 793.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 674.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 674.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B7AB1299C9F77CE266D03D04DDACE349;1511.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 793.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 793.
+
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: 1D0024CDA7ADC327D93340038B8BF47B;1335
+(rerunfilecheck)             After:  E51CB11A8DAAB10748757D4C352AAAC8;1580.
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22904 strings out of 481239
- 417339 string characters out of 5920378
- 700299 words of memory out of 5000000
- 37602 multiletter control sequences out of 15000+600000
- 540564 words of font info for 55 fonts, out of 8000000 for 9000
+ 23035 strings out of 481239
+ 423420 string characters out of 5920378
+ 699906 words of memory out of 5000000
+ 37720 multiletter control sequences out of 15000+600000
+ 540218 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,17n,77p,2327b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1637,13 +1988,13 @@ t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
 public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (18 pages, 789834 bytes).
+sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on report.pdf (22 pages, 1005955 bytes).
 PDF statistics:
- 2377 PDF objects out of 2487 (max. 8388607)
- 589 compressed objects within 6 object streams
- 74 named destinations out of 1000 (max. 500000)
- 477 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3179 PDF objects out of 3580 (max. 8388607)
+ 712 compressed objects within 8 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 573 words of extra memory for PDF output out of 10000 (max. 10000000)
 
