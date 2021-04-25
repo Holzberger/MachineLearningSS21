@@ -58,7 +58,7 @@ This chapter summarizes the metrics that are used for performance evaluation of 
 \text{Accuracy } &= \frac{tp+tn}{tp+tn+fp+fn}, \quad \text{F1 } = \frac{2}{\text{Percision}^{-1}+ \text{Recall}^{-1}}
 \end{align}
 
-For the comparison of the algorithms, we use the F1-score since it can be applied in a meaningful way for many scenarios. This is not the case for precision and recall. When comparing between the F1 scores of multiclass classifiers, we will calculate the macro averages F1 score.
+For the comparison of the algorithms, we use the F1-score since it can be applied in a meaningful way for many scenarios. This is not the case for precision and recall. When comparing between the F1 scores of multiclass classifiers, we will calculate the macro averages F1 score. This method ensures that our results are comparable to give an overall view on the performance of all algorithms at the end of this report.
 
 \section{Kaggle: Amazon review}
 \subsection{Dataset Description} 
@@ -388,7 +388,7 @@ The best parameters for the Naive Bayes algorithm are by that: :scaling method: 
 
 \section{Bridges Dataset(\href{https://archive.ics.uci.edu/ml/datasets/Pittsburgh+Bridges}{link to dataset})}
 \subsection{Dataset Description}
-In this dataset with size 108, a collection of attributes of briges in Pittsburgh Pennsylvania. The task is to predict the type of bridge by the given attributes. The the attributes are summarized in table \ref{bridgetab_tab0}, where we can see that most of them are nominal and lenght and span can be identified as ordinal. 
+In this dataset with a size of 108 smaples, a collection of attributes of briges in Pittsburgh Pennsylvania is presented. The task is to predict the type of bridge by the given attributes. The the attributes are summarized in table \ref{bridgetab_tab0}, where we can see that most of them are nominal and lenght and span can be identified as ordinal. 
 %
 \begin{figure}
   \begin{tabular}{ | l | l | l | l |}
@@ -406,7 +406,7 @@ In this dataset with size 108, a collection of attributes of briges in Pittsburg
 \end{figure}
 %
 In figure \ref{bridges_fig0} left we see the distribution of the type of bridges that occur in our data. 
-This trainset is imbalanced, with a bit less than the half of the samples which are labellized as simple truss... we can already imagine that our results will not be very accurate according to the small amount of samples and this very imbalanced dataset (we only have around 10 samples per label in most of cases). We treat missing values by two approaches namely, replacing then with the value of the nearest neighbor smaple or randomly inserting another value for the missing one.
+This trainset is imbalanced, with a bit less than the half of the samples which are labellized as simple truss... we can already imagine that our results will not be very accurate according to the small amount of samples and this very imbalanced dataset (we only have around 10 samples per label in most of cases). 
 
 \begin{figure}
 \begin{minipage}[l]{0.3\textwidth}
@@ -421,14 +421,27 @@ This trainset is imbalanced, with a bit less than the half of the samples which 
 \label{bridges_fig0}
 \end{figure}
 
-Next in figure \ref{bridges_fig0} middle we show the missing values in the dataset. We can see that there are some missing values, and we have the repartition of missing values among samples with the following table {insert table}. We can notice that the feature "lenght" is the most incomplete one, with 25% missing values, and "lanes" and "span" have 15% missing values. The other features having less than 6% missing values. We can also notice that three labels are missing, so we have to drop it.
-To treat the missing values we 
+Next in figure \ref{bridges_fig0} middle we show the missing values in the dataset. We can see that there are some missing values, and we have the repartition of missing values among samples with the following table {insert table}. We can notice that the feature "lenght" is the most incomplete one, with 25% missing values, and "lanes" and "span" have 15% missing values. The other features having less than 6% missing values. We can also notice that three labels are missing, so we have to drop it. We treat missing values by two approaches namely, replacing then with the value of the nearest neighbor smaple or randomly inserting another value for the missing one.
 \subsection{Pre-Processing}
 \subsection{Parameter-Tuning}
 \subsection{Performance-Analysis}
 
 \section{Conclusion}
-
+%
+\begin{figure}
+\center
+  \begin{tabular}{ | l | l | l | l | l |}
+    \hline
+    Dataset & Perceptron & Random Forrest  & Naive Bayes & validation method\\ \hline
+    Amazon  & 0.50\cellcolor{gray!25} 		 & 0.52\cellcolor{gray!50}   	 	   &  			 & cross \\ \hline
+	Email   & 0.95\cellcolor{gray!25}  	 & 0.93   		   & 0.96\cellcolor{gray!50} 		 & cross \\ \hline
+	Voting  & 0.93\cellcolor{gray!25}  	 & 0.97\cellcolor{gray!50}   		   & 0.88 	     & holdout \\ \hline
+	Bridges & 0.53  	 				 & 0.60\cellcolor{gray!25}   		   & 0.66\cellcolor{gray!50} 		 & holdout \\ \hline
+  \end{tabular}
+  \caption{Best f1-scores obtained on the testsets}
+  \label{bridgetab_tab0}
+\end{figure}
+%
 %Bibliography
 \newpage
 \bibliography{lib} 
