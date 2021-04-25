@@ -4,24 +4,23 @@
 \BOOKMARK [3][-]{section*.4}{Random Forrest}{section*.2}% 4
 \BOOKMARK [3][-]{section*.5}{Naive Bayes \(Multinomial Bayes\)}{section*.2}% 5
 \BOOKMARK [2][-]{section*.6}{Performance Metrics}{section*.1}% 6
-\BOOKMARK [1][-]{section*.7}{Amazon Reviews Dataset}{}% 7
+\BOOKMARK [1][-]{section*.7}{Kaggle: Amazon review}{}% 7
 \BOOKMARK [2][-]{section*.8}{Dataset Description}{section*.7}% 8
-\BOOKMARK [2][-]{section*.9}{Pre-Processing}{section*.7}% 9
-\BOOKMARK [2][-]{section*.10}{Parameter-Tuning}{section*.7}% 10
-\BOOKMARK [2][-]{section*.11}{Performance-Analysis}{section*.7}% 11
-\BOOKMARK [1][-]{section*.12}{Congressional Voting Dataset}{}% 12
-\BOOKMARK [2][-]{section*.13}{Dataset Description}{section*.12}% 13
-\BOOKMARK [2][-]{section*.14}{Pre-Processing}{section*.12}% 14
-\BOOKMARK [2][-]{section*.15}{Parameter-Tuning}{section*.12}% 15
-\BOOKMARK [2][-]{section*.16}{Performance-Analysis}{section*.12}% 16
-\BOOKMARK [1][-]{section*.17}{Email Spam Dataset\(link to dataset\)}{}% 17
-\BOOKMARK [2][-]{section*.18}{Dataset Description}{section*.17}% 18
-\BOOKMARK [2][-]{section*.21}{Pre-Processing}{section*.17}% 19
-\BOOKMARK [2][-]{section*.22}{Parameter-Tuning}{section*.17}% 20
-\BOOKMARK [2][-]{section*.26}{Performance-Analysis}{section*.17}% 21
-\BOOKMARK [1][-]{section*.27}{Bridges Dataset\(link to dataset\)}{}% 22
-\BOOKMARK [2][-]{section*.28}{Dataset Description}{section*.27}% 23
-\BOOKMARK [2][-]{section*.30}{Pre-Processing}{section*.27}% 24
-\BOOKMARK [2][-]{section*.31}{Parameter-Tuning}{section*.27}% 25
-\BOOKMARK [2][-]{section*.32}{Performance-Analysis}{section*.27}% 26
-\BOOKMARK [1][-]{section*.33}{Conclusion}{}% 27
+\BOOKMARK [2][-]{section*.10}{Pre-Processing}{section*.7}% 9
+\BOOKMARK [2][-]{section*.12}{Parameter-Tuning}{section*.7}% 10
+\BOOKMARK [1][-]{section*.16}{Congressional Voting Dataset}{}% 11
+\BOOKMARK [2][-]{section*.17}{Dataset Description}{section*.16}% 12
+\BOOKMARK [2][-]{section*.18}{Pre-Processing}{section*.16}% 13
+\BOOKMARK [2][-]{section*.19}{Parameter-Tuning}{section*.16}% 14
+\BOOKMARK [2][-]{section*.20}{Performance-Analysis}{section*.16}% 15
+\BOOKMARK [1][-]{section*.21}{Email Spam Dataset\(link to dataset\)}{}% 16
+\BOOKMARK [2][-]{section*.22}{Dataset Description}{section*.21}% 17
+\BOOKMARK [2][-]{section*.25}{Pre-Processing}{section*.21}% 18
+\BOOKMARK [2][-]{section*.26}{Parameter-Tuning}{section*.21}% 19
+\BOOKMARK [2][-]{section*.30}{Performance-Analysis}{section*.21}% 20
+\BOOKMARK [1][-]{section*.31}{Bridges Dataset\(link to dataset\)}{}% 21
+\BOOKMARK [2][-]{section*.32}{Dataset Description}{section*.31}% 22
+\BOOKMARK [2][-]{section*.34}{Pre-Processing}{section*.31}% 23
+\BOOKMARK [2][-]{section*.35}{Parameter-Tuning}{section*.31}% 24
+\BOOKMARK [2][-]{section*.36}{Performance-Analysis}{section*.31}% 25
+\BOOKMARK [1][-]{section*.37}{Conclusion}{}% 26
