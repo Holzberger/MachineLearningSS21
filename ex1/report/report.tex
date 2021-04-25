@@ -728,7 +728,6 @@ HOW DO WE DO THIS!!!!!
 \label{Fig:: NB_result_manual parameter_tuning}
 \end{figure}
 
-\subsection{Performance-Analysis}
 
 \section{Conclusion}
 %
@@ -748,7 +747,6 @@ HOW DO WE DO THIS!!!!!
 
 \begin{figure}[h]
 \centering
-\resizebox{\columnwidth}{!}{%
   \begin{tabular}{ | l | l | l | l | l | l | l |}
 	\hline
     Dataset & Threshold & Max iter & Penalty & Stop criterion & Learning rate & Early stop\\  
@@ -761,29 +759,26 @@ HOW DO WE DO THIS!!!!!
     \hline
    Bridges &  &  &  &  & &   \\
 	\hline
-    \end{tabular}%
-  	}
+    \end{tabular}
     \caption{Best parameter configurations for Perceptron classifier with respect to the considered datasets}
     \label{tab_conc1}
   \end{figure}
   
   \begin{figure}[h]
 \centering
-\resizebox{\columnwidth}{!}{%
-  \begin{tabular}{ | l | l | l | l | l | l | l | }
+  \begin{tabular}{ | l | l | l | l | l | l | l | l|}
 	\hline
-    Dataset & Threshold & Nr. estimators & Max depth & Max leafs & Min samples p leaf & ccp alpha\\  
+    Dataset & Threshold & Nr. estimators & Max depth & Max leafs & Min samples p leaf & ccp alpha & criterion\\  
     \hline
-    Amazon  &	&	&	&	&	&	 \\  
+    Amazon  & def & 200 & 50  & 50    & def  &	0.005 & entropy	 \\  
     \hline
-    Email   & def & 200 & 50 & 50 & def  &	0.005 \\  
+    Email   & def & 200 & 50  & 50    & def  &	0.005 & entropy	 \\  
     \hline
-    Voting & &  &  &  &	& \\
+    Voting  & 13  & 100 & def & 1     & def  & 0.001 & entropy  \\
     \hline
-    Bridges &  &  &  &  &  &   \\
+    Bridges & def &  70 &  60 &  def  &  def  & 0.005 & entropy\\
 	\hline
     \end{tabular}%
-  	}
     \caption{Best parameter configurations for Random Forest classifier with respect to the considered datasets}
     \label{tab_conc1}
   \end{figure}
@@ -791,21 +786,19 @@ HOW DO WE DO THIS!!!!!
   
 \begin{figure}[h]
 \centering
-%\resizebox{\columnwidth}{!}{%
   \begin{tabular}{ | l | l | l |}
 	\hline
     Dataset & Threshold & alpha \\  
     \hline
     Amazon  & def & 0.5    \\  
     \hline
-    Email   &  &  \\  
+    Email   & def & 1 \\  
     \hline
-    Voting &  &   \\
+    Voting & 16 &  10 \\
     \hline
-    Bridges &  &  \\
+    Bridges & 12 & $6\cdot 10^{-1}$ \\
 	\hline
-    \end{tabular}%
-%  	}
+    \end{tabular}
     \caption{Best parameter configurations for Naive Bayes classifier with respect to the considered datasets}
     \label{tab_conc1}
   \end{figure}
