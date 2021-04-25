@@ -737,7 +737,7 @@ HOW DO WE DO THIS!!!!!
   \begin{tabular}{ | l | l | l | l | l |}
     \hline
     Dataset & Perceptron & Random Forrest  & Naive Bayes \\ \hline
-    Amazon  & 0.43			   		 		 & 0.48\cellcolor{gray!25}   	 	   & 0.54\cellcolor{gray!50} \\ \hline
+    Amazon  & 0.50			   		 		 & 0.52\cellcolor{gray!25}   	 	   & 0.59\cellcolor{gray!50} \\ \hline
 	Email   & 0.95\cellcolor{gray!25}  	 	 & 0.93   		   					   & 0.96\cellcolor{gray!50} \\ \hline
 	Voting  & 0.94\cellcolor{gray!50}  	 	 & 0.94\cellcolor{gray!50}   		   & 0.88 	     		     \\ \hline
 	Bridges & 0.57\cellcolor{gray!25}  	 	 & 0.45   		   					   & 0.5\cellcolor{gray!50}  \\ \hline
@@ -758,29 +758,55 @@ HOW DO WE DO THIS!!!!!
     Email   & def & 10 & None & def & 0.001     & None \\  
     \hline
     Voting & 13 & 18 & None & $10^{-3}$ & 0.05 & None  \\
-	\hline\\
+    \hline
+   Bridges &  &  &  &  & &   \\
+	\hline
     \end{tabular}%
   	}
-    \caption{Best parameterconfiguations for perceptron claasifier with respect to the considered datasets}
+    \caption{Best parameter configurations for Perceptron classifier with respect to the considered datasets}
     \label{tab_conc1}
   \end{figure}
   
   \begin{figure}[h]
 \centering
 \resizebox{\columnwidth}{!}{%
-  \begin{tabular}{ | l | l | l | l | l | l | l |}
+  \begin{tabular}{ | l | l | l | l | l | l | l | }
 	\hline
-    Dataset & Threshold & Max iter & Penalty & Stop criterion & Learning rate & Early stop\\  
+    Dataset & Threshold & Nr. estimators & Max depth & Max leafs & Min samples p leaf & ccp alpha\\  
     \hline
-    Amazon  & def & 10 & l1   & def & $10^{-5}$ & l1   \\  
+    Amazon  &	&	&	&	&	&	 \\  
     \hline
-    Email   & def & 10 & None & def & 0.001     & None \\  
+    Email   & def & 200 & 50 & 50 & def  &	0.005 \\  
     \hline
-    Voting & 13 & 18 & None & $10^{-3}$ & 0.05 & None  \\
-	\hline\\
+    Voting & &  &  &  &	& \\
+    \hline
+    Bridges &  &  &  &  &  &   \\
+	\hline
     \end{tabular}%
   	}
-    \caption{Best parameterconfiguations for perceptron claasifier with respect to the considered datasets}
+    \caption{Best parameter configurations for Random Forest classifier with respect to the considered datasets}
+    \label{tab_conc1}
+  \end{figure}
+  
+  
+\begin{figure}[h]
+\centering
+%\resizebox{\columnwidth}{!}{%
+  \begin{tabular}{ | l | l | l |}
+	\hline
+    Dataset & Threshold & alpha \\  
+    \hline
+    Amazon  & def & 0.5    \\  
+    \hline
+    Email   &  &  \\  
+    \hline
+    Voting &  &   \\
+    \hline
+    Bridges &  &  \\
+	\hline
+    \end{tabular}%
+%  	}
+    \caption{Best parameter configurations for Naive Bayes classifier with respect to the considered datasets}
     \label{tab_conc1}
   \end{figure}
 
