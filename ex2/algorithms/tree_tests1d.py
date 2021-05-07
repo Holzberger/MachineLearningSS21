@@ -8,7 +8,7 @@ Created on Fri May  7 16:58:14 2021
 import numpy as np
 import matplotlib.pyplot as plt
 
-from tree import *
+from tree1d import *
 
 def f1(n_samples):
     x = np.random.uniform(-1, 1, n_samples)
