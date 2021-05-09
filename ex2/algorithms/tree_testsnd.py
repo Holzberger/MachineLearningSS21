@@ -13,8 +13,8 @@ from treend import *
 def f1(n_samples):
     x = np.random.uniform(-1, 1, n_samples)
     noise = np.random.normal(0, 1, n_samples)
-    y = noise+x**3 - 4*x**2 + x +1+ np.sin(10*x)
-    return x,y
+    y = noise + x**3 - 4*x**2 + x +1+ np.sin(10*x)
+    return x[:,None],y[:,None]
 
 def Fn(x):
     return x[:,0]**3 - 4*x[:,1]**2 + x[:,2] +1+ np.sin(10*x[:,3])
@@ -37,44 +37,37 @@ def f2_rand(n_samples):
         x[:, dim]     = np.random.uniform(-1, 1, n_samples)
     noise = np.random.normal(0, 0.1, n_samples)
     y = noise + f2(x)
-    return x,y
+    return x,y[:,None]
 
-x,y = f2_rand(1000)
+def test_1d(n_samples):
+    x,y = f1(n_samples)
+    data = np.hstack((x, y))
+    root = create_M5(data)
+    X = np.linspace(-1,1,100)[:,None]
+    Y=np.array([predict(root, X[i,:][:,None]) for i in range(100)])
+    plt.plot(x,y,".")
+    plt.plot(X,Y,linewidth=2,color="red")
+    
+def test_2d(n_samples):
+    x,y = f2_rand(n_samples)
+    data = np.hstack((x, y))
+    root = create_M5(data)
+    m=20
+    X = np.linspace(-1, 1, m)
+    Y = np.linspace(-1, 1, m)
+    X, Y = np.meshgrid(X, Y)
+    Z = np.zeros_like(X)
+    for i in range(m):
+        for j in range(m):
+            x1 = np.array([X[i,j],Y[i,j]])[:,None].T
+            Z[i,j] = predict(root, x1)
+    from matplotlib import cm
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+    surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
+    surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
 
-
-
-
-
-#np.std(a, dtype=np.float64)
-
-data = np.hstack((x, y[:,None]))
-
-root = create_M5(data)
-
-
-
-m=20
-X = np.linspace(-1, 1, m)
-Y = np.linspace(-1, 1, m)
-X, Y = np.meshgrid(X, Y)
-Z = np.zeros_like(X)
-
-for i in range(m):
-    for j in range(m):
-        x1 = np.array([X[i,j],Y[i,j]])[:,None].T
-        Z[i,j] = predict(root, x1)
-from matplotlib import cm
-fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.5)
-surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm)
-
-#splits = print_split(root)
-
-# # draw model
-# plt.plot(x,y,".")
-# X = np.linspace(-1,1,100)[:,None]
-# Y=np.array([predict(root, X[i,:][:,None]) for i in range(100)])
-# plt.plot(X,Y,linewidth=2,color="red")
+#test_1d(100)
+test_2d(500)
 
 # # # draw splits
 # splits = print_split(root)

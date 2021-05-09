@@ -34,18 +34,20 @@ def SDR(data):
     sdT = np.std(T)
     attr = data[:, :-1]
     attr_means = np.mean(attr, axis=0) 
-    mask_T1 = attr<=attr_means
+    mask_T1 = attr <= attr_means
     SDR_max = -1.0
     for n in range(n_attr):
         T1 = T[mask_T1[:,n]]
         T2 = T[np.logical_not(mask_T1[:,n])]
-        SDR_attr = np.abs(sdT - (T1.shape[0]*np.std(T1) + T2.shape[0]*np.std(T2))/n_T)
-        if SDR_attr>SDR_max:
+        SDR_attr = np.abs(sdT - (T1.shape[0]*np.std(T1) + 
+                                 T2.shape[0]*np.std(T2))/n_T)
+        if SDR_attr > SDR_max:
             SDR_max = SDR_attr
             n_SDR_max = n
     return data[mask_T1[:,n_SDR_max],:], \
            data[np.logical_not(mask_T1[:,n_SDR_max]),:], \
-           attr_means[n_SDR_max], n_SDR_max
+           attr_means[n_SDR_max], \
+           n_SDR_max
             
 
 def split(node, data):
