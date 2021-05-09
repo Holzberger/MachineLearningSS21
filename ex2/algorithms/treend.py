@@ -49,7 +49,7 @@ def split(node, data):
     node.coeffs = np.linalg.lstsq(x_coeffs, data[:,-1], rcond=None)[0]
     node.nval = data.shape[0]
     node.node_std = np.std(data[:,-1])
-    if (node.nval < 20) or (node.node_std<node.root_std*0.05):
+    if (node.nval < 10) or (node.node_std<node.root_std*0.05):
         node.type = 1 # leaf
     else:
         data_left, data_right, mean, dim_split = SDR(data, node)
@@ -79,10 +79,24 @@ def print_split(node, splits=[]):
         splits = print_split(node.right, splits)
     return splits
 
-def predict(node, x):
+
+def predict(node, x, smoothing=False):
+    k = 15.0
     if (node.left != None) and (x[:,node.dim_split]<=node.val):
-        return predict(node.left, x)
+        if smoothing:
+            return ((node.nval * predict(node.left, x, smoothing)) +\
+                k*(x.dot(node.coeffs[:-1]) + node.coeffs[-1]))/(node.nval + k)
+        else:
+            return predict(node.left, x, smoothing)
     elif (node.right != None) and (x[:,node.dim_split]>node.val):
-        return predict(node.right, x)
+        if smoothing:
+            return ((node.nval * predict(node.right, x, smoothing)) +\
+                k*(x.dot(node.coeffs[:-1]) + node.coeffs[-1]))/(node.nval + k)
+        else:
+            return predict(node.right, x, smoothing)
     else:
         return x.dot(node.coeffs[:-1]) + node.coeffs[-1]
+    
+    
+
+    

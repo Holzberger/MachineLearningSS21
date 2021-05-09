@@ -44,15 +44,17 @@ def test_1d(n_samples):
     data = np.hstack((x, y))
     root = create_M5(data)
     X = np.linspace(-1,1,100)[:,None]
-    Y=np.array([predict(root, X[i,:][:,None]) for i in range(100)])
+    Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
     plt.plot(x,y,".")
     plt.plot(X,Y,linewidth=2,color="red")
+    Y=np.array([predict(root, X[i,:][:,None],smoothing=False) for i in range(100)])
+    plt.plot(X,Y,linewidth=2,color="orange")
     
 def test_2d(n_samples):
     x,y = f2_rand(n_samples)
     data = np.hstack((x, y))
     root = create_M5(data)
-    m=20
+    m=25
     X = np.linspace(-1, 1, m)
     Y = np.linspace(-1, 1, m)
     X, Y = np.meshgrid(X, Y)
@@ -60,13 +62,13 @@ def test_2d(n_samples):
     for i in range(m):
         for j in range(m):
             x1 = np.array([X[i,j],Y[i,j]])[:,None].T
-            Z[i,j] = predict(root, x1)
+            Z[i,j] = predict(root, x1,smoothing=True)
     from matplotlib import cm
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
     surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
     surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
 
-#test_1d(100)
+#test_1d(500)
 test_2d(500)
 
 # # # draw splits
