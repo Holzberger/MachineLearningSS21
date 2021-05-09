@@ -8,30 +8,23 @@ Created on Fri May  7 16:29:52 2021
 import numpy as np
 
 class Node():
+    root_std = 0
     def __init__(self):
         self.left  = None
         self.right = None
-        self.dim   = 0
+        self.dim_split = 0
         self.nval  = 0 # dimension 
         self.val   = 0
+        self.node_std = 0
         self.type  = 0 # 0 interior, 1 leaf
-        self.coeffs = [0, 0]
-        
-    @classmethod
-    def from_vals(self, dim, n_val, val, node_type):
-        self.left  = None
-        self.right = None
-        self.dim   = dim
-        self.nval  = n_val # dimension 
-        self.val   = val
-        self.type   = node_type # 0 interior, 1 leaf
-        self.coeffs = [0, 0]
+        self.coeffs = [0]
 
-def SDR(data):
+
+def SDR(data, node):
     n_T, n_attr = data.shape
     n_attr -= 1 
     T   = data[:,-1]
-    sdT = np.std(T)
+    sdT = node.node_std
     attr = data[:, :-1]
     attr_means = np.mean(attr, axis=0) 
     mask_T1 = attr <= attr_means
@@ -51,36 +44,35 @@ def SDR(data):
             
 
 def split(node, data):
-    if data.shape[0] < 20:
+    # setup linear model in all nodes
+    x_coeffs = np.hstack([data[:,:-1], np.ones((data.shape[0],1))])
+    node.coeffs = np.linalg.lstsq(x_coeffs, data[:,-1], rcond=None)[0]
+    node.nval = data.shape[0]
+    node.node_std = np.std(data[:,-1])
+    if (node.nval < 20) or (node.node_std<node.root_std*0.05):
         node.type = 1 # leaf
-        #node.coeffs = np.polyfit(data[:,:-1], data[:,-1], 1)
-        x_coeffs = np.hstack([data[:,:-1], np.ones((data.shape[0],1))])
-        node.coeffs = np.linalg.lstsq(x_coeffs, data[:,-1], rcond=None)[0]
     else:
-        data_left, data_right, mean, dim_split = SDR(data)
-        
+        data_left, data_right, mean, dim_split = SDR(data, node)
         node.type = 0 # interiour
-        
         node.left  = Node()
         node.right = Node()
-        
         node.val  = mean
-        node.nval = dim_split
-        
+        node.dim_split = dim_split
         split(node.left, data_left)
         split(node.right, data_right)
         
     
 def create_M5(X):
-    x = np.copy(X) # make local copy for tree
+    x = np.copy(X)
     root = Node()
+    root.root_std = np.std(x[:, -1])
     split(root, x)   
     return root
     
 def print_split(node, splits=[]):
     if node.type==0:
         print("{}, ".format(node.val))
-        splits.append([node.val, node.nval])
+        splits.append([node.val, node.dim_split])
     if node.left != None:
         splits = print_split(node.left, splits)
     if node.right != None:
@@ -88,9 +80,9 @@ def print_split(node, splits=[]):
     return splits
 
 def predict(node, x):
-    if (node.left != None) and (x[:,node.nval]<=node.val):
+    if (node.left != None) and (x[:,node.dim_split]<=node.val):
         return predict(node.left, x)
-    elif (node.right != None) and (x[:,node.nval]>node.val):
+    elif (node.right != None) and (x[:,node.dim_split]>node.val):
         return predict(node.right, x)
     else:
         return x.dot(node.coeffs[:-1]) + node.coeffs[-1]
