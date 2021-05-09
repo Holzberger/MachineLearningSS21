@@ -12,11 +12,11 @@ from tree1d import *
 
 def f1(n_samples):
     x = np.random.uniform(-1, 1, n_samples)
-    noise = np.random.normal(0, 0.5, n_samples)
+    noise = np.random.normal(0, 2, n_samples)
     y = noise+x**3 - 4*x**2 + x +1+ np.sin(10*x)
     return x,y
 
-x,y = f1(100)
+x,y = f1(1000)
 
 plt.plot(x,y,".")
 
