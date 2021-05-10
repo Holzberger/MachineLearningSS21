@@ -14,6 +14,7 @@ def f1(x):
     return x**3 - 4*x**2 + x +1+ np.sin(10*x)
 
 def f1_rand(n_samples,no_noise=False):
+    np.random.seed(42)
     x = np.random.uniform(-1, 1, n_samples)
     noise = np.random.normal(0, 0.5, n_samples)
     if no_noise:
@@ -24,19 +25,6 @@ def f1_rand(n_samples,no_noise=False):
     return x[:,None],y[:,None]
 
 
-
-def Fn(x):
-    return x[:,0]**3 - 4*x[:,1]**2 + x[:,2] +1+ np.sin(10*x[:,3])
-
-def fn(n_samples):
-    x = np.zeros((n_samples, 4))
-    for dim in range(4):
-        x[:, dim]     = np.random.uniform(-1, 1, n_samples)
-    noise = np.random.normal(0, 2, n_samples)
-    y = noise + Fn(x)
-    return x,y
-
-
 def f2(x):
     return np.sin(x[:,0])*np.cos(x[:,1])#x[:,0]**2+x[:,1]**2+10
 
@@ -44,6 +32,7 @@ def f2(x):
 def f2_rand(n_samples,no_noise=False):
     xymin=-5
     xymax=5
+    np.random.seed(42)
     x = np.zeros((n_samples, 2))
     for dim in range(2):
         x[:, dim]     = np.random.uniform(xymin, xymax, n_samples)
@@ -57,63 +46,62 @@ def f2_rand(n_samples,no_noise=False):
 
 def test_1d(n_samples,draw=True):
     x,y = f1_rand(n_samples,no_noise=False)
-    data = np.hstack((x, y))
-    root = create_M5(data)
+    reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=3, k=20.0)
+    reg.fit(x, y)
     X = np.linspace(-1,1,300)[:,None]
     if draw:
-        Y=predict_vec(root,X,smoothing=True)
+        reg.smoothing=True
+        Y = reg.predict(X)
         plt.plot(x,y,".",alpha=0.5)
         plt.plot(X,Y,linewidth=2,color="red")
-        Y=predict_vec(root,X,smoothing=False)
+        
+        reg.smoothing=True
+        Y = reg.predict(X)
         plt.plot(X,Y,linewidth=2,color="orange")
+        
         x_test,y_test = f1_rand(100,no_noise=True)   
-        data = np.hstack((x_test, y_test))
-        prune(root, data)
-        Y=predict_vec(root,X,smoothing=True)
+        reg.prune(x_test, y_test)
+        Y = reg.predict(X)
         plt.plot(X,Y,linewidth=2,color="green")
         plt.plot(X,f1(X),linewidth=2,color="black")
         
+        reg.prune(x_test, y_test)
+        print(reg.score(x_test, y_test))
+        
     
-def test_2d(n_samples, draw=True, show_splits=False):
+def test_2d(n_samples, draw=True):
     xymin=-5
     xymax=5
-    x,y = f2_rand(n_samples)
-    data = np.hstack((x, y))
-    root = create_M5(data)
     
-    x_test, y_test = f2_rand(300,no_noise=True)
-    data = np.hstack((x_test, y_test))
-    prune(root, data)
+    x,y = f2_rand(n_samples)
+    
+    reg = M5regressor(smoothing=True, n_attr_leaf=10, max_depth=9, k=20.0)
+    reg.fit(x, y)
+    
+    x_test, y_test = f2_rand(100,no_noise=True)
+    reg.prune(x_test, y_test)
     
     m=25
-    XX = np.linspace(xymin, xymax, m)
-    YY = np.linspace(xymin, xymax, m)
-    X, Y = np.meshgrid(XX, YY)
-    Z = np.zeros_like(X)
-    data = np.hstack((X.reshape(m*m,1), Y.reshape(m*m,1)))
-    Z = predict_vec(root,data,smoothing=False).reshape(m,m)
+    x_pos = np.linspace(xymin, xymax, m)
+    y_pos = np.linspace(xymin, xymax, m)
+    x_pos2d, y_pos2d = np.meshgrid(x_pos, y_pos)
+    X = np.hstack((x_pos2d.reshape(m*m,1), y_pos2d.reshape(m*m,1)))
+    Z = reg.predict(X).reshape(m,m)
+    
     if draw:
         from matplotlib import cm
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-        surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
-        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
-    if show_splits:
-        splits = print_split(root)
-    
-    
-def test_2d_sklearn(n_samples, draw=True, show_splits=False):
-    xymin=-5
-    xymax=5
-    x,y = f2_rand(n_samples)
-    reg = M5regressor(smoothing=True, n_attr_leaf=10, max_depth=6)
-    reg.fit(x, y)
-    print(reg.score(x, y))
-    reg.prune(x, y)
-    print(reg.score(x, y))
+        surf = ax.plot_surface(x_pos2d, y_pos2d, Z, cmap=cm.coolwarm, linewidth=0,alpha=0.8)
+        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
+    # check score on some random testcases
+    x_test, y_test = f2_rand(100,no_noise=True)
+    print(reg.score(x_test, y_test))
     
     
     
     
-#test_1d(500)
+    
+    
+test_1d(500)
 #test_2d(1200,draw=True)
-test_2d_sklearn(500,draw=True)
+
