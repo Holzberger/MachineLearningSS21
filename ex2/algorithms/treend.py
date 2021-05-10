@@ -113,7 +113,8 @@ class M5regressor(BaseEstimator, RegressorMixin):
             y[mask_right] = node.predictby_nodemodel(x[mask_right,:])
         return y
         
-    def prune(self, X, y):
+    def prune(self, X, y, optimize_models=True):
+        self.optimize_models = optimize_models
         data = np.hstack((X, y))
         self.pruneby_abserror(self.root, data)
         
@@ -123,31 +124,48 @@ class M5regressor(BaseEstimator, RegressorMixin):
         error_left = 0.0
         error_right = 0.0
         if (node.left != None) and np.any(mask_left):
-            error_left  = np.mean(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
+            #error_left  = np.mean(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
+            error_left  = self.find_best_coeff(node, data[mask_left,:], optimize=True)
             next_error_left = self.pruneby_abserror(node.left, data[mask_left,:])
             if next_error_left > error_left:
                 node.left = None
             else:
                 error_left = next_error_left
         elif np.any(mask_left):
-            error_left  = np.mean(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
-        
+            #error_left  = np.mean(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
+            error_left  = self.find_best_coeff(node, data[mask_left,:], optimize=True)
         if (node.right != None) and np.any(mask_right):
-            error_right = np.mean(np.abs(node.predictby_nodemodel(data[mask_right,:-1])-data[mask_right,-1]))
+            #error_right = np.mean(np.abs(node.predictby_nodemodel(data[mask_right,:-1])-data[mask_right,-1]))
+            error_right  = self.find_best_coeff(node, data[mask_right,:], optimize=True)
             next_error_right = self.pruneby_abserror(node.right, data[mask_right,:])
             if next_error_right > error_right:
                 node.right = None
             else:
                 error_right = next_error_right
         elif np.any(mask_right):
-            error_right = np.mean(np.abs(node.predictby_nodemodel(data[mask_right,:-1])-data[mask_right,-1]))
-        
+            #error_right = np.mean(np.abs(node.predictby_nodemodel(data[mask_right,:-1])-data[mask_right,-1]))
+            error_right  = self.find_best_coeff(node, data[mask_right,:], optimize=True)
         if (node.left == None) and (node.right == None):
             node.type = 1
         error_total = error_right+error_left
         if np.any(mask_left) and np.any(mask_right):
             error_total /= 2 # mean of left and right if both contribute
         return error_total
+        
+    def find_best_coeff(self, node, data, optimize=True):
+        buffer = 0.0
+        min_error = np.mean(np.abs(node.predictby_nodemodel(data[:,:-1])-data[:,-1]))
+        if self.optimize_models:
+            for i, coeff in enumerate(node.coeffs):
+                buffer = coeff
+                node.coeffs[i] = 0.0
+                error = np.mean(np.abs(node.predictby_nodemodel(data[:,:-1])-data[:,-1]))
+                if min_error>error:
+                    min_error=error
+                else:
+                    node.coeffs[i] = buffer
+        return min_error
+        
         
         
     
