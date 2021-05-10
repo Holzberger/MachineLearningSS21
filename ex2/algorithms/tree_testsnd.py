@@ -59,17 +59,17 @@ def test_1d(n_samples,draw=True):
     x,y = f1_rand(n_samples,no_noise=False)
     data = np.hstack((x, y))
     root = create_M5(data)
-    X = np.linspace(-1,1,100)[:,None]
+    X = np.linspace(-1,1,300)[:,None]
     if draw:
-        Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
+        Y=predict_vec(root,X,smoothing=True)
         plt.plot(x,y,".",alpha=0.5)
         plt.plot(X,Y,linewidth=2,color="red")
-        Y=np.array([predict(root, X[i,:][:,None],smoothing=False) for i in range(100)])
+        Y=predict_vec(root,X,smoothing=False)
         plt.plot(X,Y,linewidth=2,color="orange")
         x_test,y_test = f1_rand(100,no_noise=True)   
         data = np.hstack((x_test, y_test))
         prune(root, data)
-        Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
+        Y=predict_vec(root,X,smoothing=True)
         plt.plot(X,Y,linewidth=2,color="green")
         plt.plot(X,f1(X),linewidth=2,color="black")
         
@@ -81,7 +81,7 @@ def test_2d(n_samples, draw=True, show_splits=False):
     data = np.hstack((x, y))
     root = create_M5(data)
     
-    x_test, y_test = f2_rand(100,no_noise=True)
+    x_test, y_test = f2_rand(300,no_noise=True)
     data = np.hstack((x_test, y_test))
     prune(root, data)
     
@@ -90,21 +90,18 @@ def test_2d(n_samples, draw=True, show_splits=False):
     YY = np.linspace(xymin, xymax, m)
     X, Y = np.meshgrid(XX, YY)
     Z = np.zeros_like(X)
-    for i in range(m):
-        for j in range(m):
-            x1 = np.array([X[i,j],Y[i,j]])[:,None].T
-            Z[i,j] = predict(root, x1,smoothing=True)
+    data = np.hstack((X.reshape(m*m,1), Y.reshape(m*m,1)))
+    Z = predict_vec(root,data,smoothing=False).reshape(m,m)
     if draw:
         from matplotlib import cm
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
         surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
-        #surf = ax.scatter(x_test[:,0], x_test[:,1], y_test, cmap=cm.coolwarm,marker="o")
     if show_splits:
         splits = print_split(root)
     
 
 #test_1d(500)
-test_2d(1000,draw=True)
+test_2d(1200,draw=True)
 
 
