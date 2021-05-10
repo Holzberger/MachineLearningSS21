@@ -10,11 +10,20 @@ import matplotlib.pyplot as plt
 
 from treend import *
 
-def f1(n_samples):
+def f1(x):
+    return x**3 - 4*x**2 + x +1+ np.sin(10*x)
+
+def f1_rand(n_samples,no_noise=False):
     x = np.random.uniform(-1, 1, n_samples)
-    noise = np.random.normal(0, 1, n_samples)
-    y = noise + x**3 - 4*x**2 + x +1+ np.sin(10*x)
+    noise = np.random.normal(0, 0.5, n_samples)
+    if no_noise:
+        noise_coeff = 0.0
+    else:
+        noise_coeff = 1.0
+    y = noise*noise_coeff + f1(x)
     return x[:,None],y[:,None]
+
+
 
 def Fn(x):
     return x[:,0]**3 - 4*x[:,1]**2 + x[:,2] +1+ np.sin(10*x[:,3])
@@ -29,49 +38,73 @@ def fn(n_samples):
 
 
 def f2(x):
-    return x[:,0]**2+x[:,1]**2+10
+    return np.sin(x[:,0])*np.cos(x[:,1])#x[:,0]**2+x[:,1]**2+10
 
-def f2_rand(n_samples):
+
+def f2_rand(n_samples,no_noise=False):
+    xymin=-5
+    xymax=5
     x = np.zeros((n_samples, 2))
     for dim in range(2):
-        x[:, dim]     = np.random.uniform(-1, 1, n_samples)
-    noise = np.random.normal(0, 0.1, n_samples)
+        x[:, dim]     = np.random.uniform(xymin, xymax, n_samples)
+    if no_noise:
+        noise_coeff = 0.0
+    else:
+        noise_coeff = 1.0
+    noise = np.random.normal(0, 0.1, n_samples)*noise_coeff
     y = noise + f2(x)
     return x,y[:,None]
 
-def test_1d(n_samples):
-    x,y = f1(n_samples)
+def test_1d(n_samples,draw=True):
+    x,y = f1_rand(n_samples,no_noise=False)
     data = np.hstack((x, y))
     root = create_M5(data)
     X = np.linspace(-1,1,100)[:,None]
-    Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
-    plt.plot(x,y,".")
-    plt.plot(X,Y,linewidth=2,color="red")
-    Y=np.array([predict(root, X[i,:][:,None],smoothing=False) for i in range(100)])
-    plt.plot(X,Y,linewidth=2,color="orange")
+    if draw:
+        Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
+        plt.plot(x,y,".",alpha=0.5)
+        plt.plot(X,Y,linewidth=2,color="red")
+        Y=np.array([predict(root, X[i,:][:,None],smoothing=False) for i in range(100)])
+        plt.plot(X,Y,linewidth=2,color="orange")
+        x_test,y_test = f1_rand(100,no_noise=True)   
+        data = np.hstack((x_test, y_test))
+        prune(root, data)
+        Y=np.array([predict(root, X[i,:][:,None],smoothing=True) for i in range(100)])
+        plt.plot(X,Y,linewidth=2,color="green")
+        plt.plot(X,f1(X),linewidth=2,color="black")
+        
     
-def test_2d(n_samples):
+def test_2d(n_samples, draw=True, show_splits=False):
+    xymin=-5
+    xymax=5
     x,y = f2_rand(n_samples)
     data = np.hstack((x, y))
     root = create_M5(data)
+    
+    x_test, y_test = f2_rand(100,no_noise=True)
+    data = np.hstack((x_test, y_test))
+    prune(root, data)
+    
     m=25
-    X = np.linspace(-1, 1, m)
-    Y = np.linspace(-1, 1, m)
-    X, Y = np.meshgrid(X, Y)
+    XX = np.linspace(xymin, xymax, m)
+    YY = np.linspace(xymin, xymax, m)
+    X, Y = np.meshgrid(XX, YY)
     Z = np.zeros_like(X)
     for i in range(m):
         for j in range(m):
             x1 = np.array([X[i,j],Y[i,j]])[:,None].T
             Z[i,j] = predict(root, x1,smoothing=True)
-    from matplotlib import cm
-    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-    surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
-    surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
+    if draw:
+        from matplotlib import cm
+        fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+        surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False,alpha=0.8)
+        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".")
+        #surf = ax.scatter(x_test[:,0], x_test[:,1], y_test, cmap=cm.coolwarm,marker="o")
+    if show_splits:
+        splits = print_split(root)
+    
 
 #test_1d(500)
-test_2d(500)
+test_2d(1000,draw=True)
 
-# # # draw splits
-# splits = print_split(root)
-# for split in splits:
-#     plt.axvline(x=split,color="orange",linestyle="--",linewidth=1)
+

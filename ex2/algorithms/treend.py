@@ -13,11 +13,15 @@ class Node():
         self.left  = None
         self.right = None
         self.dim_split = 0
-        self.nval  = 0 # dimension 
+        self.nval  = 0 
         self.val   = 0
         self.node_std = 0
         self.type  = 0 # 0 interior, 1 leaf
         self.coeffs = [0]
+        self.error= -1
+    def predictby_nodemodel(self, x):
+        return x.dot(self.coeffs[:-1]) + self.coeffs[-1]
+        
 
 
 def SDR(data, node):
@@ -49,7 +53,7 @@ def split(node, data):
     node.coeffs = np.linalg.lstsq(x_coeffs, data[:,-1], rcond=None)[0]
     node.nval = data.shape[0]
     node.node_std = np.std(data[:,-1])
-    if (node.nval < 10) or (node.node_std<node.root_std*0.05):
+    if (node.nval < 4) or (node.node_std<node.root_std*0.05):
         node.type = 1 # leaf
     else:
         data_left, data_right, mean, dim_split = SDR(data, node)
@@ -71,7 +75,7 @@ def create_M5(X):
     
 def print_split(node, splits=[]):
     if node.type==0:
-        print("{}, ".format(node.val))
+        print("{}, {} ".format(node.val, node.dim_split))
         splits.append([node.val, node.dim_split])
     if node.left != None:
         splits = print_split(node.left, splits)
@@ -81,22 +85,60 @@ def print_split(node, splits=[]):
 
 
 def predict(node, x, smoothing=False):
-    k = 15.0
+    # assume for this function x is only one miltidimenaional sample x=[x1,x2,...,xn]
+    k = 15.0 #smoothing coefficient
     if (node.left != None) and (x[:,node.dim_split]<=node.val):
         if smoothing:
-            return ((node.nval * predict(node.left, x, smoothing)) +\
-                k*(x.dot(node.coeffs[:-1]) + node.coeffs[-1]))/(node.nval + k)
+            return (node.nval*predict(node.left, x, smoothing) +\
+                k*node.predictby_nodemodel(x))/(node.nval + k)
         else:
             return predict(node.left, x, smoothing)
     elif (node.right != None) and (x[:,node.dim_split]>node.val):
         if smoothing:
-            return ((node.nval * predict(node.right, x, smoothing)) +\
-                k*(x.dot(node.coeffs[:-1]) + node.coeffs[-1]))/(node.nval + k)
+            return (node.nval*predict(node.right, x, smoothing) +\
+                k*node.predictby_nodemodel(x))/(node.nval + k)
         else:
             return predict(node.right, x, smoothing)
     else:
-        return x.dot(node.coeffs[:-1]) + node.coeffs[-1]
+        return node.predictby_nodemodel(x)
     
-    
+def prune(node,data):
+    # assume here data are multiple samples (the test set)
+    gen_abs_error(node, data)
 
+
+def gen_abs_error(node, data):
+    mask_left = data[:,node.dim_split]<=node.val
+    mask_right = np.logical_not(mask_left)
+    error_left = 0.0
+    error_right = 0.0
+    if (node.left != None) and np.any(mask_left):
+        error_left  = np.max(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
+        next_error_left = gen_abs_error(node.left, data[mask_left,:])
+        if next_error_left > error_left:
+            node.left = None
+        else:
+            error_left = next_error_left
+    if (node.right != None) and np.any(mask_right):
+        error_right = np.max(np.abs(node.predictby_nodemodel(data[mask_right,:-1])-data[mask_right,-1]))
+        next_error_right = gen_abs_error(node.right, data[mask_right,:])
+        if next_error_right > error_right:
+            node.right = None
+        else:
+            error_right = next_error_right
+    if (node.left == None) and (node.right == None):
+        node.type = 1
+        # if we have a leaf the error is calculated directly from the model
+        error_left = np.max(np.abs(node.predictby_nodemodel(data[:,:-1])-data[:,-1]))
+        error_right = error_left
+        
+    return (error_right+error_left)/2.0
+    
+        
+        
+        
+        
+        
+        
+        
     
