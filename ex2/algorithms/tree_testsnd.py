@@ -100,8 +100,20 @@ def test_2d(n_samples, draw=True, show_splits=False):
     if show_splits:
         splits = print_split(root)
     
-
+    
+def test_2d_sklearn(n_samples, draw=True, show_splits=False):
+    xymin=-5
+    xymax=5
+    x,y = f2_rand(n_samples)
+    reg = M5regressor(smoothing=True, n_attr_leaf=10, max_depth=6)
+    reg.fit(x, y)
+    print(reg.score(x, y))
+    reg.prune(x, y)
+    print(reg.score(x, y))
+    
+    
+    
+    
 #test_1d(500)
-test_2d(1200,draw=True)
-
-
+#test_2d(1200,draw=True)
+test_2d_sklearn(500,draw=True)
