@@ -75,11 +75,13 @@ def test_2d(n_samples, draw=True):
     
     x,y = f2_rand(n_samples)
     
-    reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
+    #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
+    reg = M5regressor(smoothing=True, n_attr_leaf=7, max_depth=15, 
+                  k=4.0,pruning=True,optimize_models=True,incremental_fit=False)
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
-    reg.prune(x_test, y_test,optimize_models=True)
+    #reg.prune(x_test, y_test,optimize_models=True)
     
     #reg.prune(x, y, optimize_models=False)
     

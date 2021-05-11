@@ -61,18 +61,29 @@ from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 feed[attrs]=scaler.fit_transform(feed[attrs])
 
-df_train_x = feed.drop('price',axis = 1)
-df_train_x.describe()
-df_train_y = feed['price']
-df_train_y.describe
-
-x_train, x_test, y_train, y_test = train_test_split(df_train_x, df_train_y, test_size=0.15, random_state=42)
+#df_train_x = feed.drop('price',axis = 1)
+#df_train_x.describe()
+#df_train_y = feed['price']
+#df_train_y.describe
 
 
-reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=15, k=15.0)
-reg.fit(np.array(x_train), np.array(y_train)[:,None])
-reg.prune(np.array(x_test), np.array(y_test)[:,None], optimize_models=False)
-predictions = reg.predict(np.array(x_test))
-print("r2_score is : " , r2_score(y_test, predictions))
+X = np.array(feed.drop('price',axis = 1))
+y = np.array(feed['price'])
 
-sns.regplot(x = y_test, y = predictions)
+# reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=15, k=15.0)
+# reg.fit(np.array(x_train), np.array(y_train)[:,None])
+# reg.prune(np.array(x_test), np.array(y_test)[:,None], optimize_models=False)
+# predictions = reg.predict(np.array(x_test))
+# print("r2_score is : " , r2_score(y_test, predictions))
+
+#sns.regplot(x = y_test, y = predictions)
+
+
+from sklearn.model_selection import cross_val_score
+reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=4, 
+                  k=20.0,pruning=True,optimize_models=True,incremental_fit=True)
+scores = cross_val_score(reg, X,y[:,None], cv=5, scoring='r2')
+print(scores.min())
+print(scores.mean())
+print(scores.max())
+print(scores)
