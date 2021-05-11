@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from treend import *
+from reg_tree import *
 
 def f1(x):
     return x**3 - 4*x**2 + x +1+ np.sin(10*x)
@@ -101,11 +102,40 @@ def test_2d(n_samples, draw=True):
     x_test, y_test = f2_rand(100,no_noise=True,seed=314)
     print(reg.score(x_test, y_test))
     
+def test_2d1(n_samples, draw=True):
+    xymin=-5
+    xymax=5
     
+    x,y = f2_rand(n_samples)
+    
+    #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
+    reg = Const_regressor(n_attr_leaf=10, max_depth=10)
+    reg.fit(x, y)
+    
+    x_test, y_test = f2_rand(400,no_noise=True)
+    #reg.prune(x_test, y_test,optimize_models=True)
+    
+    #reg.prune(x, y, optimize_models=False)
+    
+    m=25
+    x_pos = np.linspace(xymin, xymax, m)
+    y_pos = np.linspace(xymin, xymax, m)
+    x_pos2d, y_pos2d = np.meshgrid(x_pos, y_pos)
+    X = np.hstack((x_pos2d.reshape(m*m,1), y_pos2d.reshape(m*m,1)))
+    Z = reg.predict(X).reshape(m,m)
+    
+    if draw:
+        from matplotlib import cm
+        fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+        surf = ax.plot_surface(x_pos2d, y_pos2d, Z, cmap=cm.coolwarm, linewidth=0,alpha=0.8)
+        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
+    # check score on some random testcases
+    x_test, y_test = f2_rand(100,no_noise=True,seed=314)
+    print(reg.score(x_test, y_test))
     
     
     
     
 #test_1d(500)
-test_2d(1200,draw=True)
-
+#test_2d(1200,draw=True)
+test_2d1(1200,draw=True)

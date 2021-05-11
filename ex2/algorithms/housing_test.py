@@ -16,6 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from treend import *
+from reg_tree import *
 
 
 
@@ -75,13 +76,27 @@ X = np.array(df2)
 
 #print(score(XT[:,-1], predictions))
 
-from sklearn.model_selection import cross_val_score
-reg = M5regressor(smoothing=True, n_attr_leaf=140, max_depth=5, 
-                  k=400.0,pruning=True,optimize_models=True,incremental_fit=False)
-scores = cross_val_score(reg, X[:,:-1],X[:,-1][:,None], cv=10, scoring='r2')
-print(scores.min())
-print(scores.mean())
-print(scores.max())
+reg = Const_regressor(n_attr_leaf=10, max_depth=10)
+reg.fit(X[:,:-1],X[:,-1][:,None])
+predictions = reg.predict(np.array(X[:,:-1]))
+print("r2_score is : " , r2_score(X[:,-1], predictions))
+
+# from sklearn.model_selection import cross_val_score
+# reg = M5regressor(smoothing=True, n_attr_leaf=140, max_depth=5, 
+#                   k=400.0,pruning=True,optimize_models=True,incremental_fit=False)
+# scores = cross_val_score(reg, X[:,:-1],X[:,-1][:,None], cv=10, scoring='r2')
+# print(scores.min())
+# print(scores.mean())
+# print(scores.max())
+
+
+
+
+
+
+
+
+
 
 # m=25
 # x_pos = np.linspace(0, 1, m)
