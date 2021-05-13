@@ -61,23 +61,55 @@ class M5regressor(BaseEstimator, RegressorMixin):
         n_T, n_attr = data.shape
         n_attr -= 1 
         T   = data[:,-1]
-        sdT = node.node_std
+        sdT = T.std()
         attr = data[:, :-1]
         attr_means = np.mean(attr, axis=0) 
         mask_T1 = attr <= attr_means
-        SDR_max = -1.0
+        SDR_max = -1
+        
+        mins = 0
+        
         for n in range(n_attr):
-            T1 = T[mask_T1[:,n]]
-            T2 = T[np.logical_not(mask_T1[:,n])]
-            SDR_attr = np.abs(sdT - (T1.shape[0]*np.std(T1) + 
-                                     T2.shape[0]*np.std(T2))/n_T)
-            if SDR_attr > SDR_max:
-                SDR_max = SDR_attr
-                n_SDR_max = n
-        return data[mask_T1[:,n_SDR_max],:], \
-               data[np.logical_not(mask_T1[:,n_SDR_max]),:], \
-               attr_means[n_SDR_max], \
-               n_SDR_max
+            sorted_ind = np.argsort(data[:,n])
+            sorted_T = data[sorted_ind,-1]
+            sorted_attr = data[sorted_ind,n]
+            u, first_ind = np.unique(sorted_attr,return_index=True)
+            # p=1 do all splits p=0 only one split
+            p = 1
+            stride = int(first_ind.shape[0]*(1-p)+1)
+            for ind in first_ind[1::stride]: #iterate splits
+                if ind<=mins or (n_T-ind)<=mins:
+                    continue
+                # get mean
+                y_std0   = (sorted_T[:ind]).std()
+                y_std1   = (sorted_T[ind:]).std()
+                SDR_attr = sdT - (ind*y_std0 + (n_T-ind)*y_std1)/n_T
+               
+                if SDR_attr > SDR_max:
+                    SDR_max = SDR_attr
+                    n_SDR_max = n
+                    split_SDR_max = sorted_attr[ind]
+                
+        mask_left  = data[:,n_SDR_max]<split_SDR_max
+        mask_right = np.logical_not(mask_left)
+        return data[mask_left,:], \
+                data[mask_right,:], \
+                split_SDR_max, \
+                n_SDR_max
+        # for n in range(n_attr):
+        #     T1 = T[mask_T1[:,n]]
+        #     T2 = T[np.logical_not(mask_T1[:,n])]
+        #     SDR_attr = sdT - (T1.shape[0]*np.std(T1) + 
+        #                               T2.shape[0]*np.std(T2))/n_T
+        #     if SDR_attr > SDR_max:
+        #         SDR_max = SDR_attr
+        #         n_SDR_max = n
+        # return data[mask_T1[:,n_SDR_max],:], \
+        #        data[np.logical_not(mask_T1[:,n_SDR_max]),:], \
+        #        attr_means[n_SDR_max], \
+        #        n_SDR_max
+               
+        
     
     def split(self, node, data):
         if node.fitting_dimensions ==[]:
@@ -95,13 +127,14 @@ class M5regressor(BaseEstimator, RegressorMixin):
         node.nval = data.shape[0]
         node.node_std = np.std(data[:,-1])
         if (node.nval < self.n_attr_leaf) or\
-            (node.node_std<node.root_std*0.05) or\
+            (node.node_std<node.root_std*0.005) or\
             (node.depth>self.max_depth) or\
             (np.max(data[:,:-1],axis=0)-np.min(data[:,:-1],axis=0)<1e-12).all():
             node.type = 1 # leaf
         else:
-            #print(node.coeffs)
+            print("calc SDR of {} points".format(data.shape[0]))
             data_left, data_right, mean, dim_split = self.SDR(data, node)
+            print("dim, split",dim_split, mean )
             node.type = 0 # interiour
             node.left  = Node()
             node.right = Node()
@@ -119,7 +152,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             
     def predict_vec(self, node, x, smoothing=False):
         y = np.zeros((x.shape[0]))
-        mask_left = x[:,node.dim_split] <= node.val
+        mask_left = x[:,node.dim_split] < node.val
         mask_right = np.logical_not(mask_left)
         
         if (node.left != None) and np.any(mask_left):

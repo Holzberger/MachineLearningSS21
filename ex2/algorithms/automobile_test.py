@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
 from treend import *
-
+from reg_tree import *
 df = pd.read_csv('../datasets/Automobile_data.csv')
 
 # Converting price column type to numeric & Dropping '?' entries from price column 
@@ -80,10 +80,21 @@ y = np.array(feed['price'])
 
 
 from sklearn.model_selection import cross_val_score
-reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=4, 
-                  k=20.0,pruning=True,optimize_models=True,incremental_fit=True)
-scores = cross_val_score(reg, X,y[:,None], cv=5, scoring='r2')
+reg = M5regressor(smoothing=False, n_attr_leaf=4, max_depth=16, 
+                  k=1.0,pruning=False,optimize_models=False,incremental_fit=False)
+scores = cross_val_score(reg, X,y[:,None], cv=10, scoring='r2')
 print(scores.min())
 print(scores.mean())
 print(scores.max())
 print(scores)
+
+
+# reg = Const_regressor(n_attr_leaf=4, max_depth=20,smoothing=True,k=2.0)
+# scores = cross_val_score(reg, X,y[:,None], cv=10, scoring='r2')
+# print(scores.min())
+# print(scores.mean())
+# print(scores.max())
+# print(scores)
+#reg.fit(X,y[:,None])
+# predictions = reg.predict(np.array(X))
+# print("r2_score is : " , r2_score(y, predictions))
