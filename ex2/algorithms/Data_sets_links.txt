@@ -1,0 +1,5 @@
+http://archive.ics.uci.edu/ml/datasets/Online+Retail+II#
+
+http://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset
+
+http://archive.ics.uci.edu/ml/datasets/Drug+Review+Dataset+%28Drugs.com%29
