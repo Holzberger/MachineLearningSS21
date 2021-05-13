@@ -141,9 +141,9 @@ class Const_regressor(BaseEstimator, RegressorMixin):
         mask_right = np.logical_not(mask_left)
         error_left = 0.0
         error_right = 0.0
+        
         if (node.left != None) and np.any(mask_left):
-            #error_left  = np.mean(np.abs(node.predictby_nodemodel(data[mask_left,:-1])-data[mask_left,-1]))
-            error_left  = ((data[mask_left,-1]-node.coeff)**2).mean()
+            error_left  = ((data[mask_left,-1]-node.coeff)**2).sum()
             next_error_left = self.pruneby_abserror(node.left, data[mask_left,:])
             if next_error_left > error_left:
                 node.left = None
@@ -151,9 +151,9 @@ class Const_regressor(BaseEstimator, RegressorMixin):
             else:
                 error_left = next_error_left
         elif np.any(mask_left):
-            error_left  = ((data[mask_left,-1]-node.coeff)**2).mean()
+            error_left  = ((data[mask_left,-1]-node.coeff)**2).sum()
         if (node.right != None) and np.any(mask_right):
-            error_right  = ((data[mask_right,-1]-node.coeff)**2).mean()
+            error_right  = ((data[mask_right,-1]-node.coeff)**2).sum()
             next_error_right = self.pruneby_abserror(node.right, data[mask_right,:])
             if next_error_right > error_right:
                 node.right = None
@@ -162,7 +162,7 @@ class Const_regressor(BaseEstimator, RegressorMixin):
                 error_right = next_error_right
         elif np.any(mask_right):
            
-            error_right  = ((data[mask_right,-1]-node.coeff)**2).mean()
+            error_right  = ((data[mask_right,-1]-node.coeff)**2).sum()
         if (node.left == None) and (node.right == None):
             node.type = 1
         error_total = error_right+error_left

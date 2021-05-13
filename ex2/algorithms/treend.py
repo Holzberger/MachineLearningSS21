@@ -28,7 +28,7 @@ class Node():
 
 class M5regressor(BaseEstimator, RegressorMixin):
     def __init__(self, smoothing=True, pruning=False, 
-                 optimize_models=False,incremental_fit=True, n_attr_leaf=4, 
+                 optimize_models=False,incremental_fit=False, n_attr_leaf=4, 
                  max_depth=20, k=15.0):
         self.smoothing = smoothing
         self.n_attr_leaf = n_attr_leaf
@@ -66,8 +66,9 @@ class M5regressor(BaseEstimator, RegressorMixin):
         attr_means = np.mean(attr, axis=0) 
         mask_T1 = attr <= attr_means
         SDR_max = -1
-        
-        mins = 0
+        n_SDR_max = -1
+        split_SDR_max = -1
+        mins = 10
         
         for n in range(n_attr):
             sorted_ind = np.argsort(data[:,n])
@@ -96,18 +97,6 @@ class M5regressor(BaseEstimator, RegressorMixin):
                 data[mask_right,:], \
                 split_SDR_max, \
                 n_SDR_max
-        # for n in range(n_attr):
-        #     T1 = T[mask_T1[:,n]]
-        #     T2 = T[np.logical_not(mask_T1[:,n])]
-        #     SDR_attr = sdT - (T1.shape[0]*np.std(T1) + 
-        #                               T2.shape[0]*np.std(T2))/n_T
-        #     if SDR_attr > SDR_max:
-        #         SDR_max = SDR_attr
-        #         n_SDR_max = n
-        # return data[mask_T1[:,n_SDR_max],:], \
-        #        data[np.logical_not(mask_T1[:,n_SDR_max]),:], \
-        #        attr_means[n_SDR_max], \
-        #        n_SDR_max
                
         
     
@@ -134,20 +123,23 @@ class M5regressor(BaseEstimator, RegressorMixin):
         else:
             print("calc SDR of {} points".format(data.shape[0]))
             data_left, data_right, mean, dim_split = self.SDR(data, node)
-            print("dim, split",dim_split, mean )
-            node.type = 0 # interiour
-            node.left  = Node()
-            node.right = Node()
-            next_fitting_dimsions = np.copy(node.fitting_dimensions)
-            next_fitting_dimsions[dim_split] = True
-            node.left.fitting_dimensions = next_fitting_dimsions
-            node.right.fitting_dimensions = next_fitting_dimsions
-            node.left.depth = node.depth+1
-            node.right.depth = node.depth+1
-            node.val  = mean
-            node.dim_split = dim_split
-            self.split(node.left, data_left)
-            self.split(node.right, data_right)
+            if dim_split==-1: # split not found
+                node.type = 1 # leaf
+            else:
+                print("dim, split",dim_split, mean )
+                node.type = 0 # interiour
+                node.left  = Node()
+                node.right = Node()
+                next_fitting_dimsions = np.copy(node.fitting_dimensions)
+                next_fitting_dimsions[dim_split] = True
+                node.left.fitting_dimensions = next_fitting_dimsions
+                node.right.fitting_dimensions = next_fitting_dimsions
+                node.left.depth = node.depth+1
+                node.right.depth = node.depth+1
+                node.val  = mean
+                node.dim_split = dim_split
+                self.split(node.left, data_left)
+                self.split(node.right, data_right)
         
             
     def predict_vec(self, node, x, smoothing=False):
@@ -179,7 +171,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
         self.pruneby_abserror(self.root, data)
         
     def pruneby_abserror(self, node, data):
-        mask_left = data[:,node.dim_split]<=node.val
+        mask_left = data[:,node.dim_split]<node.val
         mask_right = np.logical_not(mask_left)
         error_left = 0.0
         error_right = 0.0
@@ -189,6 +181,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             next_error_left = self.pruneby_abserror(node.left, data[mask_left,:])
             if next_error_left > error_left:
                 node.left = None
+                print("prune right node at level",node.depth)
             else:
                 error_left = next_error_left
         elif np.any(mask_left):
@@ -200,6 +193,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             next_error_right = self.pruneby_abserror(node.right, data[mask_right,:])
             if next_error_right > error_right:
                 node.right = None
+                print("prune left node at level",node.depth)
             else:
                 error_right = next_error_right
         elif np.any(mask_right):
@@ -214,13 +208,13 @@ class M5regressor(BaseEstimator, RegressorMixin):
         
     def find_best_coeff(self, node, data):
         buffer = 0.0
-        min_error = np.mean(np.abs(node.predictby_nodemodel(data[:,:-1])-data[:,-1]))
+        min_error = ((node.predictby_nodemodel(data[:,:-1])-data[:,-1])**2).sum()
         if self.optimize_models:
             for i, coeff in enumerate(node.coeffs):
                 buffer = coeff
                 node.coeffs[i] = 0.0
-                error = np.mean(np.abs(node.predictby_nodemodel(data[:,:-1])-data[:,-1]))
-                if min_error>error:
+                error = ((node.predictby_nodemodel(data[:,:-1])-data[:,-1])**2).sum()
+                if min_error > error:
                     min_error=error
                 else:
                     node.coeffs[i] = buffer
