@@ -37,7 +37,9 @@ class M5regressor(BaseEstimator, RegressorMixin):
                  split_function="RMS",
                  n_attr_leaf=4, 
                  max_depth=20, 
-                 k=15.0):
+                 k=15.0,
+                 root_min_std=0.005,
+                 prune_set = []):
         self.smoothing = smoothing
         self.n_attr_leaf = n_attr_leaf
         self.max_depth = max_depth
@@ -46,13 +48,21 @@ class M5regressor(BaseEstimator, RegressorMixin):
         self.optimize_models = optimize_models
         self.incremental_fit = incremental_fit
         self.split_function = split_function
+        self.root_min_std = root_min_std
+        self.prune_set = prune_set
         
+
     
     def fit(self, X, y):
         data = np.hstack((X, y))
         self.root = self.create_M5(data)
+        
         if self.pruning:
-            self.prune(X, y)
+            if self.prune_set != []:
+                self.prune(self.prune_set[0], self.prune_set[1])
+            else:
+                self.prune(X, y)
+                
         return self
     
     def predict(self, X):
@@ -83,7 +93,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
         node.nval = data.shape[0]
         node.node_std = np.std(data[:,-1])
         if (node.nval < self.n_attr_leaf) or\
-            (node.node_std<node.root_std*0.005) or\
+            (node.node_std<node.root_std*self.root_min_std) or\
             (node.depth>self.max_depth) or\
             (np.max(data[:,:-1],axis=0)-np.min(data[:,:-1],axis=0)<1e-12).all():
             node.type = 1 # leaf

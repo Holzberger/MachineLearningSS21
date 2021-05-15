@@ -7,6 +7,8 @@ Created on Tue May 11 19:27:51 2021
 """
 import numpy as np
 from sklearn.base import BaseEstimator, RegressorMixin
+from split_functions import RMS_residual
+
 class Node():
     dims     = 0
     def __init__(self):
@@ -18,20 +20,35 @@ class Node():
         self.type  = 0 # 0 interior, 1 leaf
         self.coeff = 0.0
         self.error= -1
-        self.depth =0
+        self.depth = 0
         
         
 class Const_regressor(BaseEstimator, RegressorMixin):
-    def __init__(self,n_attr_leaf=4, max_depth=20, 
-                 smoothing=False, k=15.0):
+    def __init__(self,
+                 n_attr_leaf=4, 
+                 max_depth=20, 
+                 smoothing=False, 
+                 k=15.0, 
+                 split_function="RMS",
+                 prune_set = [],pruning=False):
         self.n_attr_leaf = n_attr_leaf
         self.max_depth = max_depth
         self.smoothing = smoothing
         self.k = k
+        self.split_function = split_function
+        self.prune_set = prune_set
+        self.pruning=pruning
         
     def fit(self, X, y):
         data = np.hstack((X, y))
         self.root = self.create_regressor(data)
+        
+        if self.pruning:
+            if self.prune_set != []:
+                self.prune(self.prune_set[0], self.prune_set[1])
+            else:
+                self.prune(X, y)
+        
         return self
     
     def create_regressor(self, X):
@@ -48,10 +65,11 @@ class Const_regressor(BaseEstimator, RegressorMixin):
             (np.max(data[:,:-1],axis=0)-np.min(data[:,:-1],axis=0)<1e-12).all():
             node.type = 1 # leaf
         else:
-            #print(node.coeffs)
-            print("calc RMS of {} points".format(data.shape[0]))
-            node.error, node.dim_split, node.val = self.rRMS(data, node)
-            print("rms, dim, split",node.error, node.dim_split, node.val)
+            print("calc split of {} points".format(data.shape[0]))
+            if self.split_function=="RMS":
+                node.error, node.dim_split, node.val = RMS_residual(data, node)
+            elif self.split_function=="SDR":
+                node.error, node.dim_split, node.val = SDR(data, node)
             if node.dim_split==-1 or node.error ==0: # no split found, or residual already 0 , make leaf
                 node.type = 1 # leaf
                 print("Make it a leaf backup")
@@ -67,63 +85,7 @@ class Const_regressor(BaseEstimator, RegressorMixin):
                 node.right.depth = node.depth+1
                 self.split(node.left, data_left)
                 self.split(node.right, data_right)
-           
 
-        
-    def rRMS(self, data, node):
-        n_T, n_attr = data.shape
-        n_attr -= 1 
-        T   = data[:,-1]
-        attr = data[:, :-1]
-        res_min = 1e100
-        n_res_min = -1
-        split_val_min = -1
-        calc_buffer = np.zeros(n_T)
-        for n in range(n_attr):
-            sorted_ind = np.argsort(data[:,n])
-            sorted_T = data[sorted_ind,-1]
-            sorted_attr = data[sorted_ind,n]
-            u, first_ind, u_count = np.unique(sorted_attr,return_index=True,return_counts=True)
-            
-            if u.shape[0]<2: # no split possible
-                continue
-            
-            # sum of target y in the splits
-            presum_T = sorted_T.cumsum()
-            presum_count_fwd = u_count.cumsum()
-            presum_count_bwd = (presum_count_fwd[-1]-presum_count_fwd)
-            means_T = np.zeros_like(first_ind,dtype="float")
-            means_T[:-1] = presum_T[first_ind[1:]-1]-presum_T[first_ind[:-1]-1]
-            means_T[0] = presum_T[first_ind[1]-1]
-            means_T[-1] = presum_T[-1]-presum_T[first_ind[-1]-1]
-            presum_means_T_fwd = means_T.cumsum()
-            presum_means_T_bwd = (presum_means_T_fwd[-1]-presum_means_T_fwd)
-            # mean values per split
-            y_mean0 = presum_means_T_fwd[:-1]/presum_count_fwd[:-1]
-            y_mean1 = presum_means_T_bwd[:-1]/presum_count_bwd[:-1]
-            # sum of target y**2 in the splits 
-            presum2_T = (sorted_T**2).cumsum()
-            presum2_count_fwd = u_count.cumsum()
-            presum2_count_bwd = (presum2_count_fwd[-1]-presum2_count_fwd)
-            binsums2_T = np.zeros_like(first_ind,dtype="float")
-            binsums2_T[:-1] = presum2_T[first_ind[1:]-1]-presum2_T[first_ind[:-1]-1]
-            binsums2_T[0] = presum2_T[first_ind[1]-1]
-            binsums2_T[-1] = presum2_T[-1]-presum2_T[first_ind[-1]-1]
-            presum2_means_T_fwd = binsums2_T.cumsum()
-            presum2_means_T_bwd = (presum2_means_T_fwd[-1]-presum2_means_T_fwd)
-            # residuals in all splits for this attribute
-            res = presum2_means_T_fwd[:-1] + presum2_means_T_bwd[:-1] -\
-                  presum_means_T_fwd[:-1]*2*y_mean0 - presum_means_T_bwd[:-1]*2*y_mean1 +\
-                  presum_count_fwd[:-1]*y_mean0**2 + presum_count_bwd[:-1]*y_mean1**2
-            # minimum residual
-            m = np.argmin(res)
-            
-            if res[m]<res_min :
-                res_min = res[m]
-                n_res_min = n
-                split_val_min = sorted_attr[first_ind[m+1]]
-
-        return res_min, n_res_min, split_val_min
                     
     def predict_vec(self, node, x):
         y = np.zeros((x.shape[0]))

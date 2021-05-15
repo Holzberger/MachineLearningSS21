@@ -68,13 +68,13 @@ print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
 print("mean target :", np.mean(y))
 #%%
 
-# from sklearn.model_selection import cross_val_score
-# reg1 = M5regressor(n_attr_leaf=4, max_depth=15)
-# reg1.incremental_fit=False
-# reg1.fit(x_train,y_train[:,None])
-# #%%
-# optimize_models=True
-# reg1.prune(x_vali,y_vali[:,None])
+from sklearn.model_selection import cross_val_score
+reg1 = M5regressor(n_attr_leaf=4, max_depth=15)
+reg1.incremental_fit=False
+reg1.fit(x_train,y_train[:,None])
+#%%
+optimize_models=True
+reg1.prune(x_vali,y_vali[:,None])
 #%%
 # reg1.smoothing=True
 # reg1.k=200.0

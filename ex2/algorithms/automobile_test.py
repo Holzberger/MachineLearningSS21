@@ -15,7 +15,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
-from treend import *
+from model_tree import *
 from reg_tree import *
 df = pd.read_csv('../datasets/Automobile_data.csv')
 
@@ -61,22 +61,55 @@ attrs = ['symboling', 'normalized-losses', 'wheel-base', 'length', 'width', 'hei
 
 df = df[attrs]
 
+#%%
+x = np.array(df.drop('price',axis = 1))
+y = np.array(df['price'])
+
+from sklearn.model_selection import train_test_split
+x_train,x_vali,y_train,y_vali = train_test_split(x,y,test_size = 0.1,random_state=42)
+x_train = np.array(x_train).astype("float")
+x_vali = np.array(x_vali).astype("float")
+y_train = np.array(y_train).astype("float")
+y_vali = np.array(y_vali).astype("float")
+
+
 # from sklearn.preprocessing import MinMaxScaler
 # scaler = MinMaxScaler()
 # feed[attrs]=scaler.fit_transform(feed[attrs])
 
-X = np.array(df.drop('price',axis = 1))
-y = np.array(df['price'])
+def print_mymetrics(scores, metrics,target):
+    for metric in metrics:
+        print("\n",metric)
+        print("min: ",scores['test_'+metric].min())
+        print("mean: ",scores['test_'+metric].mean())
+        print("max:", scores['test_'+metric].max())
+    print("\ntarget_mean_val", target.mean())
 
 
+from sklearn.model_selection import cross_validate
+#metrics = ['r2', 'max_error', 'neg_mean_absolute_error']
+metrics = ['r2']
+#%%
+reg0 = M5regressor(smoothing=True, 
+                  n_attr_leaf=4, 
+                  max_depth=5, 
+                  k=1.0,
+                  pruning=True,
+                  optimize_models=False,
+                  incremental_fit=False,
+                  prune_set=[x_vali, y_vali[:,None]])
+scores0 = cross_validate(reg0, x_train, y_train[:,None], cv=10, scoring=metrics)
+#%%
+print_mymetrics(scores0, metrics, y_train)
 
-
-from sklearn.model_selection import cross_val_score
-reg = M5regressor(smoothing=False, n_attr_leaf=4, max_depth=16, 
-                  k=1.0,pruning=False,optimize_models=False,incremental_fit=False)
-scores = cross_val_score(reg, X,y[:,None], cv=10, scoring='r2')
-print(scores.min())
-print(scores.mean())
-print(scores.max())
-print(scores)
+#%%
+reg1 = Const_regressor(n_attr_leaf=4, 
+                       max_depth=15,
+                       smoothing=False,
+                       pruning=True,
+                       k=0.5,
+                       prune_set=[x_vali, y_vali[:,None]])
+scores1 = cross_validate(reg1, x_train, y_train[:,None], cv=10, scoring=metrics)
+#%%
+print_mymetrics(scores1, metrics, y_train)
 
