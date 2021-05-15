@@ -26,6 +26,9 @@ from os.path import isfile, join
 
 data_path = "../../../checkdatasets/PRSA_Data_20130301-20170228/"
 
+
+files = [f for f in listdir(data_path)]
+
 frames= []
 for file in files:
     df = pd.read_csv(data_path+file)
@@ -62,7 +65,6 @@ df = pd.get_dummies(df, columns=["wd", "station"], prefix=["wd", "stat"])
 x=df.drop(columns=["O3"])
 y=df["O3"]
 
-
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.2,random_state=42)
 x_train = np.array(x_train).astype("float")
@@ -83,33 +85,33 @@ print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
 print("mean target :", np.mean(y))
 #%%
 
-from sklearn.model_selection import cross_val_score
-reg1 = M5regressor(smoothing=False, n_attr_leaf=4, max_depth=8, 
-                  k=1.0,pruning=False,optimize_models=False,incremental_fit=False)
-reg1.fit(x_train,y_train[:,None])
-#%%
-reg1.smoothing=True
-reg1.k=150.0
-predictions = reg1.predict(x_test)
-print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
-print("mean target :", np.mean(y))
+# from sklearn.model_selection import cross_val_score
+# reg1 = M5regressor(smoothing=False, n_attr_leaf=4, max_depth=8, 
+#                   k=1.0,pruning=False,optimize_models=False,incremental_fit=False)
+# reg1.fit(x_train,y_train[:,None])
+# #%%
+# reg1.smoothing=True
+# reg1.k=150.0
+# predictions = reg1.predict(x_test)
+# print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
+# print("mean target :", np.mean(y))
 
 
-#%%
-from sklearn.linear_model import LinearRegression
-dummy = LinearRegression().fit(x_train,y_train)
-predictions = dummy.predict(x_test)
-print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
-print("mean target :", np.mean(y))
+# #%%
+# from sklearn.linear_model import LinearRegression
+# dummy = LinearRegression().fit(x_train,y_train)
+# predictions = dummy.predict(x_test)
+# print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
+# print("mean target :", np.mean(y))
 
-#%%
-from sklearn.tree import DecisionTreeRegressor
-reg2 = DecisionTreeRegressor(random_state=42,criterion="mse", max_depth=20)
-reg2.fit(x_train,y_train)
-#%%
-predictions = reg2.predict(x_test)
-print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
-print("mean target :", np.mean(y))
+# #%%
+# from sklearn.tree import DecisionTreeRegressor
+# reg2 = DecisionTreeRegressor(random_state=42,criterion="mse", max_depth=20)
+# reg2.fit(x_train,y_train)
+# #%%
+# predictions = reg2.predict(x_test)
+# print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
+# print("mean target :", np.mean(y))
 
 
 

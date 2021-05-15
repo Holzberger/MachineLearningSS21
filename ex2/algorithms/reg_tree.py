@@ -79,29 +79,50 @@ class Const_regressor(BaseEstimator, RegressorMixin):
         n_res_min = -1
         split_val_min = -1
         calc_buffer = np.zeros(n_T)
-        mins = 0
         for n in range(n_attr):
             sorted_ind = np.argsort(data[:,n])
             sorted_T = data[sorted_ind,-1]
             sorted_attr = data[sorted_ind,n]
-            u, first_ind = np.unique(sorted_attr,return_index=True)
-            # p=1 do all splits p=0 only one split
-            p = 1
-            stride = int(first_ind.shape[0]*(1-p)+1)
-            for ind in first_ind[1::stride]: #iterate splits
-                if ind<=mins or (n_T-ind)<=mins:
-                    continue
-                # get mean
-                y_mean0 = (sorted_T[:ind]).mean()
-                y_mean1 = (sorted_T[ind:]).mean()
-                # subtract next mean
-                calc_buffer[:ind] = sorted_T[:ind]-y_mean0
-                calc_buffer[ind:] = sorted_T[ind:]-y_mean1
-                res = (calc_buffer**2).sum()
-                if res<res_min :
-                    res_min=res
-                    n_res_min = n
-                    split_val_min = sorted_attr[ind]
+            u, first_ind, u_count = np.unique(sorted_attr,return_index=True,return_counts=True)
+            
+            if u.shape[0]<2: # no split possible
+                continue
+            
+            # sum of target y in the splits
+            presum_T = sorted_T.cumsum()
+            presum_count_fwd = u_count.cumsum()
+            presum_count_bwd = (presum_count_fwd[-1]-presum_count_fwd)
+            means_T = np.zeros_like(first_ind,dtype="float")
+            means_T[:-1] = presum_T[first_ind[1:]-1]-presum_T[first_ind[:-1]-1]
+            means_T[0] = presum_T[first_ind[1]-1]
+            means_T[-1] = presum_T[-1]-presum_T[first_ind[-1]-1]
+            presum_means_T_fwd = means_T.cumsum()
+            presum_means_T_bwd = (presum_means_T_fwd[-1]-presum_means_T_fwd)
+            # mean values per split
+            y_mean0 = presum_means_T_fwd[:-1]/presum_count_fwd[:-1]
+            y_mean1 = presum_means_T_bwd[:-1]/presum_count_bwd[:-1]
+            # sum of target y**2 in the splits 
+            presum2_T = (sorted_T**2).cumsum()
+            presum2_count_fwd = u_count.cumsum()
+            presum2_count_bwd = (presum2_count_fwd[-1]-presum2_count_fwd)
+            binsums2_T = np.zeros_like(first_ind,dtype="float")
+            binsums2_T[:-1] = presum2_T[first_ind[1:]-1]-presum2_T[first_ind[:-1]-1]
+            binsums2_T[0] = presum2_T[first_ind[1]-1]
+            binsums2_T[-1] = presum2_T[-1]-presum2_T[first_ind[-1]-1]
+            presum2_means_T_fwd = binsums2_T.cumsum()
+            presum2_means_T_bwd = (presum2_means_T_fwd[-1]-presum2_means_T_fwd)
+            # residuals in all splits for this attribute
+            res = presum2_means_T_fwd[:-1] + presum2_means_T_bwd[:-1] -\
+                  presum_means_T_fwd[:-1]*2*y_mean0 - presum_means_T_bwd[:-1]*2*y_mean1 +\
+                  presum_count_fwd[:-1]*y_mean0**2 + presum_count_bwd[:-1]*y_mean1**2
+            # minimum residual
+            m = np.argmin(res)
+            
+            if res[m]<res_min :
+                res_min = res[m]
+                n_res_min = n
+                split_val_min = sorted_attr[first_ind[m+1]]
+
         return res_min, n_res_min, split_val_min
                     
     def predict_vec(self, node, x):

@@ -80,8 +80,7 @@ def test_2d(n_samples, draw=True):
     #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
     #from sklearn.tree import DecisionTreeRegressor
     #reg = DecisionTreeRegressor(random_state=42,criterion="mse", max_depth=10)
-    reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=19, 
-                  k=0.1,pruning=False,optimize_models=False,incremental_fit=False)
+    reg = M5regressor(smoothing=False, n_attr_leaf=8)
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
@@ -110,9 +109,11 @@ def test_2d1(n_samples, draw=True):
     xymax=5
     
     x,y = f2_rand(n_samples)
+    x= x.astype("float")
+    y= y.astype("float")
     
     #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
-    reg = Const_regressor(n_attr_leaf=4, max_depth=10,smoothing=True,k=5)
+    reg = Const_regressor(n_attr_leaf=10, max_depth=5,smoothing=True,k=5)
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
@@ -121,8 +122,8 @@ def test_2d1(n_samples, draw=True):
     #reg.prune(x, y, optimize_models=False)
     
     m=30
-    x_pos = np.linspace(xymin, xymax, m)
-    y_pos = np.linspace(xymin, xymax, m)
+    x_pos = np.linspace(xymin, xymax, m).astype("float")
+    y_pos = np.linspace(xymin, xymax, m).astype("float")
     x_pos2d, y_pos2d = np.meshgrid(x_pos, y_pos)
     X = np.hstack((x_pos2d.reshape(m*m,1), y_pos2d.reshape(m*m,1)))
     Z = reg.predict(X).reshape(m,m)
@@ -153,5 +154,5 @@ def test_1d1(n_samples,draw=True):
     
 #test_1d(500)
 #test_1d1(500)
-test_2d(5000,draw=True)
+test_2d(2500,draw=True)
 #test_2d1(5000,draw=True)

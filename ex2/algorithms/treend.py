@@ -57,6 +57,69 @@ class M5regressor(BaseEstimator, RegressorMixin):
         self.split(root, x)   
         return root
     
+    def rRMS(self, data, node):
+        n_T, n_attr = data.shape
+        n_attr -= 1 
+        T   = data[:,-1]
+        attr = data[:, :-1]
+        res_min = 1e100
+        n_res_min = -1
+        split_val_min = -1
+        calc_buffer = np.zeros(n_T)
+        for n in range(n_attr):
+            sorted_ind = np.argsort(data[:,n])
+            sorted_T = data[sorted_ind,-1]
+            sorted_attr = data[sorted_ind,n]
+            u, first_ind, u_count = np.unique(sorted_attr,return_index=True,return_counts=True)
+            
+            if u.shape[0]<2: # no split possible
+                continue
+            
+            # sum of target y in the splits
+            presum_T = sorted_T.cumsum()
+            presum_count_fwd = u_count.cumsum()
+            presum_count_bwd = (presum_count_fwd[-1]-presum_count_fwd)
+            means_T = np.zeros_like(first_ind,dtype="float")
+            means_T[:-1] = presum_T[first_ind[1:]-1]-presum_T[first_ind[:-1]-1]
+            means_T[0] = presum_T[first_ind[1]-1]
+            means_T[-1] = presum_T[-1]-presum_T[first_ind[-1]-1]
+            presum_means_T_fwd = means_T.cumsum()
+            presum_means_T_bwd = (presum_means_T_fwd[-1]-presum_means_T_fwd)
+            # mean values per split
+            y_mean0 = presum_means_T_fwd[:-1]/presum_count_fwd[:-1]
+            y_mean1 = presum_means_T_bwd[:-1]/presum_count_bwd[:-1]
+            # sum of target y**2 in the splits 
+            presum2_T = (sorted_T**2).cumsum()
+            presum2_count_fwd = u_count.cumsum()
+            presum2_count_bwd = (presum2_count_fwd[-1]-presum2_count_fwd)
+            binsums2_T = np.zeros_like(first_ind,dtype="float")
+            binsums2_T[:-1] = presum2_T[first_ind[1:]-1]-presum2_T[first_ind[:-1]-1]
+            binsums2_T[0] = presum2_T[first_ind[1]-1]
+            binsums2_T[-1] = presum2_T[-1]-presum2_T[first_ind[-1]-1]
+            presum2_means_T_fwd = binsums2_T.cumsum()
+            presum2_means_T_bwd = (presum2_means_T_fwd[-1]-presum2_means_T_fwd)
+            # residuals in all splits for this attribute
+            res = presum2_means_T_fwd[:-1] + presum2_means_T_bwd[:-1] -\
+                  presum_means_T_fwd[:-1]*2*y_mean0 - presum_means_T_bwd[:-1]*2*y_mean1 +\
+                  presum_count_fwd[:-1]*y_mean0**2 + presum_count_bwd[:-1]*y_mean1**2
+            # minimum residual
+            m = np.argmin(res)
+            
+            if res[m]<res_min :
+                res_min = res[m]
+                n_res_min = n
+                split_val_min = sorted_attr[first_ind[m+1]]
+                
+        mask_left  = data[:,n_res_min]<split_val_min
+        mask_right = np.logical_not(mask_left)
+        return data[mask_left,:], \
+                data[mask_right,:], \
+                split_val_min, \
+                n_res_min
+
+        return res_min, n_res_min, split_val_min
+    
+    
     def SDR(self, data, node):
         n_T, n_attr = data.shape
         n_attr -= 1 
@@ -68,24 +131,56 @@ class M5regressor(BaseEstimator, RegressorMixin):
         SDR_max = -1
         n_SDR_max = -1
         split_SDR_max = -1
-        mins = 10
+        mins = 0
         
         for n in range(n_attr):
             sorted_ind = np.argsort(data[:,n])
             sorted_T = data[sorted_ind,-1]
             sorted_attr = data[sorted_ind,n]
-            u, first_ind = np.unique(sorted_attr,return_index=True)
+            u, first_ind, u_count = np.unique(sorted_attr,return_index=True,return_counts=True)
+            
+            
+            presum_T = sorted_T.cumsum()
+
+            presum_count_fwd = u_count.cumsum()
+            
+            presum_count_bwd = (presum_count_fwd[-1]-presum_count_fwd)
+            
+            means_T = np.zeros_like(first_ind)
+            means_T[:-1] = presum_T[first_ind[1:]-1]-presum_T[first_ind[:-1]-1]
+            means_T[0] = presum_T[first_ind[1]-1]
+            means_T[-1] = presum_T[-1]-presum_T[first_ind[-1]-1]
+            
+            presum_means_T_fwd = means_T.cumsum()
+            presum_means_T_bwd = (presum_means_T_fwd[-1]-presum_means_T_fwd)
+            
+            means0 = presum_means_T_fwd[:-1]/presum_count_fwd[:-1]
+            means1 = presum_means_T_bwd[:-1]/presum_count_bwd[:-1]
+            
+            
+            j=0
             # p=1 do all splits p=0 only one split
             p = 1
             stride = int(first_ind.shape[0]*(1-p)+1)
             for ind in first_ind[1::stride]: #iterate splits
-                if ind<=mins or (n_T-ind)<=mins:
-                    continue
+                #if ind<=mins or (n_T-ind)<=mins:
+                    #continue
                 # get mean
-                y_std0   = (sorted_T[:ind]).std()
-                y_std1   = (sorted_T[ind:]).std()
+                buff0 = (sorted_T[:ind])
+                buff1 = (sorted_T[ind:])
+                y_std0   = buff0.std()
+                y_std1   = buff1.std()
                 SDR_attr = sdT - (ind*y_std0 + (n_T-ind)*y_std1)/n_T
-               
+                
+                m0 = means0[j]
+                m0c = (sorted_T[:ind]).mean()
+                m1 = means1[j]
+                m1c = (sorted_T[ind:]).mean()
+                
+                
+                j+=1
+                if j==5483:
+                    a=1
                 if SDR_attr > SDR_max:
                     SDR_max = SDR_attr
                     n_SDR_max = n
@@ -122,7 +217,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             node.type = 1 # leaf
         else:
             print("calc SDR of {} points".format(data.shape[0]))
-            data_left, data_right, mean, dim_split = self.SDR(data, node)
+            data_left, data_right, mean, dim_split = self.rRMS(data, node)
             if dim_split==-1: # split not found
                 node.type = 1 # leaf
             else:

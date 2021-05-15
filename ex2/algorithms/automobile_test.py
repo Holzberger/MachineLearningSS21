@@ -65,8 +65,8 @@ df = df[attrs]
 # scaler = MinMaxScaler()
 # feed[attrs]=scaler.fit_transform(feed[attrs])
 
-X = np.array(feed.drop('price',axis = 1))
-y = np.array(feed['price'])
+X = np.array(df.drop('price',axis = 1))
+y = np.array(df['price'])
 
 
 
