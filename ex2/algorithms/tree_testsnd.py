@@ -8,7 +8,7 @@ Created on Fri May  7 16:58:14 2021
 import numpy as np
 import matplotlib.pyplot as plt
 
-from treend import *
+from model_tree import *
 from reg_tree import *
 
 def f1(x):
@@ -46,39 +46,42 @@ def f2_rand(n_samples,no_noise=False,seed=42):
     return x,y[:,None]
 
 def test_1d(n_samples,draw=True):
-    x,y = f1_rand(n_samples,no_noise=False)
-    reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=3, k=20.0)
+    x,y = f1_rand(n_samples,no_noise=True)
+    reg = M5regressor(smoothing=False, n_attr_leaf=4, max_depth=15, k=15.0,
+                      pruning=False,optimize_models=False,incremental_fit=False,root_min_std=0.001)
     reg.fit(x, y)
     X = np.linspace(-1,1,300)[:,None]
     if draw:
-        reg.smoothing=True
         Y = reg.predict(X)
-        plt.plot(x,y,".",alpha=0.5)
+        plt.plot(x,y,"o",alpha=0.5)
         plt.plot(X,Y,linewidth=2,color="red")
         
-        reg.smoothing=True
-        Y = reg.predict(X)
-        plt.plot(X,Y,linewidth=2,color="orange")
+        # reg.smoothing=False
+        # Y = reg.predict(X)
+        # plt.plot(X,Y,linewidth=2,color="orange",linestyle=":")
         
-        x_test,y_test = f1_rand(100,no_noise=True)   
-        reg.prune(x_test, y_test)
-        Y = reg.predict(X)
-        plt.plot(X,Y,linewidth=2,color="green")
-        plt.plot(X,f1(X),linewidth=2,color="black")
+        # x_test,y_test = f1_rand(100,no_noise=True)   
+        # reg.prune(x_test, y_test)
+        # Y = reg.predict(X)
+        # plt.plot(X,Y,linewidth=2,color="green",linestyle="--")
+        # plt.plot(X,f1(X),linewidth=2,color="black",alpha=0.5)
         
         x_test, y_test = f1_rand(n_samples,no_noise=False,seed=314)
         print(reg.score(x_test, y_test))
+       
         
+       
     
 def test_2d(n_samples, draw=True):
     xymin=-5
     xymax=5
     
-    x,y = f2_rand(n_samples)
+    x,y = f2_rand(n_samples,no_noise=True)
     
     #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
-    reg = M5regressor(smoothing=True, n_attr_leaf=7, max_depth=15, 
-                  k=4.0,pruning=True,optimize_models=True,incremental_fit=False)
+    #from sklearn.tree import DecisionTreeRegressor
+    #reg = DecisionTreeRegressor(random_state=42,criterion="mse", max_depth=10)
+    reg = M5regressor(smoothing=False, n_attr_leaf=4,max_depth=15, split_function="RMS")
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
@@ -86,7 +89,7 @@ def test_2d(n_samples, draw=True):
     
     #reg.prune(x, y, optimize_models=False)
     
-    m=25
+    m=30
     x_pos = np.linspace(xymin, xymax, m)
     y_pos = np.linspace(xymin, xymax, m)
     x_pos2d, y_pos2d = np.meshgrid(x_pos, y_pos)
@@ -97,7 +100,7 @@ def test_2d(n_samples, draw=True):
         from matplotlib import cm
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         surf = ax.plot_surface(x_pos2d, y_pos2d, Z, cmap=cm.coolwarm, linewidth=0,alpha=0.8)
-        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
+        #surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
     # check score on some random testcases
     x_test, y_test = f2_rand(100,no_noise=True,seed=314)
     print(reg.score(x_test, y_test))
@@ -107,9 +110,11 @@ def test_2d1(n_samples, draw=True):
     xymax=5
     
     x,y = f2_rand(n_samples)
+    x= x.astype("float")
+    y= y.astype("float")
     
     #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
-    reg = Const_regressor(n_attr_leaf=10, max_depth=10)
+    reg = Const_regressor(n_attr_leaf=10, max_depth=5,smoothing=True,k=5)
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
@@ -117,9 +122,9 @@ def test_2d1(n_samples, draw=True):
     
     #reg.prune(x, y, optimize_models=False)
     
-    m=25
-    x_pos = np.linspace(xymin, xymax, m)
-    y_pos = np.linspace(xymin, xymax, m)
+    m=30
+    x_pos = np.linspace(xymin, xymax, m).astype("float")
+    y_pos = np.linspace(xymin, xymax, m).astype("float")
     x_pos2d, y_pos2d = np.meshgrid(x_pos, y_pos)
     X = np.hstack((x_pos2d.reshape(m*m,1), y_pos2d.reshape(m*m,1)))
     Z = reg.predict(X).reshape(m,m)
@@ -128,14 +133,27 @@ def test_2d1(n_samples, draw=True):
         from matplotlib import cm
         fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
         surf = ax.plot_surface(x_pos2d, y_pos2d, Z, cmap=cm.coolwarm, linewidth=0,alpha=0.8)
-        surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
+        #surf = ax.scatter(x[:,0], x[:,1], y, cmap=cm.coolwarm,marker=".",alpha=0.3)
     # check score on some random testcases
     x_test, y_test = f2_rand(100,no_noise=True,seed=314)
     print(reg.score(x_test, y_test))
     
+def test_1d1(n_samples,draw=True):
+    x,y = f1_rand(n_samples,no_noise=False)
+    reg = Const_regressor(n_attr_leaf=20, max_depth=15, smoothing=True,k=4)
+    reg.fit(x, y)
+    X = np.linspace(-1,1,300)[:,None]
+    if draw:
+        Y = reg.predict(X)
+        plt.plot(x,y,".",alpha=0.5)
+        plt.plot(X,Y,linewidth=2,color="red")
+        
+        plt.plot(X,f1(X),linewidth=2,color="black")
+        
+        x_test, y_test = f1_rand(n_samples,no_noise=False,seed=314)
+        print(reg.score(x_test, y_test))
     
-    
-    
-#test_1d(500)
-#test_2d(1200,draw=True)
-test_2d1(1200,draw=True)
+test_1d(500)
+#test_1d1(500)
+#test_2d(2500,draw=True)
+#test_2d1(5000,draw=True)

@@ -56,10 +56,16 @@ df3 = df2#df2[['population','housing_median_age', 'median_income','median_house_
 
 #trdata,tedata = train_test_split(df3,test_size=0.3,random_state=43)
 
+x=df2.drop(columns=["median_house_value"])
+y=df2["median_house_value"]
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.1,random_state=42)
+x_train = np.array(x_train).astype("float")
+x_test = np.array(x_test).astype("float")
+y_train = np.array(y_train).astype("float")
+y_test = np.array(y_test).astype("float")
 
 
-
-X = np.array(df2)
 #XT = np.array(tedata)
 
 #from sklearn.preprocessing import MinMaxScaler
@@ -76,11 +82,19 @@ X = np.array(df2)
 
 #print(score(XT[:,-1], predictions))
 
-reg = Const_regressor(n_attr_leaf=10, max_depth=10)
-reg.fit(X[:,:-1],X[:,-1][:,None])
-predictions = reg.predict(np.array(X[:,:-1]))
-print("r2_score is : " , r2_score(X[:,-1], predictions))
 
+from sklearn.metrics import mean_absolute_error
+
+reg = Const_regressor(n_attr_leaf=30, max_depth=15, smoothing=True,k=5)
+reg.fit(x_train,y_train[:,None])
+reg.prune(x_test, y_test[:,None])
+predictions = reg.predict(x_test)
+print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
+
+from sklearn.linear_model import LinearRegression
+dummy = LinearRegression().fit(x_train, y_train)
+predictions = dummy.predict(x_test)
+print("mean_absolute_error is : " , mean_absolute_error(y_test, predictions))
 # from sklearn.model_selection import cross_val_score
 # reg = M5regressor(smoothing=True, n_attr_leaf=140, max_depth=5, 
 #                   k=400.0,pruning=True,optimize_models=True,incremental_fit=False)
