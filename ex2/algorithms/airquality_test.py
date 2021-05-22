@@ -24,7 +24,8 @@ from os.path import isfile, join
 
 # online source :https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data
 
-data_path = "../../../checkdatasets/PRSA_Data_20130301-20170228/"
+# data_path = "../../../checkdatasets/PRSA_Data_20130301-20170228/"
+data_path = "C:/Users/saeny/Desktop/machine learning/checkdatasets/PRSA_Data_20130301-20170228"
 
 
 files = [f for f in listdir(data_path)]
