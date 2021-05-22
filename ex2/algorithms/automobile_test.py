@@ -17,6 +17,10 @@ from sklearn.metrics import r2_score
 
 from model_tree import *
 from reg_tree import *
+
+from sklearn.linear_model import *
+from lineartree import LinearTreeClassifier, LinearTreeRegressor
+
 df = pd.read_csv('../datasets/Automobile_data.csv')
 
 #%% handle missing values
@@ -92,7 +96,7 @@ metrics = ['r2']
 #%%
 reg0 = M5regressor(smoothing=True, 
                   n_attr_leaf=4, 
-                  max_depth=5, 
+                  max_depth=10, 
                   k=1.0,
                   pruning=True,
                   optimize_models=False,
@@ -112,4 +116,8 @@ reg1 = Const_regressor(n_attr_leaf=4,
 scores1 = cross_validate(reg1, x_train, y_train[:,None], cv=10, scoring=metrics)
 #%%
 print_mymetrics(scores1, metrics, y_train)
+#%%
+regr = LinearTreeRegressor(base_estimator=LinearRegression())
+regr.fit(x_train, y_train)  # supports also multi-target and sample_weights
+print(regr.score(x_train, y_train))
 
