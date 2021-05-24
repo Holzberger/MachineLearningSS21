@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 
-from treend import *
+from model_tree import *
 from reg_tree import *
 from sklearn.linear_model import *
 from lineartree import LinearTreeClassifier, LinearTreeRegressor
@@ -35,11 +35,13 @@ df['date_time'] = pd.to_datetime(df['date_time'])
 
 # extract year, day and hour from date
 df['year'] = [d.year for d in df['date_time']]
-df['day'] = [d.day for d in df['date_time']]
+df['day_year'] = [d.dayofyear for d in df['date_time']]
+df['day_week'] = [d.dayofweek for d in df['date_time']]
 df['hour'] = [d.hour for d in df['date_time']]
+df['month'] = [d.month for d in df['date_time']]
 
 # date is not needed anymore
-df=df.drop(columns=['date_time'])
+ df=df.drop(columns=['date_time'])
 
 #%% encode remaining cathegorical attrs as one hot
 df = pd.get_dummies(df, columns=["holiday", "weather_main", "weather_description"], prefix=["holiday", "weather_main", "weather_description"])
