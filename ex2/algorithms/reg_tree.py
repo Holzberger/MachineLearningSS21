@@ -7,7 +7,8 @@ Created on Tue May 11 19:27:51 2021
 """
 import numpy as np
 from sklearn.base import BaseEstimator, RegressorMixin
-from split_functions import RMS_residual
+from split_functions import RMS_residual, SDR
+
 
 class Node():
     dims     = 0
