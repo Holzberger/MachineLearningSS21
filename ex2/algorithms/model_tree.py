@@ -98,7 +98,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             (np.max(data[:,:-1],axis=0)-np.min(data[:,:-1],axis=0)<1e-12).all():
             node.type = 1 # leaf
         else:
-            print("calc split of {} points".format(data.shape[0]))
+            #print("calc split of {} points".format(data.shape[0]))
             if self.split_function=="RMS":
                 node.error, node.dim_split, node.val = RMS_residual(data, node)
             elif self.split_function=="SDR":
@@ -107,7 +107,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             if node.dim_split==-1: # split not found
                 node.type = 1 # leaf
             else:
-                print("dim, split",node.dim_split, node.val )
+                #print("dim, split",node.dim_split, node.val )
                 
                 mask_left  = data[:,node.dim_split]<node.val
                 mask_right = np.logical_not(mask_left)
@@ -166,7 +166,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             next_error_left = self.pruneby_abserror(node.left, data[mask_left,:])
             if next_error_left > error_left:
                 node.left = None
-                print("prune right node at level",node.depth)
+                #print("prune right node at level",node.depth)
             else:
                 error_left = next_error_left
         elif np.any(mask_left):
@@ -178,7 +178,7 @@ class M5regressor(BaseEstimator, RegressorMixin):
             next_error_right = self.pruneby_abserror(node.right, data[mask_right,:])
             if next_error_right > error_right:
                 node.right = None
-                print("prune left node at level",node.depth)
+                #print("prune left node at level",node.depth)
             else:
                 error_right = next_error_right
         elif np.any(mask_right):
