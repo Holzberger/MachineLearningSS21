@@ -113,7 +113,7 @@ y = np.array(feed['price'])
 X,  y = shuffle(X, y, random_state=42)
 
 from sklearn.model_selection import cross_val_score
-reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=10, 
+reg = M5regressor(smoothing=True, n_attr_leaf=4, max_depth=10,
                   k=20.0,pruning=True,optimize_models=True,incremental_fit=True)
 scores = cross_val_score(reg, X,y[:,None], cv=5, scoring='r2')
 print(scores.min())
