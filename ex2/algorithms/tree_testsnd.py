@@ -114,7 +114,7 @@ def test_2d1(n_samples, draw=True):
     y= y.astype("float")
     
     #reg = M5regressor(smoothing=True, n_attr_leaf=15, max_depth=7, k=100.0)
-    reg = Const_regressor(n_attr_leaf=10, max_depth=5,smoothing=True,k=5)
+    reg = Const_regressor(n_attr_leaf=4, max_depth=10,smoothing=False,k=5)
     reg.fit(x, y)
     
     x_test, y_test = f2_rand(400,no_noise=True)
@@ -153,7 +153,7 @@ def test_1d1(n_samples,draw=True):
         x_test, y_test = f1_rand(n_samples,no_noise=False,seed=314)
         print(reg.score(x_test, y_test))
     
-test_1d(500)
+#test_1d(500)
 #test_1d1(500)
-#test_2d(2500,draw=True)
+test_2d(2500,draw=True)
 #test_2d1(5000,draw=True)
