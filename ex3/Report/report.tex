@@ -12,29 +12,30 @@
 
 %
 \section{Datasets}
-For exercise 3.2 Deep Learning we decided to chose for image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. We chose these two data sets to have some variation in the number of classes represented in the dataset.
+For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. With these two datasets we have variation in the classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In sections \ref{Sec_Cifar-10} and \ref{Sec_ImageNet} both datasets are described in more detail. 
 
-\subsection{CIFAR-10} 
+\subsection{CIFAR-10}\label{Sec_Cifar-10}
 CIFAR-10 is a dataset which consists of 60000 images, of which 50000 training images and 10000 test images. Each image has 32x32 colored pixels.
 There are 10 different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly 5000 images in the training data and 1000 images in the test data.Each image only belongs to one class. There are no multi-label images. 
 
-\subsection{Tiny ImageNet}
+\subsection{Tiny ImageNet}\label{Sec_ImageNet}
 Tiny ImageNet is a dataset containing of 100000 training images, divided in 200 different classes. There are 500 images per class in the training data. Next to the training data there are 10000 testing and 10000 validation images as well. each picture has 64x64 pixels.     
 
 \section{Traditional classifier}
 
 In order to have a baseline for our deep classifier some traditional classifiers have been executed. The following traditional classifiers have been trained:
 \begin{enumerate}
-\item{Naive Bayes}
-\item{Random forest}
-\item{Single layer perceptron}
-\item{Multi layer perceptron}
+\item{\textbf{Multinomial Naive Bayes}: alpha = 1.0, fit\_prior= True, class\_prior= None }
+\item{\textbf{Random forest}: n\_estimators = 100, criterion='gini', max\_depth=None, min\_samples\_split=2, min\_samples\_leaf=1, min\_weight\_fraction\_leaf=0.0, max\_features='auto', max\_leaf\_nodes = None, min\_impurity\_decrease=0.0, min\_impurity\_split=None, bootstrap=True, oob\_score=False, n\_jobs=None, random\_state=None, verbose=0, warm\_start=False, class\_weight=None, cc\_alpha=0.0, max\_samples=None}
+\item{\textbf{Single layer perceptron}:  penalty=None, alpha=0.0001, l1\_ratio=0.15, fit\_intercept=True, max\_iter=1000, tol=0.001, shuffle=True, verbose=0, eta0=1.0, n\_jobs=None, random\_state=0, early\_stopping=False, validation\_fraction=0.1, n\_iter\_no\_change=5, class\_weight=None, warm\_start=False}
+\item{\textbf{Multi layer perceptron}: 2 Relu activation layers 256, 1 softmax activation 10  epochs=15, batch\_size=32, verbose=0}
+
 \end{enumerate}
 
 Before we could train the traditional classifiers, we extracted features from our images. We performed two type of feature extraction. 
 
 \begin{enumerate}
-\item{color histogram}
+\item{Color histogram}
 \item{SIFT}
 \end{enumerate}
 
@@ -45,7 +46,14 @@ In FIGURE REF!!! a color histogram for both datasets is given.
 
 We created 4 different datasets, two based on one dimensional histograms (256 bins per channel and 64 bins per channel), one on two dimensional histograms (16 bins per channel) and one of 3 dimensional histograms (8 bins per channel). This based on the example shown in simple-image-feature-extraction INCLUDE REFERENCE https://tuwel.tuwien.ac.at/course/view.php?id=35929 !!!. The color histograms have been created using OpenCV. 
 
-\subsection{Sift}
+\subsection{Sift back of visual words}
+First the images are converted into grey scale images. With use of SIFT the keypoints are detected. Afterwards 20 clusters are created with use of Kmeans.
+
+Visual words are created and vectorized in a histogram (frequency of visual words). 
+
+Scale the histogram 
+
+Classify
 
 
 \subsection{Results}
@@ -53,10 +61,31 @@ We created 4 different datasets, two based on one dimensional histograms (256 bi
 \section{Deep learning}
 
 
-\subsection{AlexNet}
+\subsection{Res50Net}
+The first architecture we used for deep learning is the Res50Net \cite{Resnet}. The ResNet is pre-trained and transfer learning is applied. A front layer is added in order to have the correct input size. We froze the first 169 layers and re-trained the last XXXX layers. Re-training has been done in XXXX epochs.
 
-\subsection{Own Architecture}
+\subsubsection{Results}
+
+  
 
 
+\subsection{squeezNet}
+For the second architecture we decided on unsing SqueezeNet \cite{Sqeezenet}. Squeezenet claims to have an accuracy equal to AlexNet but has a lot less parameters to learn.  
+For SqeeuzeNet no weights are available, therefore we recreated the model and re-trained it. 
+
+
+
+\subsubsection{Results}
+
+
+
+\begin{thebibliography}{10}
+	
+\bibitem{Resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing ren, Jian Sun, \textit{Deep Residual Learning for Image Recognition}  
+ (2015b). arXiv:1512.03385.
+\bibitem{Sqeezenet}
+Forrest N. Iandola, Song Han, Matthew W. Moskewicz, Khalid Ashraf, William J. Dally, Kurt Kreutzer. \textit{SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size},(2016) arXiv:1602.07360.
+\end{thebibliography}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  18 JUL 2021 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.16)  21 JUL 2021 23:12
 entering extended mode
 **./report.tex
 (report.tex
@@ -1105,6 +1105,54 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 (C:\Users\mderonde\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+Package hyperref Warning: Suppressing empty link on input line 15.
+
+
+Package hyperref Warning: Suppressing empty link on input line 15.
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 29--30
+[]\OT1/cmr/bx/n/10.95 Random for-est\OT1/cmr/m/n/10.95 : n[]estimators = 100, c
+ri-te-rion='gini', max[]depth=None, min[]samples[]split=2,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+\OT1/cmr/m/n/10.95 min[]samples[]leaf=1, min[]weight[]fraction[]leaf=0.0, max[]
+features='auto', max[]leaf[]nodes =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+\OT1/cmr/m/n/10.95 None, min[]impurity[]decrease=0.0, min[]impurity[]split=None
+, boot-strap=True, oob[]score=False,
+ []
+
+
+Underfull \hbox (badness 5832) in paragraph at lines 30--31
+[]\OT1/cmr/bx/n/10.95 Single layer per-cep-tron\OT1/cmr/m/n/10.95 : penalty=Non
+e, al-pha=0.0001, l1[]ratio=0.15, fit[]intercept=True,
+ []
+
+
+Underfull \hbox (badness 3872) in paragraph at lines 30--31
+\OT1/cmr/m/n/10.95 max[]iter=1000, tol=0.001, shuf-fle=True, ver-bose=0, eta0=1
+.0, n[]jobs=None, ran-dom[]state=0,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+\OT1/cmr/m/n/10.95 early[]stopping=False, val-i-da-tion[]fraction=0.1, n[]iter[
+]no[]change=5, class[]weight=None,
+ []
+
+
+Underfull \hbox (badness 1189) in paragraph at lines 31--32
+[]\OT1/cmr/bx/n/10.95 Multi layer per-cep-tron\OT1/cmr/m/n/10.95 : 2 Relu ac-ti
+-va-tion lay-ers 256, 1 soft-max ac-ti-va-tion 10 epochs=15,
+ []
+
 [1
 
 {C:/Users/mderonde/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
@@ -1116,26 +1164,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
 
-[2] (report.aux)
+[2]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.16252pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.16252pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-13.16252pt}.
+
+[3] (report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 55C66D954C6892B430C8C70C4079C22E;1097.
+(rerunfilecheck)             Checksum: D11CA281B1857B619C47E2BA503F8A45;1364.
  ) 
 Here is how much of TeX's memory you used:
- 25527 strings out of 479334
- 455273 string characters out of 2855659
- 769626 words of memory out of 3000000
- 42529 multiletter control sequences out of 15000+200000
- 409586 words of font info for 50 fonts, out of 3000000 for 9000
+ 25544 strings out of 479334
+ 455476 string characters out of 2855659
+ 771758 words of memory out of 3000000
+ 42538 multiletter control sequences out of 15000+200000
+ 410240 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,119p,516b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 117i,11n,119p,516b,462s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mderonde/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report.pdf (2 pages, 71209 bytes).
+cm/cmbx10.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/mderonde/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/mderonde/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/mderonde/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/mderonde/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on report.pdf (3 pages, 110011 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
