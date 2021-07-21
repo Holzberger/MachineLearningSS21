@@ -1,0 +1,67 @@
+
+
+    \usepackage[breakable]{tcolorbox}
+    \tcbset{nobeforeafter} % prevents tcolorboxes being placing in paragraphs
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{multicol}
+	\usepackage[english]{babel}
+    \usepackage{tabularx}
+    \usepackage{subfigure}
+    \usepackage{picture}
+    \usepackage{amsmath}
+    \usepackage{hyperref}
+    \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+    \usepackage{graphicx}    
+    \usepackage{caption}
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=0.6in,rmargin=0.6in}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\footrulewidth}{1pt}
+    \rhead{e12045110 , e12040873, e11921655}
+    \lhead{VU\,184.702\\ Machine Learning}
+    \cfoot{\thepage}
+    \setcounter{secnumdepth}{0}
+    \setlength\parindent{0pt}
+
+    \usepackage{booktabs}
+
+
+    \usepackage{listings}
+    \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+    \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+    \SetCommentSty{mycommfont}
+    \SetKwInput{KwInput}{Input}                % Set the Input
+    \SetKwInput{KwOutput}{Output}              % set the Output
+
+	\DeclareMathOperator*{\argmax}{arg\,max}
+	\usepackage{tabularx,colortbl}

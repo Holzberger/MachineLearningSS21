@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\input{Packages}
+
+
+\title{Exercise 3.2 Deep learning}
+\author{e12045110 Maria de Ronde \\ e12040873  Quentin Andre  \\ e11921655 Fabian Holzberger}
+\date{\today}
+
+\begin{document}
+\graphicspath{{./figures/}}
+\maketitle
+
+%
+\section{Datasets}
+For exercise 3.2 Deep Learning we decided to chose for image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. We chose these two data sets to have some variation in the number of classes represented in the dataset.
+
+\subsection{CIFAR-10} 
+CIFAR-10 is a dataset which consists of 60000 images, of which 50000 training images and 10000 test images. Each image has 32x32 colored pixels.
+There are 10 different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly 5000 images in the training data and 1000 images in the test data.Each image only belongs to one class. There are no multi-label images. 
+
+\subsection{Tiny ImageNet}
+Tiny ImageNet is a dataset containing of 100000 training images, divided in 200 different classes. There are 500 images per class in the training data. Next to the training data there are 10000 testing and 10000 validation images as well. each picture has 64x64 pixels.     
+
+\section{Traditional classifier}
+
+In order to have a baseline for our deep classifier some traditional classifiers have been executed. The following traditional classifiers have been trained:
+\begin{enumerate}
+\item{Naive Bayes}
+\item{Random forest}
+\item{Single layer perceptron}
+\item{Multi layer perceptron}
+\end{enumerate}
+
+Before we could train the traditional classifiers, we extracted features from our images. We performed two type of feature extraction. 
+
+\begin{enumerate}
+\item{color histogram}
+\item{SIFT}
+\end{enumerate}
+
+\subsection{Color histograms}
+Color histograms is one of the simplest feature extraction method for images. It counts the frequency of pixels with a certain color. The bins are based on the RBG coding. Spatial information get lost completely during this feature extraction.
+
+In FIGURE REF!!! a color histogram for both datasets is given.
+
+We created 4 different datasets, two based on one dimensional histograms (256 bins per channel and 64 bins per channel), one on two dimensional histograms (16 bins per channel) and one of 3 dimensional histograms (8 bins per channel). This based on the example shown in simple-image-feature-extraction INCLUDE REFERENCE https://tuwel.tuwien.ac.at/course/view.php?id=35929 !!!. The color histograms have been created using OpenCV. 
+
+\subsection{Sift}
+
+
+\subsection{Results}
+
+\section{Deep learning}
+
+
+\subsection{AlexNet}
+
+\subsection{Own Architecture}
+
+
+
+\end{document}
