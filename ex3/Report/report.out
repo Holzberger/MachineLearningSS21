@@ -7,9 +7,13 @@
 \BOOKMARK [1][-]{section*.7}{Convolutional Neural Networks \(CNN's\)}{}% 7
 \BOOKMARK [2][-]{section*.8}{SqueezeNet}{section*.7}% 8
 \BOOKMARK [2][-]{section*.9}{Wrapped Res50Net for Transfer learning}{section*.7}% 9
-\BOOKMARK [2][-]{section*.10}{Results Cifar10 Dataset}{section*.7}% 10
-\BOOKMARK [2][-]{section*.11}{SqueezeNet}{section*.7}% 11
-\BOOKMARK [2][-]{section*.14}{Res50Net}{section*.7}% 12
-\BOOKMARK [3][-]{section*.17}{Results}{section*.14}% 13
-\BOOKMARK [2][-]{section*.18}{squeezNet}{section*.7}% 14
-\BOOKMARK [3][-]{section*.19}{Results}{section*.18}% 15
+\BOOKMARK [2][-]{section*.10}{Training Details for CNN's}{section*.7}% 10
+\BOOKMARK [2][-]{section*.11}{Results Cifar10 Dataset}{section*.7}% 11
+\BOOKMARK [2][-]{section*.12}{SqueezeNet}{section*.7}% 12
+\BOOKMARK [2][-]{section*.15}{Res50Net}{section*.7}% 13
+\BOOKMARK [2][-]{section*.18}{Results Tiny ImageNet Dataset}{section*.7}% 14
+\BOOKMARK [2][-]{section*.19}{SqueezeNet}{section*.7}% 15
+\BOOKMARK [2][-]{section*.23}{Res50Net}{section*.7}% 16
+\BOOKMARK [3][-]{section*.25}{Results}{section*.23}% 17
+\BOOKMARK [2][-]{section*.26}{squeezNet}{section*.7}% 18
+\BOOKMARK [3][-]{section*.27}{Results}{section*.26}% 19
