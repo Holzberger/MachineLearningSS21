@@ -9,36 +9,42 @@
 \begin{document}
 \graphicspath{{./pictures/}}
 \maketitle
+\tableofcontents
 
 %
 \section{Datasets}
-<<<<<<< HEAD
 For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 \footnote{\url{https://www.cs.toronto.edu/~kriz/cifar.html}} and Tiny-ImagenNet  \footnote{\url{http://cs231n.stanford.edu/tiny-imagenet-200.zip}}. With these two datasets we have variation in the number of classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In sections \ref{Sec_Cifar-10} and \ref{Sec_ImageNet} both datasets are described in more detail. The pictures also differ in input size.\\
 We used Python as our programming language and implemented the deep learning using Tensor Flow. 
-=======
-For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. With these two datasets we have variation in the classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In the following sections both datasets are described in more detail. 
->>>>>>> 23c1e384a8aeaf19d24f7805d4088a43cb82b7b2
+
 
 \subsection{CIFAR-10}\label{Sec_Cifar-10}
 CIFAR-10 is a dataset which consists of $60.000$ images, of which $50.000$ training images and $10.000$ test images. Each image has $32\times32$ colored pixels.
 There are $10$ different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly $5.000$ images in the training data and $1.000$ images in the test data. Each image only belongs to one class. There are no multi-label images. 
 
 \subsection{Tiny ImageNet}\label{Sec_ImageNet}
-<<<<<<< HEAD
-Tiny ImageNet is a dataset containing of 100000 training images, divided in 200 different classes. There are 500 images per class in the training data. Next to the training data there are 10000 testing and 10000 validation images as well. Each picture has 64x64 pixels. The test set of this data is not labeled. To load the data some code from Github \footnote{\url{https://github.com/rmccorm4/Tiny-Imagenet-200}} was used. 
-=======
-Tiny ImageNet is a dataset containing of $100.000$ training images, divided in $200$ different classes. There are $500$ images per class in the training data. Next for the training data there are $10.000$ testing and $10.000$ validation images as well. Each picture has $64\times64$ pixels. The images in the test-set are not labelled and therefore we will not make use of them.
->>>>>>> 23c1e384a8aeaf19d24f7805d4088a43cb82b7b2
+Tiny ImageNet is a dataset containing of $100.000$ training images, divided in $200$ different classes. There are $500$ images per class in the training data. Next for the training data there are $10.000$ testing and $10.000$ validation images as well. Each picture has $64\times64$ pixels. The images in the test-set are not labelled and therefore we will not make use of them. To load the data some code from Github \footnote{\url{https://github.com/rmccorm4/Tiny-Imagenet-200}} was used. 
 
 \section{Traditional classifiers}
 
 In order to have a baseline for our deep classifier some traditional classifiers have been executed. The following traditional classifiers have been trained:
-\begin{enumerate}
-\item{\textbf{Multinomial Naive Bayes}: alpha = 1.0, fit\_prior= True, class\_prior= None }
-\item{\textbf{Random forest}: n\_estimators = 100, criterion='gini', max\_depth=None, min\_samples\_split=2, min\_samples\_leaf=1, min\_weight\_fraction\_leaf=0.0, max\_features='auto', max\_leaf\_nodes = None, min\_impurity\_decrease=0.0, min\_impurity\_split=None, bootstrap=True, oob\_score=False, n\_jobs=None, random\_state=None, verbose=0, warm\_start=False, class\_weight=None, cc\_alpha=0.0, max\_samples=None}
-\item{\textbf{Single layer perceptron}:  penalty=None, alpha=0.0001, l1\_ratio=0.15, fit\_intercept=True, max\_iter=1000, tol=0.001, shuffle=True, verbose=0, eta0=1.0, n\_jobs=None, random\_state=0, early\_stopping=False, validation\_fraction=0.1, n\_iter\_no\_change=5, class\_weight=None, warm\_start=False}
-\item{\textbf{Multi layer perceptron}: 2 Relu activation layers 256, 1 softmax activation 10  epochs=15, batch\_size=32, verbose=0}
 
+\begin{enumerate}
+\item{%
+\textbf{Multinomial Naive Bayes}: 
+\texttt{alpha = 1.0}, \texttt{fit\_prior= True}, \texttt{class\_prior= None}
+}
+\item{%
+\textbf{Random forest}: 
+\texttt{n\_estimators = 100}, \texttt{criterion='gini'}, \texttt{max\_depth=None}, \texttt{min\_samples\_split=2}, \texttt{min\_samples\_leaf=1}, \texttt{min\_weight\_fraction\_leaf=0.0}, \texttt{max\_features='auto'}, \texttt{max\_leaf\_nodes = None}, \texttt{min\_impurity\_decrease=0.0}, \texttt{min\_impurity\_split=None}, \texttt{bootstrap=True}, \texttt{oob\_score=False}, \texttt{n\_jobs=None}, \texttt{random\_state=None}, \texttt{verbose=0}, \texttt{warm\_start=False}, \texttt{class\_weight=None}, \texttt{cc\_alpha=0.0}, \texttt{max\_samples=None}
+}
+\item{%
+\textbf{Single layer perceptron}:  
+\texttt{penalty=None}, \texttt{alpha=0.0001}, \texttt{l1\_ratio=0.15}, \texttt{fit\_intercept=True}, \texttt{max\_iter=1000}, \texttt{tol=0.001}, \texttt{shuffle=True}, \texttt{verbose=0}, \texttt{eta0=1.0}, \texttt{n\_jobs=None}, \texttt{random\_state=0}, \texttt{early\_stopping=False}, \texttt{validation\_fraction=0.1}, \texttt{n\_iter\_no\_change=5}, \texttt{class\_weight=None}, \texttt{warm\_start=False}
+}
+\item{%
+\textbf{Multi layer perceptron}: 
+2 Relu activation layers 256, 1 softmax activation 10  \texttt{epochs=15}, \texttt{batch\_size=32}, \texttt{verbose=0}
+}
 \end{enumerate}
 
 Before we could train the traditional classifiers, we extracted features from our images. We performed two type of feature extraction. 
@@ -72,7 +78,7 @@ We created 4 different datasets using color hisograms, two based on one dimensio
 \footnote{\url{https://tuwel.tuwien.ac.at/course/view.php?id=35929}}. In order to create the color histograms we used the package OpenCV. 
 
 \subsection{Sift back of visual words}
-<<<<<<< HEAD
+
 First the images are converted into grey scale images. With use of SIFT the key-points and descriptors are detected. K-means-clustering is applied to find 20 clusters in the detected descriptors. \\
 Finally vectors with the visual words are created and vectorized in a histogram (frequency of visual words). The histogram is scaled to a standard normal distribution before running the classifiers.   
 \subsection{Results}
@@ -203,14 +209,13 @@ The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptro
 In this section we introduce the CNN architectures used for this work.
 
 \subsection{SqueezeNet}
-For the first architecture we decided on unsing SqueezeNet \cite{iandola2016}. SqueezeNet was developed with the goal to make it as compact as possible, but still achiving state of art results. In the original paper it is shown that SqueezeNet can achive the same perfomance as an AlexNet for the ImageNet competition but with $50\times$ less parameters. This makes SqueezeNet particularly well suited for our small project where we need to rely on limited resources.
-
+For the first architecture we decided on using SqueezeNet \cite{iandola2016}. SqueezeNet was developed with the goal to make it as compact as possible, but still achieving state of art results. In the original paper it is shown that SqueezeNet can achieve the same performance as an AlexNet for the ImageNet competition but with $50\times$ less parameters. This makes SqueezeNet particularly well suited for our small project where we need to rely on limited resources.
 
 \subsection{Wrapped Res50Net for Transfer learning}
-For the second architecture we have choosen intentionaly a large one with many paramters, that gives the opertunity for transfer learning. Here we aim to use Res50Net \cite{he2016deep}, which has over 23 Million trainable parameters. We wrap this architecture by a custom network. For the training we freeze all layers till layer 168 and train the remaining layers of Res50Net and the additional custom layers. More details are given in the Results section.
+For the second architecture we have intensionally chosen a large one with many parameters, that gives the opportunity for transfer learning\footnote{\url{https://github.com/thushv89/manning_tf2_in_action/blob/master/Ch07/7.2.Transfer_Learning.ipynb}}. Here we aim to use Res50Net \cite{he2016deep}, which has over 23 Million trainable parameters. We wrap this architecture by a custom network and initialize it with the weights from the ImageNet competition. For the training we freeze all layers till layer 168 and train the remaining layers of Res50Net and the additional custom layers. More details are given in the results section.
 
 \subsection{Training Details for CNN's}
-For the training we are perfomring image augmentation and compare the obtained results to the case when no augmentation is applied. We apply for all CNN's the same random augmentations:
+For the training we are performing image augmentation and compare the obtained results to the case when no augmentation is applied. We apply for all CNN's the same random augmentations:
 %
 \begin{itemize}
 	\item width/height shift up to $10\%$
@@ -220,15 +225,15 @@ For the training we are perfomring image augmentation and compare the obtained r
 	\item horizontal flip
 \end{itemize}
 %
-For the training it was observed that the ADAM optimizer with learning rate $0.0001$ works well for all our cases. While performing the parameter search we decrease the learning rate by a factor $0.1$ if the loss function did not decrease for the $5$ previous iterations, where the loss function is the cathegorical-crossentropy. Additionally if the loss function does not improve for $15$ iterations we stop the parameter search early. The parameter search is exellerated by a NVidia K80 GPU, but test-set evaluation times are measured when employing our CNN's on a Intel i5 CPU. Another important aspect is that we dont normalize the RGB scales of the pixels since this caused non-convergence for the most parameter searches. All CNN'related analysis is perfomed as holdout, meaning we create a test, train validation set split.
+For the training it was observed that the ADAM optimizer with learning rate $0.0001$ works well for all our cases. While performing the parameter search, we decrease the learning rate by a factor $0.1$, if the loss function did not decrease for the $5$ previous iterations, where the loss function is the categorial-crossentropy. Additionally if the loss function does not improve for $15$ iterations we stop the parameter search early. The parameter search is accelerated by a NVidia K80 GPU, but test-set evaluation times are measured when employing our CNN's on a Intel i5 CPU. Another important aspect is that we don't normalize the RGB scales of the pixels since this caused non-convergence for the most parameter searches. All CNN related analysis is performed as holdout, meaning we create a test, train validation set split. The reported objective that measures the quality of our predictions, while training the CNN is the accuracy that is defined as the number of correct predicted labels divided by the total number of samples we predict for a set. 
 
 
 
 \subsection{Results Cifar10 Dataset}
 
 \subsection{SqueezeNet}
-For the Cifar10 Dataset the resulting SqueezeNet architecuture has $740.554$ trainable parameters. 
-A holdout analysis is performed where we take $10\%$ of the train-data as validation data to evaluate the performance of the CNN at training time. 
+For the Cifar10 Dataset the resulting SqueezeNet architecture has $740.554$ trainable parameters.
+A holdout analysis is performed where we take $10\%$ of the train-data as validation data to evaluate the performance of the CNN at training time.
 
 \begin{figure}
 \centering
@@ -241,7 +246,7 @@ A holdout analysis is performed where we take $10\%$ of the train-data as valida
 \label{rescnn::1}
 \end{figure}
 
-In figure \ref{rescnn::1} we can see the effect of the augmentation on the accuracy of the predictions while training. We have a clear overfitting of the CNN when not applying augmentation. This overfitting is largly decreased by applying the image-augmentation as can be seen in the figure. When applying the augmentation the accuracy of SqueezeNet on the Test-set increased from $65.21\%$ to $67.33\%$. Augmentation of the images has an influence on the efficiency of the parameter search for the Network. Without augmentation the optimal paramters are found after $6 \min$ and less than $40$ epochs, whereas augmentation causes the time for parameter search to increase to $46 \min$ and $84$ epochs. For the predition of the $313$ samples in the test-set SqueezeNet needs about $9 \text{s}$ 
+In figure \ref{rescnn::1} we can see the effect of the augmentation on the accuracy of the predictions while training. We have a clear overfitting of the CNN when not applying augmentation. This overfitting is largely decreased by applying the image-augmentation, as can be seen in the figure. When applying the augmentation, the accuracy of SqueezeNet on the test-set increased from $65.21\%$ to $67.33\%$. Augmentation of the images has an influence on the efficiency of the parameter search for the Network. Without augmentation the optimal parameters are found after $6 \min$ and less than $40$ epochs, whereas augmentation causes the time for parameter search to increase to $46 \min$ and $84$ epochs. For the prediction of the $313$ samples in the test-set SqueezeNet needs about $9 \text{s}$.
 
 \begin{figure}
 \centering
@@ -254,10 +259,10 @@ In figure \ref{rescnn::1} we can see the effect of the augmentation on the accur
 \label{rescnn::4}
 \end{figure}
 
-In figure \ref{rescnn::4} (a) we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class with $847$ where we note that $127$ times a truch sample gets confused to be a car. The least true positive labels are predicted for cats with $383$ where this class often gets confused with the dog class. The most false negative preditions are made for the truck class with $423$ samples closely followed by the horse class with $421$ flsely predicted samples. This is due to the fact that Trucks are often confused with cars and horses are often confused with deers or dogs.
+In figure \ref{rescnn::4} (a) we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class, with $847$, where we note that $127$ times a truck sample gets confused to be a car. The least true positive labels are predicted for cats, with $383$, where this class often gets confused with the dog class. The most false negative predictions are made for the truck class with $423$ samples closely followed by the horse class with $421$ falsely predicted samples. This is due to the fact that trucks are often confused with cars and horses are often confused with deers or dogs.
 
 \subsection{Res50Net}
-To create our wrapped Res50Net we stip off the top layers and replace that layer by a custom layer of $32\times 32 \times 3$ for reading our images. The output of the Res50Net gets fed into $3$ densle layers with $256, 128, 64$ neurons till it reaches the softmax layers for prediction. Note that our dense layers consist each at the top of a batch normalisation layer and the dense layers with a dropout of $50\%$ for regularisation purposes. For the Res50Net layers in our CNN we enable the training of the $168$ bottom layers and freeze the rest of them. By that we end up with a CNN that has in total $24.163.786$ parameters from which are $3.986.762$ trainable. For the transfer learning we apply the same image augmentation as for SqueezeNet.
+To create our wrapped Res50Net, we stip off the top layers and replace that layer by a custom layer of $32\times 32 \times 3$ for reading our images. The output of the Res50Net gets fed into $3$ dense layers with $256, 128, 64$ neurons, till it reaches the softmax layers for prediction. Note that our dense layers consist each at the top of a batch normalisation layer and the dense layers with a dropout of $50\%$ for regularisation purposes. For the Res50Net layers in our CNN, we enable the training of the $168$ bottom layers and freeze the rest of them. By that we end up with a CNN that has in total $24.163.786$ parameters, from which are $3.986.762$ trainable. For the transfer learning we apply the same image augmentation as for SqueezeNet.
 
 \begin{figure}
 \centering
@@ -270,13 +275,13 @@ To create our wrapped Res50Net we stip off the top layers and replace that layer
 \label{rescnn::3}
 \end{figure}
 
-In figure \ref{rescnn::3} we show the accuracy while executing the transfer learning of Res50Net. Again without augmentation the CNN overfits till about $80\%$ accuracy on the trainset while the accuracy on the validation-set is $20\%$ lower. With augmentation we have diminished this effect and additionally improve the accuracy on the test-set from $62.16\%$ for no augmentation to $64.69\%$ with augmentation. The parameter-fitting for the augmented process took 117 epochs with a total time of $64 \min$ compared to that the parameter-fitting with no augmentation took $39$ epochs and about $10 \min$ in total. The evaluation on the testset took $38\text{s}$ which is more $4$ than longer than for the SqueezeNet.
+In figure \ref{rescnn::3} we show the accuracy while executing the transfer learning of Res50Net. Again without augmentation the CNN overfits till about $80\%$ accuracy on the trainset while the accuracy on the validation-set is $20\%$ lower. With augmentation we have diminished this effect and additionally improve the accuracy on the test-set from $62.16\%$ for no augmentation to $64.69\%$ with augmentation. The parameter-fitting for the augmented process took 117 epochs with a total time of $64 \min$ compared to that the parameter-fitting with no augmentation took $39$ epochs and about $10 \min$ in total. The evaluation on the test-set took $38\text{s}$ which is  $4$ times longer than for the SqueezeNet.
 
-In figure \ref{rescnn::4} (b) the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class has aswell the most true negative predictions where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often cofused as trucks and ships are often confused as planes. 
+In figure \ref{rescnn::4} (b) the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class aswell has the most true negative predictions, where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often confused as trucks and ships are often confused as planes.
 
 \subsection{Results Tiny ImageNet Dataset}
 \subsection{SqueezeNet}
-On the Tiny ImageNet SqueezeNet has $838.024$ trainable parameters. First we plot in figure \ref{rescnn::5} the auccuracy over the number of training epochs.
+On the Tiny ImageNet SqueezeNet has $838.024$ trainable parameters. First we plot in figure \ref{rescnn::5} the accuracy over the number of training epochs.
 
 \begin{figure}
 \centering
@@ -289,22 +294,22 @@ On the Tiny ImageNet SqueezeNet has $838.024$ trainable parameters. First we plo
 \label{rescnn::5}
 \end{figure}
 
-As before we can examine less overfitting for the augmented case, but this time even with augmentation the SqueezeNet is overfitting as can be seen in the much higher acuracy of on the train-set compared to the accuracy on the validation-set. In both graphs we can identify the first decrease in learning rate by the jump in the training accuracy. Note that this jump occurs at a much later epoch for the augmented case showing more potential for improvement of the accuracy in the augmented case before reaching a local optima. For the evaluation on the test-set the SqueezeNet without augmented training-data has an accuracy of $31.26\%$ and augmentation caused the accuracy on the test-set to increase up to $34\%$. The traidoff we pay is that for the training with no augmentation the parameter-search takes 55 epochs and $41 \min$, but with augmentation $115$ epochs and $297 \min$. Since the Tiny ImageNet is larger that Cifar10 our evqaluation time for SqueezeNet on the $10.000$ samples test-set is here about $60\text{s}$.
+As before we can examine less overfitting for the augmented case, but this time even with augmentation the SqueezeNet is overfitting as can be seen in the much higher accuracy of on the train-set compared to the accuracy on the validation-set. In both graphs we can identify the first decrease in learning rate by the jump in the training accuracy. Note that this jump occurs at a much later epoch for the augmented case showing more potential for improvement of the accuracy in the augmented case before reaching a local optimum. For the evaluation on the test-set, the SqueezeNet without augmented training-data has an accuracy of $31.26\%$ and augmentation caused the accuracy on the test-set to increase up to $34\%$. The tradeoff we pay is that for the training with no augmentation the parameter-search takes 55 epochs and $41 \min$, but with augmentation $115$ epochs and $297 \min$. Since the tiny ImageNet is larger than Cifar10 our evaluation time for SqueezeNet on the $10.000$ samples test-set is here about $60\text{s}$.
 
 \begin{figure}
 \centering
 \SetFigLayout{3}{2}
-  \subfigure[confusion matrix of SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_TIN_aug_confmat.pdf}}
-  \hfill
-  \subfigure[confusion matrix of wrapped Res50Net with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_TIN_aug_confmat.pdf}}
-  \hfill
-\caption{Confusion matrices for CNN archtectures on the augmented Tiny ImageNet Dataset.}
+\subfigure[confusion matrix of SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_TIN_aug_confmat.pdf}}
+\hfill
+\subfigure[confusion matrix of wrapped Res50Net with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_TIN_aug_confmat.pdf}}
+\hfill
+\caption{Confusion matrices for CNN architectures on the augmented Tiny ImageNet Dataset.}
 \label{rescnn::6}
 \end{figure}
 
-If we analyze the confusion matrix in figure \ref{rescnn::6} (a) we can measure the quality of our classifier by the size of the diagonal entries and the small offdiagonal entries. 
+If we analyze the confusion matrix in figure \ref{rescnn::6} (a) we can measure the quality of our classifier by the size of the diagonal entries and the small off-diagonal entries.
 
-Many classes have a large number of true prositiv predicted labels but to understand the classifier better analyze some special labels more closely. In table \ref{rescnn::7} is a summary of some important properties of the confusion matrix given.
+Many classes have a large number of true positive predicted labels but to understand the classifier better analyze some special labels more closely. In table \ref{rescnn::7} is a summary of some important properties of the confusion matrix given.
 
 \begin{table}[h]
 \begin{tabular}{lc|lc|llc}
@@ -327,11 +332,11 @@ Labrador  &               3 &                    brass &              34 &   cor
 \label{rescnn::7}
 \end{table}
 
-The first two columns state the classes that have the least ammount of true positive predicted labels. Here we see that for the water jug we have no correct prediction whereas all other classes have at least one true positive predicted sample. For the classes with the highest amount of correct predetions we see in the next two columns that the monach butterfly and secondly school busses were mostly correct identified. Further we can state that often strong colored subjects are easily identified like school busses ir life boats. In the last three columns the most confused labels are stated. Here we can extract that our SqueezeNet often confuses bees for monachs or secondly sports cars as convertables. This behaviour is as expected since auch subjects are very closely related in shape and color.
+The first two columns state the classes that have the least amount of true positive predicted labels. Here we see that for the water jug we have no correct prediction whereas all other classes have at least one true positive predicted sample.For the classes with the highest number of correct predictions, we see in the next two columns that the monarch butterfly and secondly school busses were mostly correct identified. Further, we can state that often strong colored subjects are easily identified like school busses or life boats. In the last three columns the most confused labels are stated. Here we can extract that our SqueezeNet often confuses bees for monarchs or secondly sports cars as convertibles. This behaviour is as expected since ouch subjects are very closely related in shape and color.
 
 
 \subsection{Res50Net}
-For the Res50Net we again create a custom wrapper CNN where the input layer is defined for $64\times64\times 3$ images as reqired for Tiny ImageNet. The Res50Net's first 168 layers are not trained and we append additional three $256$ dense layers at the end where each has a batch normalisation layer at top and a dropout of $50\%$. The total parameters of the wrapped Res50Net are $25.902.920$ where $5.713.352$ are trainable.
+For the Res50Net we again create a custom wrapper CNN where the input layer is defined for $64\times64\times 3$ images as required for Tiny ImageNet. The Res50Net's first 168 layers are not trained and we append additional three $256$ dense layers at the end where each has a batch normalisation layer at top and a dropout of $50\%$. The total parameters of the wrapped Res50Net are $25.902.920$ where $5.713.352$ are trainable.
 
 \begin{figure}
 \centering
@@ -344,9 +349,9 @@ For the Res50Net we again create a custom wrapper CNN where the input layer is d
 \label{rescnn::8}
 \end{figure}
 
-The training accuracies for the wrapped Res50Net are given in the two plots in figure \ref{rescnn::8}. For this case when using augmented images the accuracy on the validation-set is always higher than on the training-set in contrast to the studies before in this work. For the accuracy of the non augmented case on the test-set we report $34.57\%$, where the running time was $42 \min$  with 39 epochs. For the augmented case we have a $37.7\%$ accuracy on the test-set, with a running time of $282\min$ over 93 epochs. For this architecture the prediction time for the $10.000$ testsamples is $103\text{s}$.
+The training accuracies for the wrapped Res50Net are given in the two plots in figure \ref{rescnn::8}. For this case when using augmented images the accuracy on the validation-set is always higher than on the training-set in contrast to the studies before in this work. For the accuracy of the not augmented case on the test-set, we report $34.57\%$, where the running time was $42 \min$ with 39 epochs. For the augmented case we have a $37.7\%$ accuracy on the test-set, with a running time of $282\min$ over 93 epochs.For this architecture the prediction time for the $10.000$ test-samples is $103\text{s}$.
 
-The confusion matrix for the augmented case is shown above in figure \ref{rescnn::6} (b). In the confusion matrix we can see that the network works well, sice the off-diagonal entries are significantly lower than the diagonal ones for most of the columns. Again we cant do a in deoth analysis on such a large confusion matrix. Therefore we extract some of the most important patterns from the confusion matrix and show them in table \ref{rescnn::9}.
+The confusion matrix for the augmented case is shown above in figure \ref{rescnn::6} (b). In the confusion matrix we can see that the network works well, since the off-diagonal entries are significantly lower than the diagonal ones for most of the columns. Again we cant do a in-depth analysis on such a large confusion matrix. Therefore, we extract some of the most important patterns from the confusion matrix and show them in table \ref{rescnn::9}.
 
 
 \begin{table}[h]
@@ -370,10 +375,8 @@ wooden spoon &               1 &             dugong &              38 &         
 \label{rescnn::9}
 \end{table}
 
-When considereing the first two columns in the table we see that the classes plunger and hog never get predicted correctly. All other classes have at least one correct prediction. Further we see that without those $10$ classes with the least amount of correct predictions all other classes have already at least 3 correct predictions. Next when analysing the columns 3 and 4 in the table we see the classes that have the most correct predicted labels. Simillar as in SqueezeNet the monarch, school bus and esspresso are apperaring here, which again suggests that large structures or objects with prominent colors can be recognized easier. Lastly when examining the 3 last columns on the right of the table we see the most confused classes. Mostly these confused classes describe objects that are very simillar in shape and color like the pop bottle and beer bottle. But we see also that turnstiles are ofthen confused with pay-phones, besides they are not to closely related. By that we see that the wrapped Res50Net CNN has still potential for improvement and shortcomings like discussed could be improved by a more fine grained training.
+When considering the first two columns in the table we see that the classes plunger and hog never get predicted correctly. All other classes have at least one correct prediction. Further, we see that without those $10$ classes with the least amount of correct predictions all other classes have already at least 3 correct predictions. Next when analysing the columns 3 and 4 in the table we see the classes that have the most correct predicted labels. Similar as in SqueezeNet the monarch, school bus and espresso are appearing here, which again suggests that large structures or objects with prominent colors can be recognized easier. Lastly when examining the 3 last columns on the right of the table we see the most confused classes. Mostly these confused classes describe objects that are very similar in shape and color like the pop bottle and beer bottle. But we see also that turnstiles are often confused with pay-phones, besides they are not too closely related. By that we see that the wrapped Res50Net CNN has still, potential for improvement and shortcomings like discussed could be improved by a more fine-grained training.
 
-
-\subsubsection{Results}
 
 %Bibliography
 \newpage
