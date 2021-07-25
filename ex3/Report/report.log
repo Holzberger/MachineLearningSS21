@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 22:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1378,22 +1378,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 pdfTeX warning: pdflatex (file ./pictures/res50Net_TIN_aug.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >] [14] (./report.bbl) [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 422.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 422.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 431.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 431.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 422.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 422.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 431.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 431.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 0AE0D975FB87D92A5482A67DBF93DCAA;1247.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  22834 strings out of 481239
  411939 string characters out of 5920378
- 687751 words of memory out of 5000000
+ 688751 words of memory out of 5000000
  37542 multiletter control sequences out of 15000+600000
  543262 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1413,7 +1416,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfrm1095.pfb>
-Output written on report.pdf (15 pages, 606422 bytes).
+Output written on report.pdf (15 pages, 607198 bytes).
 PDF statistics:
  1125 PDF objects out of 1200 (max. 8388607)
  487 compressed objects within 5 object streams
