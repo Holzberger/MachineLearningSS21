@@ -78,14 +78,13 @@ We created 4 different datasets using color hisograms, two based on one dimensio
 \footnote{\url{https://tuwel.tuwien.ac.at/course/view.php?id=35929}}. In order to create the color histograms we used the package OpenCV. 
 
 \subsection{Sift back of visual words}
-
 First the images are converted into grey scale images. With use of SIFT the key-points and descriptors are detected. K-means-clustering is applied to find 20 clusters in the detected descriptors. \\
 Finally vectors with the visual words are created and vectorized in a histogram (frequency of visual words). The histogram is scaled to a standard normal distribution before running the classifiers.   
 \subsection{Results}
 In Figure \ref{Accuracy_Cifar} and \ref{Accuracy_Tiny_Image} the accuracy for the different base classifiers can be found for the Cifar-10 and Tiny image dataset respectively. 
 It can be seen that the random forest out performs all classifiers with the color histogram features, the best performance was obtained using the 2-d color histograms.\\
 %
-Accuracy of BOW
+For the classifiers on the visual bag of words the MLP performed best. The MLP performed slightly better than the Naive Bayes and Random Forest classifier. The single layer perceptron performed by far the worse. 
 %
 The confusion matrices shown in Figure \ref{CV_Matrices_Cifar_color_hist} are based on the 2-d feature color histograms as this gave the best results. The confusion matrix of the single-layer-perceptron shows pretty much a random classifier. Furthermore it can be seen that trucks are often classified as cars and birds are often classified as ship\\. 
 The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptron show similar results. They show that airplanes, ships and trucks are predicted best even though airplanes and ships are also often confused. It can also be seen that the different animals get confused.
@@ -101,7 +100,7 @@ The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptro
 \label{Accuracy_Cifar}
 \end{figure}
 
-
+In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are given. Here one can see the confusion of airplanes (0) and ships (8)  with the single layer perceptron here as well. Also cars (1) and trucks (9) are often confused. For the single layer perceptron we again do not see a clear higher percentage for the true label. For the other 3 classifiers we see that the true labels have clear higher scores than the non-true labels. Especially planes (0), ships (8), and trucks (9) have a high percentage of correct predicted labels. The Naive Bayes classifiers often predicts cat(3)s and deers (4) where the actual label is a dog. (5).  
 
 \begin{figure}[H]
 \begin{minipage}[c]{0.5\textwidth}
@@ -137,6 +136,10 @@ The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptro
 \caption{Confusion matrices bag of words Cifar-10: 1. Naive Bayes 2. Random forest 3. Single-layer-perceptron 4. Multi-layer-perceptron}
 \label{CV_Matrices_Cifar_BOW}
 \end{figure}
+
+In Figure \ref{Cifar_time_comparison} the time needed in seconds for the different pre-processing (feature extractions), training of the models and prediction is displayed. The feature extraction with SIFT and BOW took by far the most time, this process was fairly slow with almost $1.5$ hours.\\
+The training of the model of the MLP with histogram was the slowest with almost half a minute.\\
+Creating the features for the test set only had to be done for the color histograms. This took a similar time for the 1D and 2D histograms and was twice as fast for the 3D histogram. 
 
 \begin{figure}[H]
 \begin{minipage}[c]{0.3\textwidth}

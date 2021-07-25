@@ -6,13 +6,13 @@
 \contentsline {subsection}{\numberline {2.1}Color histograms}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Sift back of visual words}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Results}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Convolutional Neural Networks (CNN's)}{6}{section.3}%
+\contentsline {section}{\numberline {3}Convolutional Neural Networks (CNN's)}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}SqueezeNet}{7}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Wrapped Res50Net for Transfer learning}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Training Details for CNN's}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Results Cifar10 Dataset}{7}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}SqueezeNet}{7}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.4}Results Cifar10 Dataset}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}SqueezeNet}{8}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Res50Net}{9}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}Results Tiny ImageNet Dataset}{10}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}SqueezeNet}{10}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Res50Net}{12}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.9}Res50Net}{13}{subsection.3.9}%
