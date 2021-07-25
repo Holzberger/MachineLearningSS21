@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 22:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1048,25 +1048,25 @@ Underfull \hbox (badness 1173) in paragraph at lines 45--48
 \OT1/cmr/m/n/10.95 ,
  []
 
-<figures/Example_picture_Cifar.pdf, id=117, 433.62pt x 289.08pt>
+<figures/Example_picture_Cifar.pdf, id=127, 433.62pt x 289.08pt>
 File: figures/Example_picture_Cifar.pdf Graphic file (type pdf)
 <use figures/Example_picture_Cifar.pdf>
 Package pdftex.def Info: figures/Example_picture_Cifar.pdf  used on input line 
 62.
 (pdftex.def)             Requested size: 211.02483pt x 140.68442pt.
-<figures/Example_picture_Cifar_hist.pdf, id=118, 433.62pt x 289.08pt>
+<figures/Example_picture_Cifar_hist.pdf, id=128, 433.62pt x 289.08pt>
 File: figures/Example_picture_Cifar_hist.pdf Graphic file (type pdf)
 <use figures/Example_picture_Cifar_hist.pdf>
 Package pdftex.def Info: figures/Example_picture_Cifar_hist.pdf  used on input 
 line 65.
 (pdftex.def)             Requested size: 316.5453pt x 211.03987pt.
-<figures/Example_picture_Tiny_Image.pdf, id=119, 433.62pt x 289.08pt>
+<figures/Example_picture_Tiny_Image.pdf, id=129, 433.62pt x 289.08pt>
 File: figures/Example_picture_Tiny_Image.pdf Graphic file (type pdf)
 <use figures/Example_picture_Tiny_Image.pdf>
 Package pdftex.def Info: figures/Example_picture_Tiny_Image.pdf  used on input 
 line 68.
 (pdftex.def)             Requested size: 211.02483pt x 140.68442pt.
-<figures/Example_picture_Tiny_Image_hist.pdf, id=120, 433.62pt x 289.08pt>
+<figures/Example_picture_Tiny_Image_hist.pdf, id=130, 433.62pt x 289.08pt>
 File: figures/Example_picture_Tiny_Image_hist.pdf Graphic file (type pdf)
 <use figures/Example_picture_Tiny_Image_hist.pdf>
 Package pdftex.def Info: figures/Example_picture_Tiny_Image_hist.pdf  used on i
@@ -1111,13 +1111,13 @@ PDF inclusion: multiple pdfs with page group included in a single page
 LaTeX Warning: Reference `Accuracy_Tiny_Image' on page 4 undefined on input lin
 e 84.
 
-<figures/Cifar/Accuracy_color_hist.pdf, id=199, 361.35pt x 361.35pt>
+<figures/Cifar/Accuracy_color_hist.pdf, id=209, 361.35pt x 361.35pt>
 File: figures/Cifar/Accuracy_color_hist.pdf Graphic file (type pdf)
 <use figures/Cifar/Accuracy_color_hist.pdf>
 Package pdftex.def Info: figures/Cifar/Accuracy_color_hist.pdf  used on input l
 ine 94.
 (pdftex.def)             Requested size: 263.78506pt x 263.78882pt.
-<figures/Cifar/Accuracy_BOW.pdf, id=200, 433.62pt x 289.08pt>
+<figures/Cifar/Accuracy_BOW.pdf, id=210, 433.62pt x 289.08pt>
 File: figures/Cifar/Accuracy_BOW.pdf Graphic file (type pdf)
 <use figures/Cifar/Accuracy_BOW.pdf>
 Package pdftex.def Info: figures/Cifar/Accuracy_BOW.pdf  used on input line 97.
@@ -1128,19 +1128,19 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 93--99
 []$[]$ $[]$ 
  []
 
-<figures/Cifar/CM__NB_color_hist.pdf, id=202, 433.62pt x 289.08pt>
+<figures/Cifar/CM__NB_color_hist.pdf, id=212, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__NB_color_hist.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__NB_color_hist.pdf>
 Package pdftex.def Info: figures/Cifar/CM__NB_color_hist.pdf  used on input lin
 e 107.
 (pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
-<figures/Cifar/CM__Rndf_color_hist.pdf, id=203, 433.62pt x 289.08pt>
+<figures/Cifar/CM__Rndf_color_hist.pdf, id=213, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__Rndf_color_hist.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__Rndf_color_hist.pdf>
 Package pdftex.def Info: figures/Cifar/CM__Rndf_color_hist.pdf  used on input l
 ine 110.
 (pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
-<figures/Cifar/CM__ppn_color_hist.pdf, id=204, 433.62pt x 289.08pt>
+<figures/Cifar/CM__ppn_color_hist.pdf, id=214, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__ppn_color_hist.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__ppn_color_hist.pdf>
 Package pdftex.def Info: figures/Cifar/CM__ppn_color_hist.pdf  used on input li
@@ -1150,7 +1150,7 @@ ne 113.
 
 pdfTeX warning: pdflatex (file ./figures/Cifar/CM__MLP_color_hist.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/Cifar/CM__MLP_color_hist.pdf, id=205, 845.07724pt x 597.55246pt>
+<figures/Cifar/CM__MLP_color_hist.pdf, id=215, 845.07724pt x 597.55246pt>
 File: figures/Cifar/CM__MLP_color_hist.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__MLP_color_hist.pdf>
 Package pdftex.def Info: figures/Cifar/CM__MLP_color_hist.pdf  used on input li
@@ -1171,18 +1171,18 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 106--118
 pdfTeX warning: pdflatex (file ./figures/Cifar/Accuracy_BOW.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >]
-<figures/Cifar/CM__NB_BOW.pdf, id=302, 433.62pt x 289.08pt>
+<figures/Cifar/CM__NB_BOW.pdf, id=312, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__NB_BOW.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__NB_BOW.pdf>
 Package pdftex.def Info: figures/Cifar/CM__NB_BOW.pdf  used on input line 125.
 (pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
-<figures/Cifar/CM__Rndf_BOW.pdf, id=303, 433.62pt x 289.08pt>
+<figures/Cifar/CM__Rndf_BOW.pdf, id=313, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__Rndf_BOW.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__Rndf_BOW.pdf>
 Package pdftex.def Info: figures/Cifar/CM__Rndf_BOW.pdf  used on input line 128
 .
 (pdftex.def)             Requested size: 263.78506pt x 175.86656pt.
-<figures/Cifar/CM__ppn_BOW.pdf, id=304, 433.62pt x 289.08pt>
+<figures/Cifar/CM__ppn_BOW.pdf, id=314, 433.62pt x 289.08pt>
 File: figures/Cifar/CM__ppn_BOW.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__ppn_BOW.pdf>
 Package pdftex.def Info: figures/Cifar/CM__ppn_BOW.pdf  used on input line 131.
@@ -1192,7 +1192,7 @@ Package pdftex.def Info: figures/Cifar/CM__ppn_BOW.pdf  used on input line 131.
 
 pdfTeX warning: pdflatex (file ./figures/Cifar/CM__MLP_BOW.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<figures/Cifar/CM__MLP_BOW.pdf, id=305, 845.07724pt x 597.55246pt>
+<figures/Cifar/CM__MLP_BOW.pdf, id=315, 845.07724pt x 597.55246pt>
 File: figures/Cifar/CM__MLP_BOW.pdf Graphic file (type pdf)
 <use figures/Cifar/CM__MLP_BOW.pdf>
 Package pdftex.def Info: figures/Cifar/CM__MLP_BOW.pdf  used on input line 134.
@@ -1218,19 +1218,19 @@ clusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/Cifar/CM__ppn_color_hist.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
 > <./figures/Cifar/CM__MLP_color_hist.pdf>]
-<figures/Cifar/time_prepro.pdf, id=437, 433.62pt x 289.08pt>
+<figures/Cifar/time_prepro.pdf, id=447, 433.62pt x 289.08pt>
 File: figures/Cifar/time_prepro.pdf Graphic file (type pdf)
 <use figures/Cifar/time_prepro.pdf>
 Package pdftex.def Info: figures/Cifar/time_prepro.pdf  used on input line 146.
 
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<figures/Cifar/time_training.pdf, id=438, 433.62pt x 289.08pt>
+<figures/Cifar/time_training.pdf, id=448, 433.62pt x 289.08pt>
 File: figures/Cifar/time_training.pdf Graphic file (type pdf)
 <use figures/Cifar/time_training.pdf>
 Package pdftex.def Info: figures/Cifar/time_training.pdf  used on input line 14
 9.
 (pdftex.def)             Requested size: 158.27264pt x 105.51552pt.
-<figures/Cifar/time_training_test.pdf, id=439, 433.62pt x 289.08pt>
+<figures/Cifar/time_training_test.pdf, id=449, 433.62pt x 289.08pt>
 File: figures/Cifar/time_training_test.pdf Graphic file (type pdf)
 <use figures/Cifar/time_training_test.pdf>
 Package pdftex.def Info: figures/Cifar/time_training_test.pdf  used on input li
@@ -1257,27 +1257,27 @@ n: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./figures/Cifar/time_training_test.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
 >]
-<./pictures/squeezeNet_cifar10_noaug.pdf, id=673, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNet_cifar10_noaug.pdf, id=683, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNet_cifar10_noaug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNet_cifar10_noaug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNet_cifar10_noaug.pdf  used on input
  line 244.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/squeezeNet_cifar10_aug.pdf, id=674, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNet_cifar10_aug.pdf, id=684, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNet_cifar10_aug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNet_cifar10_aug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNet_cifar10_aug.pdf  used on input l
 ine 246.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
  [7]
-<./pictures/squeezeNet_cifar10_aug_confmat.pdf, id=686, 560.01157pt x 570.60364
+<./pictures/squeezeNet_cifar10_aug_confmat.pdf, id=696, 560.01157pt x 570.60364
 pt>
 File: ./pictures/squeezeNet_cifar10_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNet_cifar10_aug_confmat.pdf>
 Package pdftex.def Info: ./pictures/squeezeNet_cifar10_aug_confmat.pdf  used on
  input line 257.
 (pdftex.def)             Requested size: 237.40495pt x 241.89822pt.
-<./pictures/res50Net_cifar10_aug_confmat.pdf, id=687, 560.01157pt x 570.60364pt
+<./pictures/res50Net_cifar10_aug_confmat.pdf, id=697, 560.01157pt x 570.60364pt
 >
 File: ./pictures/res50Net_cifar10_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_cifar10_aug_confmat.pdf>
@@ -1290,13 +1290,13 @@ g.pdf
 pdfTeX warning: pdflatex (file ./pictures/squeezeNet_cifar10_aug.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
 >]
-<./pictures/res50Net_cifar10_noaug.pdf, id=724, 416.99738pt x 293.43915pt>
+<./pictures/res50Net_cifar10_noaug.pdf, id=734, 416.99738pt x 293.43915pt>
 File: ./pictures/res50Net_cifar10_noaug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_cifar10_noaug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_cifar10_noaug.pdf  used on input l
 ine 273.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/res50Net_cifar10_aug.pdf, id=725, 420.12135pt x 293.43915pt>
+<./pictures/res50Net_cifar10_aug.pdf, id=735, 420.12135pt x 293.43915pt>
 File: ./pictures/res50Net_cifar10_aug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_cifar10_aug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_cifar10_aug.pdf  used on input lin
@@ -1308,13 +1308,13 @@ e 275.
 pdfTeX warning: pdflatex (file ./pictures/res50Net_cifar10_aug_confmat.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
 >]
-<./pictures/squeezeNetTIN_noaug.pdf, id=829, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNetTIN_noaug.pdf, id=839, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNetTIN_noaug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNetTIN_noaug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNetTIN_noaug.pdf  used on input line
  292.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/squeezeNetTIN_aug.pdf, id=830, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNetTIN_aug.pdf, id=840, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNetTIN_aug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNetTIN_aug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNetTIN_aug.pdf  used on input line 2
@@ -1326,13 +1326,13 @@ df
 pdfTeX warning: pdflatex (file ./pictures/res50Net_cifar10_aug.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
 >]
-<./pictures/squeezeNet_TIN_aug_confmat.pdf, id=866, 559.84218pt x 570.60364pt>
+<./pictures/squeezeNet_TIN_aug_confmat.pdf, id=877, 559.84218pt x 570.60364pt>
 File: ./pictures/squeezeNet_TIN_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNet_TIN_aug_confmat.pdf>
 Package pdftex.def Info: ./pictures/squeezeNet_TIN_aug_confmat.pdf  used on inp
 ut line 305.
 (pdftex.def)             Requested size: 237.40495pt x 241.96788pt.
-<./pictures/res50Net_TIN_aug_confmat.pdf, id=867, 559.84218pt x 570.60364pt>
+<./pictures/res50Net_TIN_aug_confmat.pdf, id=878, 559.84218pt x 570.60364pt>
 File: ./pictures/res50Net_TIN_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_TIN_aug_confmat.pdf>
 Package pdftex.def Info: ./pictures/res50Net_TIN_aug_confmat.pdf  used on input
@@ -1353,13 +1353,13 @@ nfmat.pdf
 pdfTeX warning: pdflatex (file ./pictures/res50Net_TIN_aug_confmat.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >]
-<./pictures/res50NetTIN_noaug.pdf, id=993, 416.99738pt x 293.43915pt>
+<./pictures/res50NetTIN_noaug.pdf, id=1003, 416.99738pt x 293.43915pt>
 File: ./pictures/res50NetTIN_noaug.pdf Graphic file (type pdf)
 <use ./pictures/res50NetTIN_noaug.pdf>
 Package pdftex.def Info: ./pictures/res50NetTIN_noaug.pdf  used on input line 3
 47.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/res50Net_TIN_aug.pdf, id=994, 423.38063pt x 293.43915pt>
+<./pictures/res50Net_TIN_aug.pdf, id=1004, 423.38063pt x 293.43915pt>
 File: ./pictures/res50Net_TIN_aug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_TIN_aug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_TIN_aug.pdf  used on input line 34
@@ -1378,23 +1378,23 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 pdfTeX warning: pdflatex (file ./pictures/res50Net_TIN_aug.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >] [14] (./report.bbl) [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 389.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 389.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 422.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 422.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 389.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 389.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 422.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 422.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B8EA211CF75E9DDC7AAF9083B84EB756;1100.
+(rerunfilecheck)             Checksum: 0AE0D975FB87D92A5482A67DBF93DCAA;1247.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 22826 strings out of 481239
- 411809 string characters out of 5920378
- 687619 words of memory out of 5000000
- 37538 multiletter control sequences out of 15000+600000
+ 22834 strings out of 481239
+ 411939 string characters out of 5920378
+ 687751 words of memory out of 5000000
+ 37542 multiletter control sequences out of 15000+600000
  543262 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,77p,1149b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1413,10 +1413,10 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfrm1095.pfb>
-Output written on report.pdf (15 pages, 604502 bytes).
+Output written on report.pdf (15 pages, 606422 bytes).
 PDF statistics:
- 1113 PDF objects out of 1200 (max. 8388607)
- 475 compressed objects within 5 object streams
- 73 named destinations out of 1000 (max. 500000)
- 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1125 PDF objects out of 1200 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 310 words of extra memory for PDF output out of 10000 (max. 10000000)
 

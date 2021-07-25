@@ -234,7 +234,7 @@ For the training it was observed that the ADAM optimizer with learning rate $0.0
 
 \subsection{Results Cifar10 Dataset}
 
-\subsection{SqueezeNet}
+\subsubsection{SqueezeNet}
 For the Cifar10 Dataset the resulting SqueezeNet architecture has $740.554$ trainable parameters.
 A holdout analysis is performed where we take $10\%$ of the train-data as validation data to evaluate the performance of the CNN at training time.
 
@@ -264,7 +264,7 @@ In figure \ref{rescnn::1} we can see the effect of the augmentation on the accur
 
 In figure \ref{rescnn::4} (a) we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class, with $847$, where we note that $127$ times a truck sample gets confused to be a car. The least true positive labels are predicted for cats, with $383$, where this class often gets confused with the dog class. The most false negative predictions are made for the truck class with $423$ samples closely followed by the horse class with $421$ falsely predicted samples. This is due to the fact that trucks are often confused with cars and horses are often confused with deers or dogs.
 
-\subsection{Res50Net}
+\subsubsection{Res50Net}
 To create our wrapped Res50Net, we stip off the top layers and replace that layer by a custom layer of $32\times 32 \times 3$ for reading our images. The output of the Res50Net gets fed into $3$ dense layers with $256, 128, 64$ neurons, till it reaches the softmax layers for prediction. Note that our dense layers consist each at the top of a batch normalisation layer and the dense layers with a dropout of $50\%$ for regularisation purposes. For the Res50Net layers in our CNN, we enable the training of the $168$ bottom layers and freeze the rest of them. By that we end up with a CNN that has in total $24.163.786$ parameters, from which are $3.986.762$ trainable. For the transfer learning we apply the same image augmentation as for SqueezeNet.
 
 \begin{figure}
@@ -283,7 +283,7 @@ In figure \ref{rescnn::3} we show the accuracy while executing the transfer lear
 In figure \ref{rescnn::4} (b) the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class aswell has the most true negative predictions, where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often confused as trucks and ships are often confused as planes.
 
 \subsection{Results Tiny ImageNet Dataset}
-\subsection{SqueezeNet}
+\subsubsection{SqueezeNet}
 On the Tiny ImageNet SqueezeNet has $838.024$ trainable parameters. First we plot in figure \ref{rescnn::5} the accuracy over the number of training epochs.
 
 \begin{figure}
@@ -338,7 +338,7 @@ Labrador  &               3 &                    brass &              34 &   cor
 The first two columns state the classes that have the least amount of true positive predicted labels. Here we see that for the water jug we have no correct prediction whereas all other classes have at least one true positive predicted sample.For the classes with the highest number of correct predictions, we see in the next two columns that the monarch butterfly and secondly school busses were mostly correct identified. Further, we can state that often strong colored subjects are easily identified like school busses or life boats. In the last three columns the most confused labels are stated. Here we can extract that our SqueezeNet often confuses bees for monarchs or secondly sports cars as convertibles. This behaviour is as expected since ouch subjects are very closely related in shape and color.
 
 
-\subsection{Res50Net}
+\subsubsection{Res50Net}
 For the Res50Net we again create a custom wrapper CNN where the input layer is defined for $64\times64\times 3$ images as required for Tiny ImageNet. The Res50Net's first 168 layers are not trained and we append additional three $256$ dense layers at the end where each has a batch normalisation layer at top and a dropout of $50\%$. The total parameters of the wrapped Res50Net are $25.902.920$ where $5.713.352$ are trainable.
 
 \begin{figure}
@@ -379,6 +379,39 @@ wooden spoon &               1 &             dugong &              38 &         
 \end{table}
 
 When considering the first two columns in the table we see that the classes plunger and hog never get predicted correctly. All other classes have at least one correct prediction. Further, we see that without those $10$ classes with the least amount of correct predictions all other classes have already at least 3 correct predictions. Next when analysing the columns 3 and 4 in the table we see the classes that have the most correct predicted labels. Similar as in SqueezeNet the monarch, school bus and espresso are appearing here, which again suggests that large structures or objects with prominent colors can be recognized easier. Lastly when examining the 3 last columns on the right of the table we see the most confused classes. Mostly these confused classes describe objects that are very similar in shape and color like the pop bottle and beer bottle. But we see also that turnstiles are often confused with pay-phones, besides they are not too closely related. By that we see that the wrapped Res50Net CNN has still, potential for improvement and shortcomings like discussed could be improved by a more fine-grained training.
+
+\section{Discussion of the Results}
+
+
+\section{Conclusion}
+
+\begin{table}
+	\centering
+	\begin{tabular}{l|c|c|c}
+	\toprule
+		Classifier & acc. on test-set & pred. test-set time in s & train time in s\\
+	\midrule
+		SqueezeNet & $67.33\%$        & 9 						 & 2760\\
+		Res50Net   & $64.69\%$        & 38 						 & 3840\\
+	\bottomrule
+	\end{tabular}
+	\caption{Results for the Cifar10 Dataset}
+\label{conc::1}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{l|c|c|c}
+	\toprule
+		Classifier & acc. on test-set & pred. test-set time in s & train time in s\\
+	\midrule
+		SqueezeNet & $34.0\%$           & 60 						 & 17820\\
+		Res50Net   & $37.7\%$         & 103 					 & 16920\\
+	\bottomrule
+	\end{tabular}
+	\caption{Results for the Tiny ImageNet Dataset}
+\label{conc::2}
+\end{table}
 
 
 %Bibliography
