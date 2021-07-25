@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 770--778, 2016.
+
+\bibitem{iandola2016}
+Forrest~N Iandola, Song Han, Matthew~W Moskewicz, Khalid Ashraf, William~J
+  Dally, and Kurt Keutzer.
+\newblock Squeezenet: Alexnet-level accuracy with 50x fewer parameters and< 0.5
+  mb model size.
+\newblock {\em arXiv preprint arXiv:1602.07360}, 2016.
+
+\end{thebibliography}

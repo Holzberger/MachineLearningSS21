@@ -7,21 +7,21 @@
 \date{\today}
 
 \begin{document}
-\graphicspath{{./figures/}}
+\graphicspath{{./pictures/}}
 \maketitle
 
 %
 \section{Datasets}
-For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. With these two datasets we have variation in the classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In sections \ref{Sec_Cifar-10} and \ref{Sec_ImageNet} both datasets are described in more detail. 
+For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. With these two datasets we have variation in the classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In the following sections both datasets are described in more detail. 
 
 \subsection{CIFAR-10}\label{Sec_Cifar-10}
-CIFAR-10 is a dataset which consists of 60000 images, of which 50000 training images and 10000 test images. Each image has 32x32 colored pixels.
-There are 10 different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly 5000 images in the training data and 1000 images in the test data.Each image only belongs to one class. There are no multi-label images. 
+CIFAR-10 is a dataset which consists of $60.000$ images, of which $50.000$ training images and $10.000$ test images. Each image has $32\times32$ colored pixels.
+There are $10$ different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly $5.000$ images in the training data and $1.000$ images in the test data. Each image only belongs to one class. There are no multi-label images. 
 
 \subsection{Tiny ImageNet}\label{Sec_ImageNet}
-Tiny ImageNet is a dataset containing of 100000 training images, divided in 200 different classes. There are 500 images per class in the training data. Next to the training data there are 10000 testing and 10000 validation images as well. each picture has 64x64 pixels.     
+Tiny ImageNet is a dataset containing of $100.000$ training images, divided in $200$ different classes. There are $500$ images per class in the training data. Next for the training data there are $10.000$ testing and $10.000$ validation images as well. Each picture has $64\times64$ pixels. The images in the test-set are not labelled and therefore we will not make use of them.
 
-\section{Traditional classifier}
+\section{Traditional classifiers}
 
 In order to have a baseline for our deep classifier some traditional classifiers have been executed. The following traditional classifiers have been trained:
 \begin{enumerate}
@@ -59,13 +59,79 @@ Scale the histogram
 Classify
 
 
-\subsection{Results}
+\section{Convolutional Neural Networks (CNN's)}
+In this section we introduce the CNN architectures used for this work.
 
-\section{Deep learning}
+\subsection{SqueezeNet}
+For the first architecture we decided on unsing SqueezeNet \cite{iandola2016}. SqueezeNet was developed with the goal to make it as compact as possible, but still achiving state of art results. In the original paper it is shown that SqueezeNet can achive the same perfomance as an AlexNet for the ImageNet competition but with $50\times$ less parameters. This makes SqueezeNet particularly well suited for our small project where we need to rely on limited resources.
 
+
+\subsection{Wrapped Res50Net for Transfer learning}
+For the second architecture we have choosen intentionaly a large one with many paramters, that gives the opertunity for transfer learning. Here we aim to use Res50Net \cite{he2016deep}, which has over 23 Million trainable parameters. We wrap this architecture by a custom network. For the training we freeze all layers till layer 168 and train the remaining layers of Res50Net and the additional custom layers. More details are given in the Results section.
+
+\subsection{Results Cifar10 Dataset}
+
+\subsection{SqueezeNet}
+For the Cifar10 Dataset the resulting SqueezeNet architecuture has $740.554$ trainable parameters. We augment the Cifar10 Dataset by the following random augmentations:
+%
+\begin{itemize}
+	\item width/height shift up to $10\%$
+	\item shearing up to $10\%$
+	\item zoom up to $10\%$
+	\item rotation up to $30^\circ$
+	\item horizontal flip
+\end{itemize}
+%
+A holdout analysis is performed where we take $10\%$ of the train-data as validation data to evaluate the performance of the CNN at training time. 
+
+\begin{figure}
+\centering
+\SetFigLayout{3}{2}
+  \subfigure[accuracy for SqueezeNet without augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_cifar10_noaug.pdf}}
+  \hfill
+  \subfigure[accuracy for SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_cifar10_aug.pdf}}
+  \hfill
+\caption{Training-accuracy for SqueezeNet on the Cifar10 Dataset}
+\label{rescnn::1}
+\end{figure}
+
+In figure \ref{rescnn::1} we can see the effect of the augmentation on the accuracy of the predictions while training. We have a clear overfitting of the CNN when not applying augmentation. This overfitting is largly decreased by applying the image-augmentation as can be seen in the figure. When applying the augmentation the accuracy of SqueezeNet on the Test-set increased from $65.21\%$ to $67.33\%$. Augmentation of the images has an influence on the efficiency of the parameter search for the Network. Without augmentation the optimal paramters are found after $6 \min$ and less than $40$ epochs, whereas augmentation causes the time for parameter search to increase to $46 \min$ and $84$ epochs. For the predition of the $313$ samples in the test-set SqueezeNet needs about $9 \text{s}$ 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\columnwidth]{squeezeNet_cifar10_aug_confmat.pdf}
+\caption{Confusion matrix for the SqueezeNet trained on the augmented Cifar10 Datase.}
+\label{rescnn::2}
+\end{figure}
+
+In figure \ref{rescnn::2} we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class with $847$ where we note that $127$ times a truch sample gets confused to be a car. The least true positive labels are predicted for cats with $383$ where this class often gets confused with the dog class. The most false negative preditions are made for the truck class with $423$ samples closely followed by the horse class with $421$ flsely predicted samples. This is due to the fact that Trucks are often confused with cars and horses are often confused with deers or dogs.
 
 \subsection{Res50Net}
-The first architecture we used for deep learning is the Res50Net \cite{Resnet}. The ResNet is pre-trained and transfer learning is applied. A front layer is added in order to have the correct input size. We froze the first 169 layers and re-trained the last XXXX layers. Re-training has been done in XXXX epochs.
+To create our wrapped Res50Net we stip off the top layers and replace that layer by a custom layer of $32\times 32 \times 3$ for reading our images. The output of the Res50Net gets fed into $3$ densle layers with $256, 128, 64$ neurons till it reaches the softmax layers for prediction. Note that our dense layers consist each at the top of a batch normalisation layer and the dense layers with a dropout of $50\%$ for regularisation purposes. For the Res50Net layers in our CNN we enable the training of the $168$ bottom layers and freeze the rest of them. By that we end up with a CNN that has in total $24.163.786$ parameters from which are $3.986.762$ trainable. For the transfer learning we apply the same image augmentation as for SqueezeNet.
+
+\begin{figure}
+\centering
+\SetFigLayout{3}{2}
+  \subfigure[accuracy for Res50Net without augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_cifar10_noaug.pdf}}
+  \hfill
+  \subfigure[accuracy for Res50Net with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_cifar10_aug.pdf}}
+  \hfill
+\caption{Training-accuracy for Res50Net on the Cifar10 Dataset}
+\label{rescnn::3}
+\end{figure}
+
+In figure \ref{rescnn::3} we show the accuracy while executing the transfer learning of Res50Net. Again without augmentation the CNN overfits till about $80\%$ accuracy on the trainset while the accuracy on the validation-set is $20\%$ lower. With augmentation we have diminished this effect and additionally improve the accuracy on the test-set from $62.16\%$ for no augmentation to $64.69\%$ with augmentation. The parameter-fitting for the augmented process took 117 epochs with a total time of $64 \min$ compared to that the parameter-fitting with no augmentation took $39$ epochs and about $10 \min$ in total. The evaluation on the testset took $38\text{s}$ which is more $4$ than longer than for the SqueezeNet.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\columnwidth]{res50Net_cifar10_aug_confmat.pdf}
+\caption{Confusion matrix for the SqueezeNet trained on the augmented Cifar10 Datase.}
+\label{rescnn::4}
+\end{figure}
+
+In figure \ref{rescnn::4} the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class has aswell the most true negative predictions where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often cofused as trucks and ships are often confused as planes. 
+
 
 \subsubsection{Results}
 
@@ -73,22 +139,16 @@ The first architecture we used for deep learning is the Res50Net \cite{Resnet}. 
 
 
 \subsection{squeezNet}
-For the second architecture we decided on unsing SqueezeNet \cite{Sqeezenet}. Squeezenet claims to have an accuracy equal to AlexNet but has a lot less parameters to learn.  
+For the second architecture we decided on unsing SqueezeNet \cite{iandola2016}. Squeezenet claims to have an accuracy equal to AlexNet but has a lot less parameters to learn.  
 For SqeeuzeNet no weights are available, therefore we recreated the model and re-trained it. 
 
 
 
 \subsubsection{Results}
 
-
-
-\begin{thebibliography}{10}
-	
-\bibitem{Resnet}
-Kaiming He, Xiangyu Zhang, Shaoqing ren, Jian Sun, \textit{Deep Residual Learning for Image Recognition}  
- (2015b). arXiv:1512.03385.
-\bibitem{Sqeezenet}
-Forrest N. Iandola, Song Han, Matthew W. Moskewicz, Khalid Ashraf, William J. Dally, Kurt Kreutzer. \textit{SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size},(2016) arXiv:1602.07360.
-\end{thebibliography}
+%Bibliography
+\newpage
+\bibliographystyle{plain}
+\bibliography{lib}
 
 \end{document}
