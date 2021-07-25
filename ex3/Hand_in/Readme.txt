@@ -1,5 +1,5 @@
 Cifar_10_Color_hist is a Jupyter Notebook
-Tiny_Image_Net_1k and Tiny_Image_Net_with_all_samples are made for Google Colab
+Tiny_Image_Net_1k and Tiny_Image_Net_with_all_samples are made for Google Colab. The Tiny_Image_Net_with_all_samples is the one used for the plots in the report, the other one is a track of what we have done.
 
 Links for google colab if useful:
 Tiny_Image_Net_with_all_samples
