@@ -102,39 +102,31 @@ The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptro
 
 In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are given. Here one can see the confusion of airplanes and ships with the single layer perceptron here as well. Also cars and trucks are often confused. For the single layer perceptron we again do not see a clear higher percentage for the true label. For the other 3 classifiers we see that the true labels have clear higher scores than the non-true labels. Especially planes, ships, and trucks have a high percentage of correct predicted labels. The Naive Bayes classifiers often predicts cats and deers where the actual label is a dog.  
 
-\begin{figure}[H]
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__NB_color_hist.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__Rndf_color_hist.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__ppn_color_hist.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__MLP_color_hist.pdf}
-\end{minipage}
-\caption{Confusion matrices color histogram Cifar-10: 1. Naive Bayes 2. Random forest 3. Single-layer-perceptron 4. Multi-layer-perceptron}
+\begin{figure}
+\centering
+\SetFigLayout{2}{2}
+\subfigure[Confusion matrix Naive Bayes color histogram]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__NB_color_hist.pdf}}
+\subfigure[Confusion matrix Random forest color histogram]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__Rndf_color_hist.pdf}}
+\hfill
+\subfigure[Confusion matrix single layer perceptron color histogram]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__ppn_color_hist.pdf}}
+\subfigure[Confusion matrix multi layer perceptron color histogram]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__MLP_color_hist.pdf}}
+\hfill
+\caption{Confusion matrices color histogram Cifar-10}
 \label{CV_Matrices_Cifar_color_hist}
 \end{figure}
 
 
-\begin{figure}[H]
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__NB_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__Rndf_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__ppn_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Cifar/CM__MLP_BOW.pdf}
-\end{minipage}
-\caption{Confusion matrices bag of words Cifar-10: 1. Naive Bayes 2. Random forest 3. Single-layer-perceptron 4. Multi-layer-perceptron}
-\label{CV_Matrices_Cifar_BOW}
+\begin{figure}
+\centering
+\SetFigLayout{2}{2}
+\subfigure[Confusion matrix Naive Bayes BOW]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__NB_BOW.pdf}}
+\subfigure[Confusion matrix Random forest BOW]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__Rndf_BOW.pdf}}
+\hfill
+\subfigure[Confusion matrix single layer perceptron BOW]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__ppn_BOW.pdf}}
+\subfigure[Confusion matrix multi layer perceptron BOW]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__MLP_BOW.pdf}}
+\hfill
+\caption{Confusion matrices BOW Cifar-10}
+\label{CV_Matrices_Cifar_color_hist}
 \end{figure}
 
 In Figure \ref{Cifar_time_comparison} the time needed in seconds for the different pre-processing (feature extractions), training of the models and prediction is displayed. The feature extraction with SIFT and BOW took by far the most time, this process was fairly slow with almost $1.5$ hours.\\
