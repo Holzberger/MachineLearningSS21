@@ -12,14 +12,23 @@
 
 %
 \section{Datasets}
+<<<<<<< HEAD
+For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 \footnote{\url{https://www.cs.toronto.edu/~kriz/cifar.html}} and Tiny-ImagenNet  \footnote{\url{http://cs231n.stanford.edu/tiny-imagenet-200.zip}}. With these two datasets we have variation in the number of classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In sections \ref{Sec_Cifar-10} and \ref{Sec_ImageNet} both datasets are described in more detail. The pictures also differ in input size.\\
+We used Python as our programming language and implemented the deep learning using Tensor Flow. 
+=======
 For exercise 3.2 Deep Learning we decided to apply deep learning on image classification. The data sets that we will use are CIFAR-10 [INCLUDE REFERENCE] and Tiny-ImagenNet[Include REFERENCE. With these two datasets we have variation in the classes represented in the data. This  enables us to explore the difference in performance when the number of classes increase. In the following sections both datasets are described in more detail. 
+>>>>>>> 23c1e384a8aeaf19d24f7805d4088a43cb82b7b2
 
 \subsection{CIFAR-10}\label{Sec_Cifar-10}
 CIFAR-10 is a dataset which consists of $60.000$ images, of which $50.000$ training images and $10.000$ test images. Each image has $32\times32$ colored pixels.
 There are $10$ different classes (airplane, automobile, bird, cat, deer, dog, frog, horse, ship and truck) each class has exactly $5.000$ images in the training data and $1.000$ images in the test data. Each image only belongs to one class. There are no multi-label images. 
 
 \subsection{Tiny ImageNet}\label{Sec_ImageNet}
+<<<<<<< HEAD
+Tiny ImageNet is a dataset containing of 100000 training images, divided in 200 different classes. There are 500 images per class in the training data. Next to the training data there are 10000 testing and 10000 validation images as well. Each picture has 64x64 pixels. The test set of this data is not labeled. To load the data some code from Github \footnote{\url{https://github.com/rmccorm4/Tiny-Imagenet-200}} was used. 
+=======
 Tiny ImageNet is a dataset containing of $100.000$ training images, divided in $200$ different classes. There are $500$ images per class in the training data. Next for the training data there are $10.000$ testing and $10.000$ validation images as well. Each picture has $64\times64$ pixels. The images in the test-set are not labelled and therefore we will not make use of them.
+>>>>>>> 23c1e384a8aeaf19d24f7805d4088a43cb82b7b2
 
 \section{Traditional classifiers}
 
@@ -40,23 +49,154 @@ Before we could train the traditional classifiers, we extracted features from ou
 \end{enumerate}
 
 \subsection{Color histograms}
-Color histograms is one of the simplest feature extraction method for images. It counts the frequency of pixels with a certain color. The bins are based on the RBG coding. Spatial information get lost completely during this feature extraction.
-Below an example of one-d color histograms for picture 10 of the Cifar dataset is given.
+Color histograms is one of the simplest feature extraction method for images. It counts the frequency of pixels with a certain color. The bins are based on the RGB coding, each pixel has a value for red, green and blue between 0 and 255. Color histograms do not take spatial information into account. All spatial information gets lost during this feature extraction. In Figure\ref{Example-pictures} an example picture with the corresponding color histogram for both datasets is given.\\
+%
+\begin{figure}[H]
+\begin{minipage}[c]{0.4\textwidth}
+\includegraphics[width=1\linewidth]{figures/Example_picture_Cifar.pdf}
+\end{minipage}
+\begin{minipage}[d]{0.6\textwidth}
+\includegraphics[width=1\linewidth]{figures/Example_picture_Cifar_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.4\textwidth}
+\includegraphics[width=1\linewidth]{figures/Example_picture_Tiny_Image.pdf}
+\end{minipage}
+\begin{minipage}[d]{0.6\textwidth}
+\includegraphics[width=1\linewidth]{figures/Example_picture_Tiny_Image_hist.pdf}
+\end{minipage}
+\caption{Top: Example picture and color histigram of Cifar dataset. Down: Example picture and color histigram of Tiny Imagenet dataset}
+\label{Example-pictures}
+\end{figure}
 
-
-
-In FIGURE REF!!! a color histogram for both datasets is given.
-
-We created 4 different datasets, two based on one dimensional histograms (256 bins per channel and 64 bins per channel), one on two dimensional histograms (16 bins per channel) and one of 3 dimensional histograms (8 bins per channel). This based on the example shown in simple-image-feature-extraction INCLUDE REFERENCE https://tuwel.tuwien.ac.at/course/view.php?id=35929 !!!. The color histograms have been created using OpenCV. 
+We created 4 different datasets using color hisograms, two based on one dimensional histograms (one with 256 bins per channel and one with 64 bins per channel), one on two dimensional histograms (16 bins per channel) and one of 3 dimensional histograms (8 bins per channel). This is based on the example shown in simple-image-feature-extraction 
+\footnote{\url{https://tuwel.tuwien.ac.at/course/view.php?id=35929}}. In order to create the color histograms we used the package OpenCV. 
 
 \subsection{Sift back of visual words}
-First the images are converted into grey scale images. With use of SIFT the keypoints are detected. Afterwards 20 clusters are created with use of Kmeans.
+<<<<<<< HEAD
+First the images are converted into grey scale images. With use of SIFT the key-points and descriptors are detected. K-means-clustering is applied to find 20 clusters in the detected descriptors. \\
+Finally vectors with the visual words are created and vectorized in a histogram (frequency of visual words). The histogram is scaled to a standard normal distribution before running the classifiers.   
+\subsection{Results}
+In Figure \ref{Accuracy_Cifar} and \ref{Accuracy_Tiny_Image} the accuracy for the different base classifiers can be found for the Cifar-10 and Tiny image dataset respectively. 
+It can be seen that the random forest out performs all classifiers with the color histogram features, the best performance was obtained using the 2-d color histograms.\\
+%
+Accuracy of BOW
+%
+The confusion matrices shown in Figure \ref{CV_Matrices_Cifar_color_hist} are based on the 2-d feature color histograms as this gave the best results. The confusion matrix of the single-layer-perceptron shows pretty much a random classifier. Furthermore it can be seen that trucks are often classified as cars and birds are often classified as ship\\. 
+The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptron show similar results. They show that airplanes, ships and trucks are predicted best even though airplanes and ships are also often confused. It can also be seen that the different animals get confused.
 
-Visual words are created and vectorized in a histogram (frequency of visual words). 
+\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/Accuracy_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/Accuracy_BOW.pdf}
+\end{minipage}
+\caption{Accuracy Cifar-10}
+\label{Accuracy_Cifar}
+\end{figure}
 
-Scale the histogram 
 
-Classify
+
+\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__NB_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__Rndf_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__ppn_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__MLP_color_hist.pdf}
+\end{minipage}
+\caption{Confusion matrices color histogram Cifar-10: 1. Naive Bayes 2. Random forest 3. Single-layer-perceptron 4. Multi-layer-perceptron}
+\label{CV_Matrices_Cifar_color_hist}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__NB_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__Rndf_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__ppn_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/CM__MLP_BOW.pdf}
+\end{minipage}
+\caption{Confusion matrices bag of words Cifar-10: 1. Naive Bayes 2. Random forest 3. Single-layer-perceptron 4. Multi-layer-perceptron}
+\label{CV_Matrices_Cifar_BOW}
+\end{figure}
+
+\begin{figure}[H]
+\begin{minipage}[c]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/time_prepro.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/time_training.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{figures/Cifar/time_training_test.pdf}
+\end{minipage}
+\caption{Comparison of time required for different feature extractions and training of models}
+\label{Cifar_time_comparison}
+\end{figure}
+
+
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/Accuracy_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/Accuracy_BOW.pdf}
+\end{minipage}
+\caption{Accuracy Tiny-Image}
+\label{Accuracy_Tiny_Image}
+\end{figure}
+%
+\begin{figure}[h]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__NB_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__Rndf_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__ppn_color_hist.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_color_hist.pdf}
+\end{minipage}
+\caption{Convusion matrices color histogram 1. Naive Bayes 2. Random forest 3. Single layer Perceptron 4. Multi layer perceptron}
+\label{CV_Matrices_Tiny_Image_color_hist}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__NB_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__Rndf_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__ppn_BOW.pdf}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_BOW.pdf}
+\end{minipage}
+\caption{Convusion matrices color histogram 1. Naive Bayes 2. Random Forest 3. Single Layer Perceptron 4. Multi Layer perceptron}
+\label{CV_Matrices_Tiny_Image_BOW}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{comment}
 
 
 \section{Convolutional Neural Networks (CNN's)}

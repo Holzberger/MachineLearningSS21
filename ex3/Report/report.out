@@ -1,19 +1,20 @@
-\BOOKMARK [1][-]{section*.1}{Datasets}{}% 1
-\BOOKMARK [2][-]{section*.2}{CIFAR-10}{section*.1}% 2
-\BOOKMARK [2][-]{section*.3}{Tiny ImageNet}{section*.1}% 3
-\BOOKMARK [1][-]{section*.4}{Traditional classifiers}{}% 4
-\BOOKMARK [2][-]{section*.5}{Color histograms}{section*.4}% 5
-\BOOKMARK [2][-]{section*.6}{Sift back of visual words}{section*.4}% 6
-\BOOKMARK [1][-]{section*.7}{Convolutional Neural Networks \(CNN's\)}{}% 7
-\BOOKMARK [2][-]{section*.8}{SqueezeNet}{section*.7}% 8
-\BOOKMARK [2][-]{section*.9}{Wrapped Res50Net for Transfer learning}{section*.7}% 9
-\BOOKMARK [2][-]{section*.10}{Training Details for CNN's}{section*.7}% 10
-\BOOKMARK [2][-]{section*.11}{Results Cifar10 Dataset}{section*.7}% 11
-\BOOKMARK [2][-]{section*.12}{SqueezeNet}{section*.7}% 12
-\BOOKMARK [2][-]{section*.15}{Res50Net}{section*.7}% 13
-\BOOKMARK [2][-]{section*.18}{Results Tiny ImageNet Dataset}{section*.7}% 14
-\BOOKMARK [2][-]{section*.19}{SqueezeNet}{section*.7}% 15
-\BOOKMARK [2][-]{section*.23}{Res50Net}{section*.7}% 16
-\BOOKMARK [3][-]{section*.25}{Results}{section*.23}% 17
-\BOOKMARK [2][-]{section*.26}{squeezNet}{section*.7}% 18
-\BOOKMARK [3][-]{section*.27}{Results}{section*.26}% 19
+\BOOKMARK [1][-]{section*.1}{\376\377\000D\000a\000t\000a\000s\000e\000t\000s}{}% 1
+\BOOKMARK [2][-]{section*.2}{\376\377\000C\000I\000F\000A\000R\000-\0001\0000}{section*.1}% 2
+\BOOKMARK [2][-]{section*.3}{\376\377\000T\000i\000n\000y\000\040\000I\000m\000a\000g\000e\000N\000e\000t}{section*.1}% 3
+\BOOKMARK [1][-]{section*.4}{\376\377\000T\000r\000a\000d\000i\000t\000i\000o\000n\000a\000l\000\040\000c\000l\000a\000s\000s\000i\000f\000i\000e\000r\000s}{}% 4
+\BOOKMARK [2][-]{section*.5}{\376\377\000C\000o\000l\000o\000r\000\040\000h\000i\000s\000t\000o\000g\000r\000a\000m\000s}{section*.4}% 5
+\BOOKMARK [2][-]{section*.7}{\376\377\000S\000i\000f\000t\000\040\000b\000a\000c\000k\000\040\000o\000f\000\040\000v\000i\000s\000u\000a\000l\000\040\000w\000o\000r\000d\000s}{section*.4}% 6
+\BOOKMARK [2][-]{section*.8}{\376\377\000R\000e\000s\000u\000l\000t\000s}{section*.4}% 7
+\BOOKMARK [1][-]{section*.13}{\376\377\000C\000o\000n\000v\000o\000l\000u\000t\000i\000o\000n\000a\000l\000\040\000N\000e\000u\000r\000a\000l\000\040\000N\000e\000t\000w\000o\000r\000k\000s\000\040\000\050\000C\000N\000N\000'\000s\000\051}{}% 8
+\BOOKMARK [2][-]{section*.14}{\376\377\000S\000q\000u\000e\000e\000z\000e\000N\000e\000t}{section*.13}% 9
+\BOOKMARK [2][-]{section*.15}{\376\377\000W\000r\000a\000p\000p\000e\000d\000\040\000R\000e\000s\0005\0000\000N\000e\000t\000\040\000f\000o\000r\000\040\000T\000r\000a\000n\000s\000f\000e\000r\000\040\000l\000e\000a\000r\000n\000i\000n\000g}{section*.13}% 10
+\BOOKMARK [2][-]{section*.16}{\376\377\000T\000r\000a\000i\000n\000i\000n\000g\000\040\000D\000e\000t\000a\000i\000l\000s\000\040\000f\000o\000r\000\040\000C\000N\000N\000'\000s}{section*.13}% 11
+\BOOKMARK [2][-]{section*.17}{\376\377\000R\000e\000s\000u\000l\000t\000s\000\040\000C\000i\000f\000a\000r\0001\0000\000\040\000D\000a\000t\000a\000s\000e\000t}{section*.13}% 12
+\BOOKMARK [2][-]{section*.18}{\376\377\000S\000q\000u\000e\000e\000z\000e\000N\000e\000t}{section*.13}% 13
+\BOOKMARK [2][-]{section*.21}{\376\377\000R\000e\000s\0005\0000\000N\000e\000t}{section*.13}% 14
+\BOOKMARK [2][-]{section*.24}{\376\377\000R\000e\000s\000u\000l\000t\000s\000\040\000T\000i\000n\000y\000\040\000I\000m\000a\000g\000e\000N\000e\000t\000\040\000D\000a\000t\000a\000s\000e\000t}{section*.13}% 15
+\BOOKMARK [2][-]{section*.25}{\376\377\000S\000q\000u\000e\000e\000z\000e\000N\000e\000t}{section*.13}% 16
+\BOOKMARK [2][-]{section*.29}{\376\377\000R\000e\000s\0005\0000\000N\000e\000t}{section*.13}% 17
+\BOOKMARK [3][-]{section*.31}{\376\377\000R\000e\000s\000u\000l\000t\000s}{section*.29}% 18
+\BOOKMARK [2][-]{section*.32}{\376\377\000s\000q\000u\000e\000e\000z\000N\000e\000t}{section*.13}% 19
+\BOOKMARK [3][-]{section*.33}{\376\377\000R\000e\000s\000u\000l\000t\000s}{section*.32}% 20
