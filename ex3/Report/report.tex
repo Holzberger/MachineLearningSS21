@@ -245,12 +245,16 @@ In figure \ref{rescnn::1} we can see the effect of the augmentation on the accur
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{squeezeNet_cifar10_aug_confmat.pdf}
-\caption{Confusion matrix for the SqueezeNet trained on the augmented Cifar10 Datase.}
-\label{rescnn::2}
+\SetFigLayout{3}{2}
+  \subfigure[Confusion matrix for SqueezeNet trained on augmented Datase]{\includegraphics[width=0.45\columnwidth]{squeezeNet_cifar10_aug_confmat.pdf}}
+  \hfill
+  \subfigure[Confusion matrix for wrapped Res50Net trained on augmented Datase]{\includegraphics[width=0.45\columnwidth]{res50Net_cifar10_aug_confmat.pdf}}
+  \hfill
+\caption{Confusion Matrices of CNN architectures on the Cifar10 Dataset}
+\label{rescnn::4}
 \end{figure}
 
-In figure \ref{rescnn::2} we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class with $847$ where we note that $127$ times a truch sample gets confused to be a car. The least true positive labels are predicted for cats with $383$ where this class often gets confused with the dog class. The most false negative preditions are made for the truck class with $423$ samples closely followed by the horse class with $421$ flsely predicted samples. This is due to the fact that Trucks are often confused with cars and horses are often confused with deers or dogs.
+In figure \ref{rescnn::4} (a) we show the corresponding confusion matrix for the SqueezeNet trained on the augmented Cifar10 images. The most true positive labels are predicted for the car class with $847$ where we note that $127$ times a truch sample gets confused to be a car. The least true positive labels are predicted for cats with $383$ where this class often gets confused with the dog class. The most false negative preditions are made for the truck class with $423$ samples closely followed by the horse class with $421$ flsely predicted samples. This is due to the fact that Trucks are often confused with cars and horses are often confused with deers or dogs.
 
 \subsection{Res50Net}
 To create our wrapped Res50Net we stip off the top layers and replace that layer by a custom layer of $32\times 32 \times 3$ for reading our images. The output of the Res50Net gets fed into $3$ densle layers with $256, 128, 64$ neurons till it reaches the softmax layers for prediction. Note that our dense layers consist each at the top of a batch normalisation layer and the dense layers with a dropout of $50\%$ for regularisation purposes. For the Res50Net layers in our CNN we enable the training of the $168$ bottom layers and freeze the rest of them. By that we end up with a CNN that has in total $24.163.786$ parameters from which are $3.986.762$ trainable. For the transfer learning we apply the same image augmentation as for SqueezeNet.
@@ -268,15 +272,7 @@ To create our wrapped Res50Net we stip off the top layers and replace that layer
 
 In figure \ref{rescnn::3} we show the accuracy while executing the transfer learning of Res50Net. Again without augmentation the CNN overfits till about $80\%$ accuracy on the trainset while the accuracy on the validation-set is $20\%$ lower. With augmentation we have diminished this effect and additionally improve the accuracy on the test-set from $62.16\%$ for no augmentation to $64.69\%$ with augmentation. The parameter-fitting for the augmented process took 117 epochs with a total time of $64 \min$ compared to that the parameter-fitting with no augmentation took $39$ epochs and about $10 \min$ in total. The evaluation on the testset took $38\text{s}$ which is more $4$ than longer than for the SqueezeNet.
 
-
-\begin{figure}
-\centering
-\includegraphics[width=0.5\columnwidth]{res50Net_cifar10_aug_confmat.pdf}
-\caption{Confusion matrix for the SqueezeNet trained on the augmented Cifar10 Datase.}
-\label{rescnn::4}
-\end{figure}
-
-In figure \ref{rescnn::4} the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class has aswell the most true negative predictions where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often cofused as trucks and ships are often confused as planes. 
+In figure \ref{rescnn::4} (b) the corresponding confusion matrix for the Res50Net trained on the augmented Cifar10 images is plotted. The most true positive predictions are made for the frog class with $827$. We also see that the frog class has aswell the most true negative predictions where it seems particularly hard for the CNN to differentiate it from other animals. The cat class with the one with lowest true positives at $460$, where we note that $148$ dogs get wrongly classified as cats. Also notable is that cars get often cofused as trucks and ships are often confused as planes. 
 
 \subsection{Results Tiny ImageNet Dataset}
 \subsection{SqueezeNet}
@@ -295,21 +291,25 @@ On the Tiny ImageNet SqueezeNet has $838.024$ trainable parameters. First we plo
 
 As before we can examine less overfitting for the augmented case, but this time even with augmentation the SqueezeNet is overfitting as can be seen in the much higher acuracy of on the train-set compared to the accuracy on the validation-set. In both graphs we can identify the first decrease in learning rate by the jump in the training accuracy. Note that this jump occurs at a much later epoch for the augmented case showing more potential for improvement of the accuracy in the augmented case before reaching a local optima. For the evaluation on the test-set the SqueezeNet without augmented training-data has an accuracy of $31.26\%$ and augmentation caused the accuracy on the test-set to increase up to $34\%$. The traidoff we pay is that for the training with no augmentation the parameter-search takes 55 epochs and $41 \min$, but with augmentation $115$ epochs and $297 \min$. Since the Tiny ImageNet is larger that Cifar10 our evqaluation time for SqueezeNet on the $10.000$ samples test-set is here about $60\text{s}$.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{squeezeNet_TIN_aug_confmat.pdf}
-\caption{Confusion matrix for the SqueezeNet trained on the augmented Tiny ImageNet Dataset.}
+\SetFigLayout{3}{2}
+  \subfigure[confusion matrix of SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_TIN_aug_confmat.pdf}}
+  \hfill
+  \subfigure[confusion matrix of wrapped Res50Net with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_TIN_aug_confmat.pdf}}
+  \hfill
+\caption{Confusion matrices for CNN archtectures on the augmented Tiny ImageNet Dataset.}
 \label{rescnn::6}
 \end{figure}
 
-If we analyze the confusion matrix in figure \ref{rescnn::6} we can measure the quality of our classifier by the size of the diagonal entries and the small offdiagonal entries. 
+If we analyze the confusion matrix in figure \ref{rescnn::6} (a) we can measure the quality of our classifier by the size of the diagonal entries and the small offdiagonal entries. 
 
 Many classes have a large number of true prositiv predicted labels but to understand the classifier better analyze some special labels more closely. In table \ref{rescnn::7} is a summary of some important properties of the confusion matrix given.
 
 \begin{table}[h]
 \begin{tabular}{lc|lc|llc}
 \toprule
-             label &  correct amount &                    label &  correct amount & actual label &   predicted label &  times confused \\
+             label &  corr. amount &                    label &  corr. amount & act. label &   pred. label &  times confused \\
 \midrule
          water jug &               0 &                  monarch &              43 &          bee &           monarch &              13 \\
            plunger &               1 &               school bus &              40 &   sports car &       convertible &              12 \\
@@ -331,31 +331,46 @@ The first two columns state the classes that have the least ammount of true posi
 
 
 \subsection{Res50Net}
-For the Res50Net we again create a custom wrapper CNN where the Imput layer is defined for $64\times64\times 3$ images as reqired for Tiny ImageNet. The Res50Net first 168 layers are not trained and we append additional three $256$ dense layers at the end where each has a batch normalisation layer at top and a dropout of $50\%$. The total parameters of the wrapped Res50Net are $25.902.920$ where $5.713.352$ are trainable.
+For the Res50Net we again create a custom wrapper CNN where the input layer is defined for $64\times64\times 3$ images as reqired for Tiny ImageNet. The Res50Net's first 168 layers are not trained and we append additional three $256$ dense layers at the end where each has a batch normalisation layer at top and a dropout of $50\%$. The total parameters of the wrapped Res50Net are $25.902.920$ where $5.713.352$ are trainable.
 
 \begin{figure}
 \centering
 \SetFigLayout{3}{2}
-  \subfigure[accuracy for SqueezeNet without augmentation]{\includegraphics[width=0.45\columnwidth]{res50NetTIN_noaug.pdf}}
+  \subfigure[accuracy for wrapped Res50Net without augmentation]{\includegraphics[width=0.45\columnwidth]{res50NetTIN_noaug.pdf}}
   \hfill
-  \subfigure[accuracy for SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_TIN_aug.pdf}}
+  \subfigure[accuracy for wrapped Res50Net with augmentation]{\includegraphics[width=0.45\columnwidth]{res50Net_TIN_aug.pdf}}
   \hfill
 \caption{Training-accuracy for wrapped Res50Net on the Tiny ImageNet Dataset}
 \label{rescnn::8}
 \end{figure}
 
-The training accuracies for the wrapped Res50Net are given in the two plots in figure \ref{rescnn::8}. For this case when using augmented images the accuracy on the validation-set always higher than on the test-set in contrast to the studies before in this work.
+The training accuracies for the wrapped Res50Net are given in the two plots in figure \ref{rescnn::8}. For this case when using augmented images the accuracy on the validation-set is always higher than on the training-set in contrast to the studies before in this work. For the accuracy of the non augmented case on the test-set we report $34.57\%$, where the running time was $42 \min$  with 39 epochs. For the augmented case we have a $37.7\%$ accuracy on the test-set, with a running time of $282\min$ over 93 epochs. For this architecture the prediction time for the $10.000$ testsamples is $103\text{s}$.
+
+The confusion matrix for the augmented case is shown above in figure \ref{rescnn::6} (b). In the confusion matrix we can see that the network works well, sice the off-diagonal entries are significantly lower than the diagonal ones for most of the columns. Again we cant do a in deoth analysis on such a large confusion matrix. Therefore we extract some of the most important patterns from the confusion matrix and show them in table \ref{rescnn::9}.
 
 
-\subsubsection{Results}
+\begin{table}[h]
+\begin{tabular}{lc|lc|llc}
+\toprule
+       label &  corr. amount &              label &  corr. amount &   act. label & pred. label &  times confused \\
+\midrule
+     plunger &               0 &            monarch &              42 &     pop bottle &     beer bottle &              15 \\
+         hog &               0 &            obelisk &              40 &      ice cream &           plate &              15 \\
+     syringe &               1 &       bullet train &              38 &     moving van &      trolleybus &              15 \\
+wooden spoon &               1 &             dugong &              38 &          tabby &    Egypt. cat &              14 \\
+          ox &               2 &         school bus &              37 & sew. machine &            desk &              13 \\
+      bucket &               2 &        brain coral &              37 &      meat loaf &           plate &              11 \\
+  projectile &               2 &           espresso &              36 &    beach wagon &     convertible &              11 \\
+   ice cream &               2 &     triumphal arch &              36 &            hog &           bison &              11 \\
+       tabby &               3 &            maypole &              36 &         orange &           lemon &              10 \\
+ beach wagon &               3 & Christ. stocking &              36 &      turnstile &       pay-phone &              10 \\
+\bottomrule
+\end{tabular}
+\caption{Some detailed information about the Confusion matrix of the wrapped Res50Net with augmented Tiny ImageNet }
+\label{rescnn::9}
+\end{table}
 
-  
-
-
-\subsection{squeezNet}
-For the second architecture we decided on unsing SqueezeNet \cite{iandola2016}. Squeezenet claims to have an accuracy equal to AlexNet but has a lot less parameters to learn.  
-For SqeeuzeNet no weights are available, therefore we recreated the model and re-trained it. 
-
+When considereing the first two columns in the table we see that the classes plunger and hog never get predicted correctly. All other classes have at least one correct prediction. Further we see that without those $10$ classes with the least amount of correct predictions all other classes have already at least 3 correct predictions. Next when analysing the columns 3 and 4 in the table we see the classes that have the most correct predicted labels. Simillar as in SqueezeNet the monarch, school bus and esspresso are apperaring here, which again suggests that large structures or objects with prominent colors can be recognized easier. Lastly when examining the 3 last columns on the right of the table we see the most confused classes. Mostly these confused classes describe objects that are very simillar in shape and color like the pop bottle and beer bottle. But we see also that turnstiles are ofthen confused with pay-phones, besides they are not to closely related. By that we see that the wrapped Res50Net CNN has still potential for improvement and shortcomings like discussed could be improved by a more fine grained training.
 
 
 \subsubsection{Results}
