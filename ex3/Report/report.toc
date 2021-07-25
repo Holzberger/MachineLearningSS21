@@ -6,15 +6,15 @@
 \contentsline {subsection}{\numberline {2.1}Color histograms}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Sift back of visual words}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Results}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Convolutional Neural Networks (CNN's)}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}SqueezeNet}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Wrapped Res50Net for Transfer learning}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Training Details for CNN's}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Results Cifar10 Dataset}{8}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}SqueezeNet}{8}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Res50Net}{9}{subsubsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.5}Results Tiny ImageNet Dataset}{10}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}SqueezeNet}{10}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Res50Net}{13}{subsubsection.3.5.2}%
-\contentsline {section}{\numberline {4}Overview and discussion of the Results}{14}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{14}{section.5}%
+\contentsline {section}{\numberline {3}Convolutional Neural Networks (CNN's)}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}SqueezeNet}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Wrapped Res50Net for Transfer learning}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Training Details for CNN's}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Results Cifar10 Dataset}{10}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}SqueezeNet}{10}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Res50Net}{11}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Results Tiny ImageNet Dataset}{12}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}SqueezeNet}{12}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Res50Net}{15}{subsubsection.3.5.2}%
+\contentsline {section}{\numberline {4}Overview and discussion of the Results}{16}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}%

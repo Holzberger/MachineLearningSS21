@@ -82,9 +82,11 @@ First the images are converted into grey scale images. With use of SIFT the key-
 Finally vectors with the visual words are created and vectorized in a histogram (frequency of visual words). The histogram is scaled to a standard normal distribution before running the classifiers.   
 \subsection{Results}
 In Figure \ref{Accuracy_Cifar} and \ref{Accuracy_Tiny_Image} the accuracy for the different base classifiers can be found for the Cifar-10 and Tiny image dataset respectively. 
-It can be seen that the random forest out performs all classifiers with the color histogram features, the best performance was obtained using the 2-d color histograms.\\
+It can be seen that the random forest out performs all classifiers with the color histogram features, the best performance was obtained using the 2-d color histograms. It was also the case for the Tiny Image Dataset with a smaller number of samples (one thousand) but we could not succeed in using the random forest classifier for the whole dataset because it was using too much RAM and it was not possible to use batches: the random forest is not an online learner and it was not possible to use the warm start because the number of classes was not the same between the batches. \\
+So for the whole Tiny Image Net, the MLP seems to have the highest accuracy with the 3D color histogram, even if it is still very bad (0.02 of accuracy).\\
 %
-For the classifiers on the visual bag of words the MLP performed best. The MLP performed slightly better than the Naive Bayes and Random Forest classifier. The single layer perceptron performed by far the worse. 
+For the classifiers on the visual bag of words the MLP performed best. The MLP performed slightly better than the Naive Bayes and Random Forest classifier. The single layer perceptron performed by far the worse.  \\
+The visual bag of words on Tiny Image Net was not runnable in a reasonable amount of time with our tools for the entire dataset, but for one thousand we could see that the accuracy was still very bad with less than 0.02 of accuracy.
 %
 The confusion matrices shown in Figure \ref{CV_Matrices_Cifar_color_hist} are based on the 2-d feature color histograms as this gave the best results. The confusion matrix of the single-layer-perceptron shows pretty much a random classifier. Furthermore it can be seen that trucks are often classified as cars and birds are often classified as ship\\. 
 The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptron show similar results. They show that airplanes, ships and trucks are predicted best even though airplanes and ships are also often confused. It can also be seen that the different animals get confused.
@@ -100,7 +102,7 @@ The confusion matrix of the Naive Bayes, Random Forest and multi-layer-perceptro
 \label{Accuracy_Cifar}
 \end{figure}
 
-In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are given. Here one can see the confusion of airplanes and ships with the single layer perceptron here as well. Also cars and trucks are often confused. For the single layer perceptron we again do not see a clear higher percentage for the true label. For the other 3 classifiers we see that the true labels have clear higher scores than the non-true labels. Especially planes, ships, and trucks have a high percentage of correct predicted labels. The Naive Bayes classifiers often predicts cats and deers where the actual label is a dog.  
+In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are given. Here one can see the confusion of airplanes and ships with the single layer perceptron here as well. Also cars and trucks are often confused. For the single layer perceptron we again do not see a clear higher percentage for the true label. 
 
 \begin{figure}
 \centering
@@ -115,6 +117,9 @@ In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are giv
 \label{CV_Matrices_Cifar_color_hist}
 \end{figure}
 
+For the other 3 classifiers we see that the true labels have clear higher scores than the non-true labels. Especially planes, ships, and trucks have a high percentage of correct predicted labels. The Naive Bayes classifiers often predicts cats and deers where the actual label is a dog.  
+
+
 
 \begin{figure}
 \centering
@@ -126,7 +131,7 @@ In Figure \ref{CV_Matrices_Cifar_BOW} the confusion matrices for the BOW are giv
 \subfigure[Confusion matrix multi layer perceptron BOW]{\includegraphics[width=0.45\linewidth]{figures/Cifar/CM__MLP_BOW.pdf}}
 \hfill
 \caption{Confusion matrices BOW Cifar-10}
-\label{CV_Matrices_Cifar_color_hist}
+\label{CV_Matrices_Cifar_BOW}
 \end{figure}
 
 In Figure \ref{Cifar_time_comparison} the time needed in seconds for the different pre-processing (feature extractions), training of the models and prediction is displayed. The feature extraction with SIFT and BOW took by far the most time, this process was fairly slow with almost $1.5$ hours.\\
@@ -147,57 +152,80 @@ Creating the features for the test set only had to be done for the color histogr
 \label{Cifar_time_comparison}
 \end{figure}
 
-
-\begin{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{minipage}[c]{0.5\textwidth}
 \includegraphics[width=1\linewidth]{figures/Tiny_Image/Accuracy_color_hist.pdf}
 \end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/Accuracy_BOW.pdf}
+\begin{minipage}[c]{0.3\textwidth}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/time_training.pdf}
 \end{minipage}
-\caption{Accuracy Tiny-Image}
+\caption{Accuracy and execution time Tiny-Image}
 \label{Accuracy_Tiny_Image}
 \end{figure}
-%
-\begin{figure}[h]
+
+In figure \ref{CV_Matrices_Tiny_Image_color_hist} we can see a pattern that we find in all the confusion matrix for all the preprocessing methods, i.e. some labels are over used by the classifiers and it results in these yellow lines, that are different between the classifiers and between the same classifier with different preprocessing methods.\\
+The fourth figure is interesting because we have here an extreme case of a classifier predicting way too much the same label with one line clearly distinguishable. \\
+
+\begin{figure}[H]
 \begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__NB_color_hist.pdf}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__NB_histogram.pdf}
 \end{minipage}
 \begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__Rndf_color_hist.pdf}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__ppn_histogram.pdf}
 \end{minipage}
 \begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__ppn_color_hist.pdf}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_histogram.pdf}
 \end{minipage}
 \begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_color_hist.pdf}
+\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_histo_1D.pdf}
 \end{minipage}
-\caption{Convusion matrices color histogram 1. Naive Bayes 2. Random forest 3. Single layer Perceptron 4. Multi layer perceptron}
+\caption{Confusion matrices color histogram 1. Naive Bayes 2. Single layer Perceptron 3. Multi layer perceptron 4. MLP with 1D color histogram}
 \label{CV_Matrices_Tiny_Image_color_hist}
 \end{figure}
 
+\begin{table}[h]
+\begin{tabular}{lc|lc|llc}
+\toprule
+             label &  corr. amount &                    label &  corr. amount &  times confused & act. label &   pred. label \\
+\midrule
+     Egyptian cat &                        0 &  teddy, teddy ... &                        2 &              35 &        comic book &         pretzel \\
+        turnstile &                        0 &  cash machine,... &                        2 &              22 &  bullet train,... &         pretzel \\
+         scorpion &                        0 &  plunger, plum... &                        2 &              21 &       bell pepper &         pretzel \\
+     wooden spoon &                        0 &  spider web, s... &                        3 &              21 &  backpack, bac... &         pretzel \\
+ picket fence,... &                        0 &        scoreboard &                        3 &              21 &  koala, koala ... &         pretzel \\
+       rugby ball &                        0 &  orangutan, or... &                        4 &              21 &               bee &         pretzel \\
+ steel arch br... &                        0 &             chest &                        5 &              20 &  miniskirt, mi... &         pretzel \\
+      Persian cat &                        0 &         trilobite &                        6 &              20 &             acorn &         pretzel \\
+ refrigerator,... &                        0 &           pretzel &                       13 &              20 &  jinrikisha, r... &         pretzel \\
+             barn &                        0 &      space heater &                       14 &              19 &  pizza, pizza ... &         pretzel \\
+\bottomrule
+\end{tabular}
+\caption{Some detailed information about the Confusion matrix of Perceptron with color histogram based on Tiny Image Net }
+\label{tablePpnTIN}
+\end{table} 
 
-\begin{figure}[h]
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__NB_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__Rndf_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__ppn_BOW.pdf}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\includegraphics[width=1\linewidth]{figures/Tiny_Image/CM__MLP_BOW.pdf}
-\end{minipage}
-\caption{Convusion matrices color histogram 1. Naive Bayes 2. Random Forest 3. Single Layer Perceptron 4. Multi Layer perceptron}
-\label{CV_Matrices_Tiny_Image_BOW}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{comment}
+\begin{table}[h]
+\begin{tabular}{lc|lc|llc}
+\toprule
+             label &  corr. amount &                    label &  corr. amount &  times confused & act. label &   pred. label \\
+\midrule
+     Egyptian cat &                        0 &  koala, koala ... &                        0 &              47 &  sulphur butte... &  confectionery... \\
+     wooden spoon &                        0 &  bullet train,... &                        0 &              46 &        rugby ball &  confectionery... \\
+ picket fence,... &                        0 &         CD player &                        0 &              46 &  bullet train,... &  confectionery... \\
+       rugby ball &                        0 &            teapot &                        0 &              45 &  lesser panda,... &  confectionery... \\
+   sewing machine &                        0 &  jinrikisha, r... &                        1 &              45 &    cliff dwelling &  confectionery... \\
+ steel arch br... &                        0 &           maypole &                        1 &              45 &        comic book &  confectionery... \\
+      Persian cat &                        0 &              barn &                        1 &              44 &  pizza, pizza ... &  confectionery... \\
+ refrigerator,... &                        0 &  seashore, coa... &                        3 &              44 &  sea slug, nud... &  confectionery... \\
+            apron &                        0 &          lifeboat &                       25 &              44 &  spiny lobster... &  confectionery... \\
+ Yorkshire ter... &                        0 &  confectionery... &                       42 &              44 &               bee &  confectionery... \\
+\bottomrule
+\end{tabular}
+\caption{Some detailed information about the Confusion matrix of MLP with 1D color histogram based on Tiny Image Net }
+\label{tableMlpTIN}
+\end{table} 
+
+Because the confusion matrix is not really readable, on \ref{tablePpnTIN} is a table that describes the worst predicted, best predicted and then the labels that have been most confused by the classifier. It confirms that we have most of the time one or two labels that are always predicted by the classifier, and the classifier confuses with really unrelated images (pretzel with koala, comic book and backpack for example).
 
 
 \section{Convolutional Neural Networks (CNN's)}
@@ -230,16 +258,7 @@ For the training it was observed that the ADAM optimizer with learning rate $0.0
 For the Cifar10 Dataset the resulting SqueezeNet architecture has $740.554$ trainable parameters.
 A holdout analysis is performed where we take $10\%$ of the train-data as validation data to evaluate the performance of the CNN at training time.
 
-\begin{figure}
-\centering
-\SetFigLayout{3}{2}
-  \subfigure[accuracy for SqueezeNet without augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_cifar10_noaug.pdf}}
-  \hfill
-  \subfigure[accuracy for SqueezeNet with augmentation]{\includegraphics[width=0.45\columnwidth]{squeezeNet_cifar10_aug.pdf}}
-  \hfill
-\caption{Training-accuracy for SqueezeNet on the Cifar10 Dataset}
-\label{rescnn::1}
-\end{figure}
+
 
 In figure \ref{rescnn::1} we can see the effect of the augmentation on the accuracy of the predictions while training. We have a clear overfitting of the CNN when not applying augmentation. This overfitting is largely decreased by applying the image-augmentation, as can be seen in the figure. When applying the augmentation, the accuracy of SqueezeNet on the test-set increased from $65.21\%$ to $67.33\%$. Augmentation of the images has an influence on the efficiency of the parameter search for the Network. Without augmentation the optimal parameters are found after $6 \min$ and less than $40$ epochs, whereas augmentation causes the time for parameter search to increase to $46 \min$ and $84$ epochs. For the prediction of the $313$ samples in the test-set SqueezeNet needs about $9 \text{s}$.
 
@@ -375,7 +394,7 @@ When considering the first two columns in the table we see that the classes plun
 \section{Overview and discussion of the Results}
 
 In this section we do a final comparison of the classifiers, especially we want to compare the traditional learning methods to CNN's. The best results for the Cifar10 Dataset are shown in table \ref{conc::1}. With regards to the accuracy on the test-set of Cifar10 the SqueezeNet performed best and the wrapped Res50Net second best. The traditional methods were clearly outperformed, since even the best one of the traditional methods, here the Random Forrest, with histogram feature extraction has $40\%$ lower accuracy than the CNN's. When examining the confusion matrices of the perceptron and Naive Bayes classifier, we see that some classes get predicted about evenly over the actual labels (resulting in a column of evenly distributed entries). This behaviour is not observed for the CNN's. For the Random forest and MLP we start to observe similar patterns as for the CNN's, namely that closely related classes like animals and vehicles get confused. In terms of training times, the traditional methods outperform the CNN's clearly, that took hours to train. The fastest training is measured for the Perceptron and Naive Bayes with less than $1\text{s}$. Compared to that, the Res50Net training took around an hour and was the slowest of all. Similar behaviour is observed when predicting the test-set labels. Here again all traditional classifiers are very efficient with less than 1 second. Also note that the SqueezeNet is about 4 times faster than the Res50Net architecture.
-Next we focus our attention on the results for the Tiny ImageNet Dataset.
+Next we focus our attention on the results for the Tiny ImageNet Dataset. In table \ref{conc::2} we summarize the obtained accuracies and running times.Here we can again see that the CNN's haven even two orders of magnitude higher accuracy than the traditional classifiers. This might be due to the larger complexity of the Tiny ImageNet dataset. Again the prediction and train times for the traditional classifiers are much smaller than the ones for our CNN's. On this dataset we see that Res50Net had a higher accuracy in contrast to the Cifar10 dataset, which might be caused by the fact that we increased the number of trainable parameters for the wrapped Res50Net drastically. For Tiny Imagenet we can easily see in the confusion matrices for the CNN's the dominant diagonal whereas for the traditional methods we often see the static predictions of only one class. For the CNN's especially classes get mixed up that are closely related, but for the traditional algorithms such patterns were not observed.
 
 \begin{table}
 	\centering
@@ -408,6 +427,9 @@ Next we focus our attention on the results for the Tiny ImageNet Dataset.
 	\midrule
 		SqueezeNet 		  & $34.0\%$           & 60 						 & 17820\\
 		Res50Net   		  & $37.7\%$           & 103 					     & 16920\\
+		Hist Perceptron   & $0.81\%$         & $>$1 					 & 6   \\
+		Hist Naive Bayes  & $1.54\%$         & $>$1 					 & 1\\
+		Hist MLP          & $1.98\%$         & $>$1 					 & 46  \\
 	\bottomrule
 	\end{tabular}
 	\caption{Results for the Tiny ImageNet Dataset}
@@ -417,6 +439,8 @@ Next we focus our attention on the results for the Tiny ImageNet Dataset.
 
 \section{Conclusion}
 In this work we compared traditional learning methods to CNN's in context of image classification. We were clearly able to show in our testcases that CNN's are far more accurate in image classification tasks. Moreover the feature extraction process for traditional learning methods is cumbersome and often is crutial for the quality of the classification (garbage in garbage out). Here CNN's offer a much more convenient way to deal with this issue, since they are able to learn the correct feature extraction process. A downside when using CNN's is clearly the much larger training times that of multiple hours, which we dont have for the traditional methods. It is also important to note that for many real world applications small prediction times are important. Here we have also shown that traditional classifiers predict more efficient than CNN's but special architectures as the SqueezeNet are predicting efficient aswell. Therefore the final conclusion is that CNN's wrok significantly better for image classification tasks, since the accuracy of traditional methods is to close to that of a random classifier. Moreover the efford in training can be largly compesated when applying transfer learning or using more compact architecures. 
+
+
 
 %Bibliography
 \newpage
