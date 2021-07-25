@@ -16,5 +16,5 @@
 \contentsline {subsection}{\numberline {3.5}Results Tiny ImageNet Dataset}{10}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}SqueezeNet}{10}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Res50Net}{13}{subsubsection.3.5.2}%
-\contentsline {section}{\numberline {4}Discussion of the Results}{14}{section.4}%
+\contentsline {section}{\numberline {4}Overview and discussion of the Results}{14}{section.4}%
 \contentsline {section}{\numberline {5}Conclusion}{14}{section.5}%
