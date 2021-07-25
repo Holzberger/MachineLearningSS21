@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.5)  25 JUL 2021 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,13 +1285,13 @@ g.pdf
 pdfTeX warning: pdflatex (file ./pictures/squeezeNet_cifar10_aug.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
 >]
-<./pictures/res50Net_cifar10_noaug.pdf, id=834, 416.99738pt x 293.43915pt>
+<./pictures/res50Net_cifar10_noaug.pdf, id=835, 416.99738pt x 293.43915pt>
 File: ./pictures/res50Net_cifar10_noaug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_cifar10_noaug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_cifar10_noaug.pdf  used on input l
 ine 273.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/res50Net_cifar10_aug.pdf, id=835, 420.12135pt x 293.43915pt>
+<./pictures/res50Net_cifar10_aug.pdf, id=836, 420.12135pt x 293.43915pt>
 File: ./pictures/res50Net_cifar10_aug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_cifar10_aug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_cifar10_aug.pdf  used on input lin
@@ -1303,13 +1303,13 @@ e 275.
 pdfTeX warning: pdflatex (file ./pictures/res50Net_cifar10_aug_confmat.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
 >]
-<./pictures/squeezeNetTIN_noaug.pdf, id=939, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNetTIN_noaug.pdf, id=940, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNetTIN_noaug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNetTIN_noaug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNetTIN_noaug.pdf  used on input line
  292.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/squeezeNetTIN_aug.pdf, id=940, 416.99738pt x 293.43915pt>
+<./pictures/squeezeNetTIN_aug.pdf, id=941, 416.99738pt x 293.43915pt>
 File: ./pictures/squeezeNetTIN_aug.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNetTIN_aug.pdf>
 Package pdftex.def Info: ./pictures/squeezeNetTIN_aug.pdf  used on input line 2
@@ -1321,13 +1321,13 @@ df
 pdfTeX warning: pdflatex (file ./pictures/res50Net_cifar10_aug.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
 >]
-<./pictures/squeezeNet_TIN_aug_confmat.pdf, id=977, 559.84218pt x 570.60364pt>
+<./pictures/squeezeNet_TIN_aug_confmat.pdf, id=978, 559.84218pt x 570.60364pt>
 File: ./pictures/squeezeNet_TIN_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/squeezeNet_TIN_aug_confmat.pdf>
 Package pdftex.def Info: ./pictures/squeezeNet_TIN_aug_confmat.pdf  used on inp
 ut line 305.
 (pdftex.def)             Requested size: 237.40495pt x 241.96788pt.
-<./pictures/res50Net_TIN_aug_confmat.pdf, id=978, 559.84218pt x 570.60364pt>
+<./pictures/res50Net_TIN_aug_confmat.pdf, id=979, 559.84218pt x 570.60364pt>
 File: ./pictures/res50Net_TIN_aug_confmat.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_TIN_aug_confmat.pdf>
 Package pdftex.def Info: ./pictures/res50Net_TIN_aug_confmat.pdf  used on input
@@ -1348,13 +1348,13 @@ nfmat.pdf
 pdfTeX warning: pdflatex (file ./pictures/res50Net_TIN_aug_confmat.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >]
-<./pictures/res50NetTIN_noaug.pdf, id=1103, 416.99738pt x 293.43915pt>
+<./pictures/res50NetTIN_noaug.pdf, id=1105, 416.99738pt x 293.43915pt>
 File: ./pictures/res50NetTIN_noaug.pdf Graphic file (type pdf)
 <use ./pictures/res50NetTIN_noaug.pdf>
 Package pdftex.def Info: ./pictures/res50NetTIN_noaug.pdf  used on input line 3
 47.
 (pdftex.def)             Requested size: 237.40495pt x 167.06503pt.
-<./pictures/res50Net_TIN_aug.pdf, id=1104, 423.38063pt x 293.43915pt>
+<./pictures/res50Net_TIN_aug.pdf, id=1106, 423.38063pt x 293.43915pt>
 File: ./pictures/res50Net_TIN_aug.pdf Graphic file (type pdf)
 <use ./pictures/res50Net_TIN_aug.pdf>
 Package pdftex.def Info: ./pictures/res50Net_TIN_aug.pdf  used on input line 34
@@ -1373,11 +1373,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 pdfTeX warning: pdflatex (file ./pictures/res50Net_TIN_aug.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >] [14] (./report.bbl) [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 431.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 431.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 432.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 432.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 431.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 431.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 432.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 432.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 0AE0D975FB87D92A5482A67DBF93DCAA;1247.
 
@@ -1389,32 +1389,41 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 22834 strings out of 481239
- 411939 string characters out of 5920378
- 688751 words of memory out of 5000000
- 37542 multiletter control sequences out of 15000+600000
+ 22838 strings out of 481239
+ 412001 string characters out of 5920378
+ 689846 words of memory out of 5000000
+ 37543 multiletter control sequences out of 15000+600000
  543262 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,77p,1149b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1095.pfb>
-Output written on report.pdf (15 pages, 586863 bytes).
+ 62i,11n,77p,1497b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{figure.caption.14} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.13} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.12} has been referenced but does not
+ exist, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1095.pfb>
+Output written on report.pdf (15 pages, 588091 bytes).
 PDF statistics:
- 1225 PDF objects out of 1440 (max. 8388607)
- 500 compressed objects within 5 object streams
- 77 named destinations out of 1000 (max. 500000)
+ 1231 PDF objects out of 1440 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 80 named destinations out of 1000 (max. 500000)
  310 words of extra memory for PDF output out of 10000 (max. 10000000)
 
